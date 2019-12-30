@@ -1,0 +1,43 @@
+// :local(.logo) {
+//   background-image: url("idea.png");
+//   height: 50px;
+//   width: 50px;
+// }
+
+.login-nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.login-signup a {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  border: 1px solid gray;
+  margin: auto;
+  border-radius: 3px;
+}
+
+.field {
+  height: 20px;
+  width: 150px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 5px 5px 20px 5px;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+}
