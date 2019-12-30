@@ -22,7 +22,7 @@ router.get(
   }
 );
 
-router.post('/signup', (req, res) => {
+router.post('/signup', (req, res) => { // create User
     const { errors, isValid } = validateSignupInput(req.body)
 
     if (!isValid) {
@@ -74,7 +74,7 @@ router.post('/signup', (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", (req, res) => { // create session
   const email = req.body.email;
   const password = req.body.password;
 
