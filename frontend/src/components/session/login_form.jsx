@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/login.scss';
+import Logo from '../../stylesheets/idea.png';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -56,12 +57,13 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-page">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"></link>
         <header className="login-nav">
           <div className="login-logo">
             <Link to="/">
-              <img src="" alt="login-logo"/>
+              <img src={Logo} alt="login-logo"/>
+              <h2>Light Up</h2>
             </Link>
           </div>
           <div className="login-signup">

@@ -1,0 +1,104 @@
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-form-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.signup-nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  height: 70px;
+  width: 100%;
+  align-items: center;
+  border: 1px solid gray;
+  position: fixed;
+  top: 0;  
+}
+
+.signup-login a {
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.signup-logo {
+  margin-left: 10px;
+}
+
+
+.signup-form {
+  width: 300px;
+  height: 300px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form input {
+  height: 20px;
+  width: 150px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+.signup-form button {
+  height: 20px;
+  width: 150px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
+.user-type-select {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+.signup-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 170px;
+}
+
+.signup-buttons:focus {
+  background-color: blue;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+}
+
+.signup-submit {
+  min-width: 163px;
+}
+
+.signup-logo img {
+  width: 60px;
+  height: 60px;
+}
+
+.signup-logo a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: black;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
