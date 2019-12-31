@@ -1,0 +1,52 @@
+.main-all {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px 10%;
+}
+
+.main-header-1 {
+    display: grid;
+    grid-template-columns: 50px auto;
+    grid-gap: 15px;  
+}
+.main-header-2 {
+       display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-self: end;  
+}
+
+.logo {
+    height: 50px;
+}
+
+.title {
+    font-size: 30px;
+    color: #17479f;
+    align-self: center;
+}
+
+.get-started {
+    
+    
+
+        text-decoration: none;
+    width: 113px;
+    height: 40px;
+    background-color: #17479f;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.log-in {
+    color: #17479f;
+    text-decoration: none;
+    font-size: 18px;
+    place-self: center;
+}
