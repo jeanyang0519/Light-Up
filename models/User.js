@@ -43,13 +43,7 @@ const UserSchema = new Schema({
       },
       _id: false,
       status: {
-        type: Number,
-        enums: [
-                0, // add connection
-                1, // requested
-                2, // pending
-                3 // friends
-            ]
+        type: Number
       }
     }
   ],
