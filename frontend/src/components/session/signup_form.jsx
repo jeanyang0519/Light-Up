@@ -1,5 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../../stylesheets/signup.scss';
+import '../../stylesheets/reset.scss';
+import Logo from '../../stylesheets/idea.png';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -17,13 +21,13 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push('/login');
+  //   }
 
-    this.setState({ errors: nextProps.errors })
-  }
+  //   this.setState({ errors: nextProps.errors })
+  // }
 
   update(field) {
     return e => this.setState({
@@ -41,7 +45,8 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history);
+    this.props.signup(user, this.props.history)
+    .then(this.props.history.push("/dashboard"));
   }
 
   renderErrors() {
@@ -59,8 +64,22 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
+        <header className="signup-nav">
+          <div className="signup-logo">
+            <Link to="/">
+              <img src={Logo} alt="signup-logo" />
+              <h2>Light Up</h2>
+            </Link>
+          </div>
+          <div className="signup-login">
+            <Link to="/login" >
+              Log In
+            </Link>
+          </div>
+        </header>
+        <form onSubmit={this.handleSubmit} className="signup-form-box">
           <div className="signup-form">
+            <h2>Sign Up</h2>
             <br />
             <input
               type="text"
@@ -68,23 +87,23 @@ class SignupForm extends React.Component {
               onChange={this.update("email")}
               placeholder="Email"
             />
-            <br />
-            <br />
             <input
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="Username"
             />
-            <br />
-            <br />
-            <button onClick={this.update("userType")} value="Mentor">
-              Mentor
-            </button>
-            <button onClick={this.update("userType")} value="Mentee">
-              Mentee
-            </button>
-            <br />
+            <section className="user-type-select">
+              <h3>Who are you?</h3>
+              <div className="signup-buttons">
+                <button type="button" onClick={this.update("userType")} value="Mentor">
+                  Mentor
+                </button>
+                <button type="button" onClick={this.update("userType")} value="Mentee">
+                  Mentee
+                </button>
+              </div>
+            </section>
             <input
               type="password"
               value={this.state.password}
@@ -92,15 +111,13 @@ class SignupForm extends React.Component {
               placeholder="Password"
             />
 
-            <br />
             <input
               type="password"
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
             />
-            <br />
-            <input type="submit" value="Submit" />
+            <input className="signup-submit" type="submit" value="Submit" />
             {this.renderErrors()}
           </div>
         </form>

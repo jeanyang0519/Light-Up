@@ -1,5 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../../stylesheets/login.scss';
+import Logo from '../../stylesheets/idea.png';
+import '../../stylesheets/reset.scss';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,13 +19,13 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/');
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push('/');
+  //   }
 
-    this.setState({ errors: nextProps.errors })
-  }
+  //   this.setState({ errors: nextProps.errors })
+  // }
 
   update(field) {
     return e => this.setState({
@@ -37,7 +41,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user);
+    this.props.login(user).then(this.props.history.push("/dashboard"));
   }
 
   renderErrors() {
@@ -54,22 +58,41 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="login-page">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"></link>
+        <header className="login-nav">
+          <div className="login-logo">
+            <Link to="/">
+              <img src={Logo} alt="login-logo"/>
+              <h2>Light Up</h2>
+            </Link>
+          </div>
+          <div className="login-signup">
+            <Link to="/signup" >
+              Sign Up
+            </Link>
+          </div>
+        </header>
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <h2>Log In</h2>
           <div>
             <input type="text"
+              className="field"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email"
             />
             <br />
             <input type="password"
+              className="field"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
             />
             <br />
-            <input type="submit" value="Submit" />
+            <div className="login-button">
+            <input type="submit" value="Submit" className="login-submit" />
+            </div>
             {this.renderErrors()}
           </div>
         </form>
