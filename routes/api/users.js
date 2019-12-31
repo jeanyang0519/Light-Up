@@ -14,10 +14,16 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     res.json({
-      id: req.user.id,
+      id: req.user._id,
       username: req.user.username,
       email: req.user.email,
-      userType: req.user.userType
+      userType: req.user.userType,
+      connections: req.user.connections,
+      date: req.user.date,
+      description: req.user.description,
+      location: req.user.location,
+      skills: req.user.skills,
+      interests: req.user.interests
     });
   }
 );
@@ -26,7 +32,24 @@ router.get(
   "/",
   (req, res) => {
     User.find()
-      .then(users => res.json(users))
+      // .then(users => res.json(users))
+      .then(users => {
+        const requested = users.map(user => {
+          return {
+            _id: user._id,
+            username: user.username,
+            email: user.email,
+            userType: user.userType,
+            connections: user.connections,
+            date: user.date,
+            description: user.description,
+            location: user.location,
+            skills: user.skills,
+            interests: user.interests
+          };
+        })
+        res.json(requested)
+      })
       .catch(err => {
         res.status(404).json({ message: "no users found"})
       })
@@ -35,7 +58,20 @@ router.get(
 
 router.get("/:id", (req, res) => {
   User.findOne({_id: req.params.id})
-    .then(user => res.json(user))
+    .then(user => {
+      res.json({
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        userType: user.userType,
+        connections: user.connections,
+        date: user.date,
+        description: user.description,
+        location: user.location,
+        skills: user.skills,
+        interests: user.interests
+      })
+    })
     .catch(err => {
       res.status(404).json(err);
     });
