@@ -8,9 +8,11 @@ export default function (state = initialState, action) {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_USERS:
-      return Object.assign( {}, state, action.users);
+      const users = {};
+      Object.values(action.users).map(user => {users[user._id] = user});
+      return Object.assign( {}, state.users, users);
     case RECEIVE_SINGLE_USER:
-      return Object.assign({}, state, { [action.user.userId]: action.user });
+      return Object.assign({}, state.users, { [action.user._id]: action.user });
     default:
       return state;
   }

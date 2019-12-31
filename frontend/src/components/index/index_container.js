@@ -7,14 +7,14 @@ const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
     currentUser: state.user,
-    users: state.users
+    users: Object.values(state.users)
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    fetchUsers: () => dispatch(fetchUsers),
+    fetchUsers: () => dispatch(fetchUsers()),
     fetchUser: (id) => dispatch(fetchUser(id))
   };
 };
