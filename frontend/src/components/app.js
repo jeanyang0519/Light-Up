@@ -9,6 +9,7 @@ import IndexContainer from './index/index_container';
 
 const App = () => (
   <div>
+
     <Switch>
       <Route exact path="/" component={MainPage} />
       <Route exact path="/login" component={LoginFormContainer} /> 
