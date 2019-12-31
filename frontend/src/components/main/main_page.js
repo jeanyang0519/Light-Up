@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../../stylesheets/greeting.scss';
 
 class MainPage extends React.Component {
 
   render() {
     return (
       <div>
-        <h1>Light Up</h1>
-        <footer>
-          Copyright &copy; 2019 Light Up
-        </footer>
+        <h1 className="title">Light Up</h1>
+        <Link to={'/login'}>Log in</Link>
+        <Link className="get-started" to={'/signup'}>Get Started</Link>
+        
       </div>
     );
   }
