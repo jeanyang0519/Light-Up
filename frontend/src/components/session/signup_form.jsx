@@ -75,9 +75,9 @@ class SignupForm extends React.Component {
             </Link>
           </div>
         </header>
-        <h2>Sign Up</h2>
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <div className="signup-form">
+            <h2>Sign Up</h2>
             <br />
             <input
               type="text"

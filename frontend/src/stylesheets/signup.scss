@@ -37,8 +37,8 @@
 
 
 .signup-form {
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   border: 1px solid gray;
   display: flex;
   flex-direction: column;
@@ -46,12 +46,13 @@
 }
 
 .signup-form input {
-  height: 20px;
-  width: 150px;
+  height: 30px;
+  width: 250px;
   border: 1px solid gray;
   padding: 5px;
   margin: 5px;
   text-align: center;
+  border-radius: 3px;
 }
 .signup-form button {
   height: 20px;
@@ -70,10 +71,15 @@
 .signup-buttons {
   display: flex;
   flex-direction: row;
-  width: 170px;
+  width: 270px;
+  height: 50px;
 }
 
-.signup-buttons:focus {
+.signup-buttons button {
+  height: 30px
+}
+
+.signup-buttons button:focus {
   background-color: blue;
   color: white;
 }
@@ -84,6 +90,12 @@ h3 {
 
 .signup-submit {
   min-width: 163px;
+  width: 263px;
+}
+.signup-submit:active {
+  min-width: 163px;
+  background-color: blue;
+  color: white;
 }
 
 .signup-logo img {
