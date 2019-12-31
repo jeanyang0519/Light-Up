@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -18,6 +19,33 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  description: {
+    type: String,
+    required: false
+  },
+  location: {
+    type: String,
+    required: false
+  },
+  skills: {
+    type: String,
+    required: false
+  },
+  interests: {
+    type: String,
+    required: false
+  },
+  connections: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        unique: true
+      },
+      status: Number,
+      enums: [0, 1, 2, 3]
+    }
+  ],
   date: {
     type: Date,
     default: Date.now
