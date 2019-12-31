@@ -40,10 +40,17 @@ const UserSchema = new Schema({
       user: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        unique: true
       },
-      status: Number,
-      enums: [0, 1, 2, 3]
+      _id: false,
+      status: {
+        type: Number,
+        enums: [
+                0, // add connection
+                1, // requested
+                2, // pending
+                3 // friends
+            ]
+      }
     }
   ],
   date: {

@@ -22,6 +22,25 @@ router.get(
   }
 );
 
+router.get(
+  "/",
+  (req, res) => {
+    User.find()
+      .then(users => res.json(users))
+      .catch(err => {
+        res.status(404).json({ message: "no users found"})
+      })
+  }
+);
+
+router.get("/:id", (req, res) => {
+  User.findOne({_id: req.params.id})
+    .then(user => res.json(user))
+    .catch(err => {
+      res.status(404).json(err);
+    });
+});
+
 router.post('/signup', (req, res) => { // create User
     const { errors, isValid } = validateSignupInput(req.body)
 
