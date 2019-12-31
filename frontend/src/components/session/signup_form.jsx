@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/signup.scss';
+import '../../stylesheets/reset.scss';
 import Logo from '../../stylesheets/idea.png';
 
 class SignupForm extends React.Component {
@@ -20,13 +21,13 @@ class SignupForm extends React.Component {
     this.clearedErrors = false;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.history.push('/login');
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.signedIn === true) {
+  //     this.props.history.push('/login');
+  //   }
 
-    this.setState({ errors: nextProps.errors })
-  }
+  //   this.setState({ errors: nextProps.errors })
+  // }
 
   update(field) {
     return e => this.setState({
@@ -44,7 +45,8 @@ class SignupForm extends React.Component {
       password2: this.state.password2
     };
 
-    this.props.signup(user, this.props.history);
+    this.props.signup(user, this.props.history)
+    .then(this.props.history.push("/dashboard"));
   }
 
   renderErrors() {
@@ -94,10 +96,10 @@ class SignupForm extends React.Component {
             <section className="user-type-select">
               <h3>Who are you?</h3>
               <div className="signup-buttons">
-                <button onClick={this.update("userType")} value="Mentor">
+                <button type="button" onClick={this.update("userType")} value="Mentor">
                   Mentor
                 </button>
-                <button onClick={this.update("userType")} value="Mentee">
+                <button type="button" onClick={this.update("userType")} value="Mentee">
                   Mentee
                 </button>
               </div>
