@@ -1,3 +1,20 @@
+.main-everything {
+    display: grid;
+    grid-gap: 50px;
+    height: 100vh;
+    grid-template-rows: 80px auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main-all-2 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding: 20px 10%;
+}
+
+
+
+
 .main-all {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -16,14 +33,24 @@
     place-self: end;  
 }
 
+.main-header-3 {
+       display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    place-self: end;  
+}
+
 .logo {
     height: 50px;
 }
 
+
+
 .title {
+    text-decoration: none;
     font-size: 30px;
     color: #17479f;
     align-self: center;
+    font-family: 'Righteous', cursive;
 }
 
 .get-started {
@@ -31,7 +58,7 @@
     
 
         text-decoration: none;
-    width: 113px;
+    width: 127px;
     height: 40px;
     background-color: #17479f;
     color: white;
@@ -49,4 +76,8 @@
     text-decoration: none;
     font-size: 18px;
     place-self: center;
+}
+
+.background {
+    height: 100%;
 }

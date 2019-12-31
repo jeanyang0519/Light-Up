@@ -67,7 +67,21 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-        <header className="signup-nav">
+        <div className='main-all'>
+ 
+
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+          <div className='main-header-1'>
+            <img className="logo" src={Logo} alt="login-logo" />
+            <Link to="/" className='title'>Light Up</Link>
+          </div>
+          <div className="main-header-3">
+            {/* <Link className='log-in' to={'/login'}>Log in</Link> */}
+            <Link className="get-started" to={'/login'}>Log in</Link>
+          </div>
+
+        </div>
+        {/* <header className="signup-nav">
           <div className="signup-logo">
             <Link to="/">
               <img src={Logo} alt="signup-logo" />
@@ -79,11 +93,12 @@ class SignupForm extends React.Component {
               Log In
             </Link>
           </div>
-        </header>
+        </header> */}
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <div className="signup-form">
-            <h2>Sign Up</h2>
-            <br />
+            <div className='signup-form-wapper'>
+            <div className='signup-title'>Sign Up</div>
+            
             <input
               type="text"
               value={this.state.email}
@@ -96,8 +111,9 @@ class SignupForm extends React.Component {
               onChange={this.update("username")}
               placeholder="Username"
             />
+
             <section className="user-type-select">
-              <h3>Who are you?</h3>
+              <div className='signup-question'>Who are you?</div>
               <div className="signup-buttons">
                 <button type="button" onClick={this.update("userType")} value="Mentor">
                   Mentor
@@ -107,6 +123,7 @@ class SignupForm extends React.Component {
                 </button>
               </div>
             </section>
+
             <input
               type="password"
               value={this.state.password}
@@ -122,6 +139,7 @@ class SignupForm extends React.Component {
             />
             <input className="signup-submit" type="submit" value="Submit" />
             {this.renderErrors()}
+            </div>
           </div>
         </form>
       </div>
