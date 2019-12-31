@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../stylesheets/idea.png';
 import { Link } from 'react-router-dom';
-import './index.scss';
+// import './index.scss';
 
 class Index extends React.Component {
 
