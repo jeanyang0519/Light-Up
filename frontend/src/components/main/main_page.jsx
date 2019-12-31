@@ -1,8 +1,11 @@
+
 // import React from 'react';
 // import Logo from '../../stylesheets/idea.png';
 // import { Link } from 'react-router-dom';
 // import Logo from '../../stylesheets/idea.png';
 // // import splash from '../../stylesheets/splash.scss';
+
+
 
 // class MainPage extends React.Component {
 

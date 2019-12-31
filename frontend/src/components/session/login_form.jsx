@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/login.css';
 import Logo from '../../stylesheets/idea.png';
+import '../../stylesheets/reset.scss';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -18,13 +19,13 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/');
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.currentUser === true) {
+  //     this.props.history.push('/');
+  //   }
 
-    this.setState({ errors: nextProps.errors })
-  }
+  //   this.setState({ errors: nextProps.errors })
+  // }
 
   update(field) {
     return e => this.setState({
@@ -40,7 +41,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user);
+    this.props.login(user).then(this.props.history.push("/dashboard"));
   }
 
   renderErrors() {
