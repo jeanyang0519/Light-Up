@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/login.css';
+import '../../stylesheets/greeting.css'
 import Logo from '../../stylesheets/idea.png';
 // import '../../stylesheets/reset.scss';
 
@@ -58,12 +59,25 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login-page">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"></link>
-        <header className="login-nav">
+      <div className="login-all">
+        <div className='main-all'>
+         
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+          <div className='main-header-1'>
+            <img className="logo" src={Logo} alt="login-logo" />
+            <Link to="/" className='title'>Light Up</Link>
+          </div>
+          <div className="main-header-3">
+            {/* <Link className='log-in' to={'/login'}>Log in</Link> */}
+            <Link className="get-started" to={'/signup'}>Sign Up</Link>
+          </div>
+
+        </div>
+        {/* <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+        <div className="login-header">
           <div className="login-logo">
             <Link to="/">
-              <img src={Logo} alt="login-logo"/>
+              <img classroom="logo" src={Logo} alt="login-logo"/>
               <h2>Light Up</h2>
             </Link>
           </div>
@@ -72,28 +86,29 @@ class LoginForm extends React.Component {
               Sign Up
             </Link>
           </div>
-        </header>
+        </div> */}
         <form onSubmit={this.handleSubmit} className="login-form">
-          <h2>Log In</h2>
-          <div>
-            <input type="text"
-              className="field"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email"
-            />
-            <br />
-            <input type="password"
-              className="field"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <br />
-            <div className="login-button">
-            <input type="submit" value="Submit" className="login-submit" />
-            </div>
-            {this.renderErrors()}
+            <div className='login-form-wapper'>
+              <div className='login-title'>Log In</div>
+            
+              <input type="text"
+                className="field"
+                value={this.state.email}
+                onChange={this.update('email')}
+                placeholder="Email"
+              />
+              
+              <input type="password"
+                className="field"
+                value={this.state.password}
+                onChange={this.update('password')}
+                placeholder="Password"
+              />
+              
+              {/* <div className="login-button"> */}
+                <input type="submit" value="Submit" className="login-submit" />
+              {/* </div> */}
+              {this.renderErrors()}
           </div>
         </form>
       </div>
