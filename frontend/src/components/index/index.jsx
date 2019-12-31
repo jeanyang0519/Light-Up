@@ -6,10 +6,18 @@ import { Link } from 'react-router-dom';
 class Index extends React.Component {
 
   componentDidMount() {
-    return this.props.fetchUser("5e0a252b9e7505ba125f17ef");
+    return this.props.fetchUsers();
   }
 
   render() {
+      const users = this.props.users.map((user, i) => {
+        return (
+          <Link to={`/profile/${user._id}`} key={i}> 
+            <li key={user._id}>{user.username}</li>
+          </Link>
+        )
+      })
+
     return(
       <main>
         <header className="index-nav">
@@ -37,6 +45,11 @@ class Index extends React.Component {
             </div>
           </section>
         </header>
+
+        <ul>
+          {users}
+        </ul>
+
         ayer
       </main>
     )

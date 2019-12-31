@@ -1,8 +1,11 @@
 import * as APIUtil from '../util/user_util';
+import * as ConncectionUtil from '../util/connection_api';
 
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_SINGLE_USER = 'RECEIVE_SINGLE_USER';
+export const RECEIVE_REQUEST = 'RECEIVE_REQUES';
+export const ACCEPT_REQUEST = 'ACCEPT_REQUEST';
 
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
@@ -26,7 +29,7 @@ export const receiveSingleUser = user => {
 
 export const fetchUsers = users => dispatch => {
   return APIUtil.fetchUsers(users).then(res => {
-    dispatch(receiveAllUsers(res));
+    dispatch(receiveAllUsers(res.data));
   }, err => (
     dispatch(receiveErrors(err.response.data))
   ));
@@ -34,8 +37,17 @@ export const fetchUsers = users => dispatch => {
 
 export const fetchUser = user => dispatch => {
   return APIUtil.fetchUser(user).then(res => {
-    dispatch(receiveSingleUser(res));
+    dispatch(receiveSingleUser(res.data));
   }, err => (
     dispatch(receiveErrors(err.response.data))
   ));
+};
+
+export const requestConnection = data => dispatch => {
+  return ConncectionUtil.requestConnection(data).then(() => {
+    dispatch(fetchUser(data.userId));
+    dispatch(fetchUser(data.connectionId));
+  }, err => {
+    return dispatch(receiveErrors(err.response.data));
+  });
 };
