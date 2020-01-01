@@ -104,10 +104,16 @@ router.post('/signup', (req, res) => { // create User
                     .save()
                     .then(user => {
                         const payload = {
-                          id: user.id,
+                          id: user._id,
                           username: user.username,
                           email: user.email,
-                          userType: user.userType
+                          userType: user.userType,
+                          connections: user.connections,
+                          date: user.date,
+                          description: user.description,
+                          location: user.location,
+                          skills: user.skills,
+                          interests: user.interests
                         };
 
                         jwt.sign(
@@ -141,11 +147,17 @@ router.post("/login", (req, res) => { // create session
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         const payload = {
-            id: user.id,
-            username: user.username,
-            email: user.email,
-            userType: user.userType
-        }
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        userType: user.userType,
+        connections: user.connections,
+        date: user.date,
+        description: user.description,
+        location: user.location,
+        skills: user.skills,
+        interests: user.interests
+      }
 
         jwt.sign(
             payload,
