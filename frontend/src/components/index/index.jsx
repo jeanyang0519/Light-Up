@@ -1,57 +1,38 @@
 import React from 'react';
-import Logo from '../../stylesheets/idea.png';
 import { Link } from 'react-router-dom';
-// import './index.scss';
+import NavContainer from '../nav/navbar_container';
+import '../../stylesheets/index.css';
+
 
 class Index extends React.Component {
 
   componentDidMount() {
+    
     return this.props.fetchUsers();
   }
 
   render() {
+    
       const users = this.props.users.map((user, i) => {
         return (
-          <Link to={`/profile/${user._id}`} key={i}> 
-            <li key={user._id}>{user.username}</li>
+          <Link className='user-profile' to={`/profile/${user._id}`} key={i}> 
+            <li className='each-user' key={user._id}>{user.username}</li>
           </Link>
+          //comment
         )
       })
 
     return(
-      <main>
-        <header className="index-nav">
-          <section className="left-index">
-            <Link to="/">
-              <img src={Logo} alt="login-logo" />
-              <h2>Light Up</h2>
-            </Link>
-          </section>
-          <section className="right-index">
-            <div>
-              <Link to="/dashboard">
-              Home
-              </Link>
-            </div>
-            <div>
-              <Link to="/messaging">
-                Messaging
-              </Link>
-            </div>
-            <div>
-              <Link to="/profile">
-                Profile
-              </Link>
-            </div>
-          </section>
-        </header>
-
-        <ul>
-          {users}
-        </ul>
-
-        ayer
-      </main>
+        
+      <div className='index-all'>
+        <NavContainer/>
+        <div className='user-wrapper'>
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+          <div className='user'>
+            {users}
+          </div>
+        </div>
+      </div>
     )
   }
 

@@ -32,8 +32,9 @@ router.get(
   "/",
   (req, res) => {
     User.find()
-      // .then(users => res.json(users))
+      
       .then(users => {
+        
         const requested = users.map(user => {
           return {
             _id: user._id,
@@ -48,9 +49,11 @@ router.get(
             interests: user.interests
           };
         })
+        
         res.json(requested)
       })
       .catch(err => {
+        
         res.status(404).json({ message: "no users found"})
       })
   }

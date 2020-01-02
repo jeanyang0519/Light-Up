@@ -1,0 +1,45 @@
+.index-all {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 10% auto;
+    font-family: 'Open Sans', sans-serif;
+    grid-gap: 3%;
+}
+
+.user-profile {
+    text-decoration: none;
+    color: black;
+
+
+}
+
+.user-wrapper {
+    display: grid;
+    /* place-self: center; */
+    padding: 0 10%;
+    /* background-color: rgb(252, 252, 252); */
+}
+
+.user {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    
+}
+
+.each-user {
+    margin: 20px;
+    /* border: 2px solid #ccc; */
+    padding: 50px;
+    border-radius: 5px;
+    background: cornsilk;
+}
+
+.each-user:hover {
+    margin: 20px;
+    /* border: 2px solid #ccc; */
+    padding: 50px;
+    border-radius: 5px;
+    background: #17479f;
+    color: white;
+}
