@@ -7,7 +7,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import IndexContainer from './index/index_container';
 import ProfileContainer from './index_show_item/profile_container';
-import Chat from './chat/chat';
+import ChatIndexContainer from './chat/chats_index_container';
 
 
 const App = () => (
@@ -19,7 +19,7 @@ const App = () => (
       <Route exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/dashboard" component={IndexContainer} />
       <Route exact path="/profile/:id" component={ProfileContainer} />
-      <Route path="/chat" component={Chat}/>
+      <Route path="/chat" component={ChatIndexContainer}/>
     </Switch>
   </div>
 );
