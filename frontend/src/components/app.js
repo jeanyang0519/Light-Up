@@ -7,7 +7,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import IndexContainer from './index/index_container';
 import ProfileContainer from './index_show_item/profile_container';
-import Chat from './testing_chat/chat';
+import Chat from './chat/chat';
 
 const App = () => (
   <div>
