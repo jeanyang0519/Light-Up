@@ -32,16 +32,17 @@ io.on('connection', (socket) => {
     console.log('User connected')
     socket.on('enter chat', chat => {
         socket.join(chat)
+        console.log(`joined ${chat}`);
     });
 
     socket.on("leave chat", chat => {
       socket.leave(chat);
-      console.log(`joined ${chat}`);
+      console.log(`left ${chat}`);
     });
 
     socket.on("new message", chat => {
       io.sockets.in(chat).emit('refresh messages', chat);
-      console.log(`left ${chat}`);
+      console.log("sending you a message for refresh")
     });
 
     socket.on("disconnect", () => {
