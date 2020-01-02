@@ -81,19 +81,7 @@ class SignupForm extends React.Component {
           </div>
 
         </div>
-        {/* <header className="signup-nav">
-          <div className="signup-logo">
-            <Link to="/">
-              <img src={Logo} alt="signup-logo" />
-              <h2>Light Up</h2>
-            </Link>
-          </div>
-          <div className="signup-login">
-            <Link to="/login" >
-              Log In
-            </Link>
-          </div>
-        </header> */}
+       
         <form onSubmit={this.handleSubmit} className="signup-form-box">
           <div className="signup-form">
             <div className='signup-form-wapper'>
