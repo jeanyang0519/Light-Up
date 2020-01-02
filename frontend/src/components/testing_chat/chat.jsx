@@ -5,8 +5,13 @@ import { socket, fetchChats, createNewMessage } from '../../actions/chat_actions
 class Chat extends React.Component {
   constructor(props) {
     super(props);
-
+    debugger
     socket.emit("enter chat", "5e0d8f2119c96fcdcd15c2df");
+    socket.on("refresh messages", data => {
+        // console.log("about to refresh messages", data);
+        // fetch chat needs to go on chat_container
+        fetchChats("5e0a579d6a0bd7e29328b9b7");
+    });
 
     this.handleClick = this.handleClick.bind(this)
   }
@@ -28,11 +33,7 @@ class Chat extends React.Component {
   }
 
   render() {
-        socket.on("refresh messages", data => {
-        console.log("about to refresh messages", data);
-        // fetch chat needs to go on chat_container
-        fetchChats("5e0a579d6a0bd7e29328b9b7");
-        });
+
     return (
         <main>
             Hello from chat
