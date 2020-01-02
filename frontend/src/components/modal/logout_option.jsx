@@ -10,9 +10,10 @@ class LogoutOption extends React.Component {
     }
 
     handleLogout() {
-        debugger
+        // debugger
         this.props.logout();
         this.props.closeModal();
+        this.props.history.push('/');
     }
 
 

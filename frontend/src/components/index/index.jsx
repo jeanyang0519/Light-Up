@@ -25,7 +25,7 @@ class Index extends React.Component {
     return(
         
       <div className='index-all'>
-        <NavContainer/>
+        {/* <NavContainer/> */}
         <div className='user-wrapper'>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
           <div className='user'>
