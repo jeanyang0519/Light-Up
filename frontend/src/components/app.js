@@ -7,6 +7,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import IndexContainer from './index/index_container';
 import ProfileContainer from './index_show_item/profile_container';
+import Chat from './testing_chat/chat';
 
 const App = () => (
   <div>
@@ -17,6 +18,7 @@ const App = () => (
       <Route exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/dashboard" component={IndexContainer} />
       <Route exact path="/profile/:id" component={ProfileContainer} />
+      <Route path="/chat" component={Chat}/>
     </Switch>
   </div>
 );
