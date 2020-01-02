@@ -1,4 +1,5 @@
 import React from 'react';
+import './profile.css';
 
 class Profile extends React.Component {
 
@@ -15,14 +16,48 @@ class Profile extends React.Component {
   render() {
     
     if (!this.props.profile) return null; 
-
-
+    const profile = this.props.profile;
     return (
-      <main>
-        <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: this.props.profile._id})}> 
-          Connection
+      <main className="profile-all">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+        <section className="profile-body">
+          <div className="main-content">
+            <div className="picture-container">
+              <div className="picture">
+
+              </div>
+            </div>
+            <ul>
+              <li>fnamelname{profile.first_name} {profile.last_name}</li>
+              <li>location{profile.location}</li>
+              <li>{profile.userType}</li>
+            </ul>
+        <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: profile._id})}> 
+          Connect
         </button>
-        {this.props.profile.username}
+          </div>
+        <div className="about-div">
+          <ul>
+            <h2>About</h2>
+            <li>Description{profile.description}</li>
+          </ul>
+        </div>
+        <div className="skills-div">
+          <ul>
+            <li>Skills{profile.skills}</li>
+          </ul>
+        </div>
+        <div className="interests-div">
+          <ul>
+            <li>Interests{profile.interests}</li>
+          </ul>
+        </div>
+        </section>
+        
+       
+        
+        
+        {profile.connections}
         
 
       </main>
