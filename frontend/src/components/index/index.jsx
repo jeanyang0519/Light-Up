@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../../stylesheets/idea.png';
 import { Link } from 'react-router-dom';
-// import './index.scss';
+import NavContainer from '../nav/navbar_container';
+
 
 class Index extends React.Component {
 
@@ -10,6 +10,7 @@ class Index extends React.Component {
   }
 
   render() {
+    debugger
       const users = this.props.users.map((user, i) => {
         return (
           <Link to={`/profile/${user._id}`} key={i}> 
@@ -19,39 +20,13 @@ class Index extends React.Component {
       })
 
     return(
-      <main>
-        <header className="index-nav">
-          <section className="left-index">
-            <Link to="/">
-              <img src={Logo} alt="login-logo" />
-              <h2>Light Up</h2>
-            </Link>
-          </section>
-          <section className="right-index">
-            <div>
-              <Link to="/dashboard">
-              Home
-              </Link>
-            </div>
-            <div>
-              <Link to="/messaging">
-                Messaging
-              </Link>
-            </div>
-            <div>
-              <Link to="/profile">
-                Profile
-              </Link>
-            </div>
-          </section>
-        </header>
-
+        
+      <div>
+        <NavContainer/>
         <ul>
           {users}
         </ul>
-
-        ayer
-      </main>
+      </div>
     )
   }
 

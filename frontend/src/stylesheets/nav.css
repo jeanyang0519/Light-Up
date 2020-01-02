@@ -1,0 +1,15 @@
+.nav-img {
+    height: 40px;
+    place-self: center;
+}
+
+.nav-link {
+    place-self: center;
+}
+
+
+.nav-header-right {
+    padding: 0 0 0 55%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}

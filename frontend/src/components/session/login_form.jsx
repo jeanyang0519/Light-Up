@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../stylesheets/login.css';
 import '../../stylesheets/greeting.css'
 import Logo from '../../stylesheets/idea.png';
-// import '../../stylesheets/reset.scss';
+import '../../stylesheets/reset.css';
 
 class LoginForm extends React.Component {
   constructor(props) {

@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../stylesheets/reset.css';
 import '../../stylesheets/signup.css';
+import '../../stylesheets/nav.css';
+import '../../stylesheets/greeting.css'
 import Logo from '../../stylesheets/idea.png';
+import user from '../../stylesheets/user.png';
+import chat from '../../stylesheets/chat.png';
+import setting from '../../stylesheets/setting.png';
+import ModalContainer from '../modal/modal';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -45,9 +52,17 @@ class NavBar extends React.Component {
             <img className="logo" src={Logo} alt="login-logo" />
             <Link to="/" className='title'>Light Up</Link>
           </div>
-          <div className="main-header-3">
-            {/* <Link className='log-in' to={'/login'}>Log in</Link> */}
-            <Link className="get-started" to={'/login'}>Log in</Link>
+          <div className="nav-header-right">
+            
+            {/* <Link className="get-started" to={'/login'}>Log in</Link> */}
+            <Link className="nav-link" to={`/profile/`}>
+              <img className='nav-img' src={user}/>
+            </Link>
+            <Link className="nav-link" to={'/chat'}>
+              <img className="nav-img" src={chat}/>
+            </Link>
+            <img className="nav-img" src={setting} onClick={() => (this.props.openModal('logoutOption'))}/>
+            <ModalContainer />
           </div>
 
         </div>

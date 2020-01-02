@@ -34,7 +34,7 @@
 }
 
 .main-header-3 {
-       display: grid;
+    display: grid;
     /* grid-template-columns: 1fr 1fr; */
     place-self: end;  
 }
