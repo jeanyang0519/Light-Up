@@ -5,6 +5,9 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
+import io from 'socket.io-client';
+import { fetchChats, createNewMessage } from './actions/chat_actions';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -33,4 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 
   window.store = store;
+  window.socket = io.connect("http://localhost:5000");
+  window.dispatch = store.dispatch
+  window.fetchChats = fetchChats
+  window.createNewMessage = createNewMessage
+
 });
