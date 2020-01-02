@@ -16,6 +16,7 @@ router.get(
 //   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Chat.find()
+      .select("_id participants")
       .then(chats => res.json(chats))
       .catch(err => res.json(err));
   }
