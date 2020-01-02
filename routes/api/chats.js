@@ -13,7 +13,7 @@ const passport = require("passport");
 
 router.get(
   "/",
-  passport.authenticate("jwt", { session: false }),
+//   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Chat.find()
       .then(chats => res.json(chats))
@@ -24,7 +24,7 @@ router.get(
 
 router.post(
   "/new/:userId",
-  passport.authenticate("jwt", { session: false }),
+//   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     //   Chat.collection.dropIndexes()
 
@@ -71,7 +71,7 @@ router.post(
 
 router.delete(
   "/:chatId",
-  passport.authenticate("jwt", { session: false }),
+//   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Chat.findOneAndUpdate(
       req.params.chatId,
@@ -82,9 +82,12 @@ router.delete(
           return res.json({ nochatfound: "No Chat Found" });
         }
         if (chat.participants.length === 0) {
-          Message.deleteMany({ chatId: chat._id })
-            .then(() => res.json({ message: "All messages deleted" }))
-            .catch(() => res.json({ nomessagesfound: "No Messages Found" }));
+          chat.remove()
+            .then(() => {
+                Message.deleteMany({ chatId: chat._id })
+                    .then(() => res.json({ message: "All messages deleted" }))
+                    .catch(() => res.json({ nomessagesfound: "No Messages Found" }))
+            })
         }
         res.json({ message: "Chat removed" });
       }
@@ -107,7 +110,7 @@ router.delete(
 
 router.get(
   "/:userId",
-  passport.authenticate("jwt", { session: false }),
+//   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Chat.find(
       {
@@ -138,7 +141,7 @@ router.get(
 
 router.get(
   "/:chatId/messages",
-  passport.authenticate("jwt", { session: false }),
+//   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Message.find({ chatId: req.params.chatId })
       .select("message sender date chatId")
@@ -167,7 +170,7 @@ router.get(
 
 router.post(
   "/messages/new/:userId",
-  passport.authenticate("jwt", { session: false }),
+//   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const newMessage = new Message({
       chatId: req.body.chatId,
