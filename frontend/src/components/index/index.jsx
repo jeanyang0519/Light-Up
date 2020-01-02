@@ -18,6 +18,7 @@ class Index extends React.Component {
           <Link className='user-profile' to={`/profile/${user._id}`} key={i}> 
             <li className='each-user' key={user._id}>{user.username}</li>
           </Link>
+          //comment
         )
       })
 
