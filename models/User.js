@@ -19,6 +19,14 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  first_name: {
+    type: String,
+    required: false
+  },
+  last_name: {
+    type: String,
+    required: false
+  },
   description: {
     type: String,
     required: false
@@ -39,7 +47,7 @@ const UserSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: "User",
+        ref: "User"
       },
       _id: false,
       status: {

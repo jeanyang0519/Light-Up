@@ -132,7 +132,7 @@ router.get(
             .then(message => {
               chats.push(...message);
               if (chats.length === chatIds.length)
-                return res.json({ chats: chats });
+                return res.json(chats);
             });
         });
       })
@@ -152,7 +152,7 @@ router.get(
         select: "username email"
       })
       .then(messages => {
-        res.json({ chat: messages });
+        res.json(messages);
       })
       .catch(() => res.status(404).json({ nochats: "No Messages Found" }));
   }
@@ -181,7 +181,7 @@ router.post(
 
     newMessage
       .save()
-      .then(() => res.json({ messsage: "New message added" }))
+      .then((message) => res.json(message))
       .catch(err => res.status(422).json(err));
   }
 );
