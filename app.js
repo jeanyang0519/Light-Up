@@ -5,7 +5,7 @@ const connections = require("./routes/api/connections");
 const chats = require("./routes/api/chats")
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const db = require("./config/keys").mongoURI;
+const db = require('./config/keys').mongoURI;
 const port = process.env.PORT || 5000;
 const server = app.listen(port, () => console.log(`Server is running on port ${port}`));
 const passport = require("passport");

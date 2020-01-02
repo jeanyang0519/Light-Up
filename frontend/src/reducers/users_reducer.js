@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
       Object.values(action.users).map(user => {users[user._id] = user});
       return Object.assign( {}, state.users, users);
     case RECEIVE_SINGLE_USER:
-      return Object.assign({}, state.users, { [action.user._id]: action.user });
+      return Object.assign({}, state.users, { [action.user.id]: action.user });
     default:
       return state;
   }

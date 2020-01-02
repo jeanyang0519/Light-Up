@@ -1,3 +1,11 @@
+.nav-all {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px 10%;
+    /* background-color: cornsilk; */
+}
+
 .nav-img {
     height: 40px;
     place-self: center;

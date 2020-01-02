@@ -9,6 +9,7 @@ const msp = state => {
   return ({
 
     loggedIn: state.session.isAuthenticated,
+    currentUser: state.session.user,
     // currentUser: state.users[state.session.id]
   })
 };
