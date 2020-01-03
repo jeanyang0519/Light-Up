@@ -181,8 +181,21 @@ router.post(
 
     newMessage
       .save()
-      .then((message) => res.json(message))
-      .catch(err => res.status(422).json(err));
+      .then((message) => {
+        Message
+          .findOne(message._id)
+          .select("message sender date chatId")
+          .sort({ date: 1 })
+          .populate({
+            path: "sender",
+            select: "username email"
+          })
+          .then(messageWithDetails => {
+            res.json(messageWithDetails)
+          })
+          .catch((err) => res.json(err))
+      })
+      .catch(err => res.status(422).json(err))
   }
 );
 

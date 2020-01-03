@@ -10,31 +10,30 @@ class ChatsIndex extends React.Component {
     this.state = {
         conversation: ""
     }
-    // this.conversation = "yo";
     this.handleMessages = this.handleMessages.bind(this);
   }
   componentDidMount() {
-    const userId = this.props.user.id
+    const userId = this.props.currentUser.id
     this.props.fetchChats(userId);
   }
 
-  handleMessages(user, messages) {
+  handleMessages(user, messages, chatId) {
       this.setState({
-        conversation: <Conversation user={user} messages={messages} />
+        conversation: <Conversation user={user} messages={messages} chatId={chatId} createNewMessage={this.props.createNewMessage}/>
       })
   }
 
   render() {
-      const { user, chats, fetchMessages, messages } = this.props
+      const { currentUser, chats, fetchMessages, messages } = this.props
       if (!chats) return null
       const chatsLis = chats.map(chat => {
           const chatMessages = selectChatMessages(messages, chat.chatId);
         return (
             <Chat
               key={chat._id}
-              user={user}
+              currentUser={currentUser}
               chat={chat}
-              fetchMessages={fetchMessages}
+              fetchChats={this.props.fetchChats}
               messages={chatMessages}
               handleMessages={this.handleMessages}
               fetchMessages={this.props.fetchMessages}
