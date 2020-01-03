@@ -9,6 +9,7 @@
 .nav-img {
     height: 40px;
     place-self: center;
+    cursor: pointer;
 }
 
 .nav-link {

@@ -45,8 +45,8 @@
 
 .signup-form {
 
-  width: 580px;
-    height: 580px;
+  width: 600px;
+    height: 600px;
     border-radius: 12px;
     border: 1px solid #ccc;
     display: grid;
@@ -168,7 +168,3 @@ h3 {
   color: black;
 }
 
-h2 {
-  font-weight: bold;
-  font-size: 1.5em;
-}

@@ -22,7 +22,15 @@ class MainPage extends React.Component {
           </div>
           
         </div>
-        <img className='background' src={Background}/>
+       <div className='background-container'>
+          <img className='background' src={Background}/>
+          <div className='slogan'>
+            Brighten Your Future
+          </div>
+          <div className='sub-slogan'>
+            A mentorship community for students to connect over shared interests and goals. 
+          </div>
+        </div>
       </div>
     );
   }
