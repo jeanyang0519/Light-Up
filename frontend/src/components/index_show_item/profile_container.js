@@ -7,7 +7,7 @@ import { acceptConnection, removeConnection } from '../../util/connection_api';
 const mapStateToProps = (state, ownProps) => {
   return {
     // errors: state.errors.session,
-    currentUser: state.session.user,
+    currentUser: state.session.currentUser,
     profile: state.users[ownProps.match.params.id]
   };
 };

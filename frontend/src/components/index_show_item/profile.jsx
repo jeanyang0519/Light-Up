@@ -1,5 +1,4 @@
 import React from 'react';
-import './profile.css';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/profile.css';
 import '../../stylesheets/reset.css';
@@ -11,6 +10,7 @@ class Profile extends React.Component {
     super(props)
 
     this.renderUserType = this.renderUserType.bind(this);
+    this.renderEditButton = this.renderEditButton.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +31,14 @@ class Profile extends React.Component {
     }
   }
 
+  renderEditButton() {
+    if (this.props.profile.id !== this.props.currentUser.id) {
+    return null;
+    } else {
+      return <div className="edit-button"><Link to={`/profile/${this.props.currentUser.id}/edit`}>Edit</Link></div>
+    }
+  }
+
   render() {
     if (!this.props.profile) return null; 
     const profile = this.props.profile;
@@ -41,15 +49,14 @@ class Profile extends React.Component {
           <div className="main-content">
             
             <div className='profile-info'>
-              <div className='profile-name'>Name{profile.first_name} {profile.last_name}</div>
-              <div className='profile-location'>Location{profile.location}</div>
+              <div className='profile-name'>{profile.first_name} {profile.last_name}</div>
+              <div className='profile-location'>{profile.location}</div>
             </div>
-              </div>
-                <Link to="/profile/edit" profile={profile}>Edit</Link>
-            </div>
+                {this.renderEditButton()}
+          </div>
             <ul>
-              <li>fnamelname{profile.first_name} {profile.last_name}</li>
-              <li>location{profile.location}</li>
+              <li>{profile.first_name} {profile.last_name}</li>
+              <li>{profile.location}</li>
               <li>{profile.userType}</li>
             </ul>
         <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
@@ -61,7 +68,6 @@ class Profile extends React.Component {
         <button onClick={() => this.props.removeConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
           Reject Connection
         </button> */}
-          </div>
 
         <div className="about-div">
           <div className='about-inside'>
