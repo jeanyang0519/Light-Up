@@ -29,7 +29,6 @@ class Chat extends React.Component {
       socket.emit('enter chat', {username: this.props.currentUser.username})
     })
     // socket.emit("enter chat", this.props.currentUser.username)
-    
   }
   
 

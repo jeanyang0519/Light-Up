@@ -13,7 +13,7 @@ const passport = require("passport");
 
 router.get(
   "/",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Chat.find()
       .select("_id participants")
@@ -25,7 +25,7 @@ router.get(
 
 router.post(
   "/new/:userId",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     //   Chat.collection.dropIndexes()
 
@@ -72,7 +72,7 @@ router.post(
 
 router.delete(
   "/:chatId",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Chat.findOneAndUpdate(
       req.params.chatId,
@@ -96,22 +96,10 @@ router.delete(
   }
 );
 
-// Route works to delete conversation and all messages
-// router.delete("/:chatId", (req, res) => {
-//   Chat.findOneAndRemove(req.params.chatId)
-//     .then((chat) => {
-//         Message.deleteMany({ chatId: chat._id })
-//             .then(() => res.json({ message: "Chat deleted" }))
-//             .catch(() => res.json({nomessagesfound: "No Messages Found" }))
-        
-
-//     })
-//     .catch(err => res.status(404).json(err));
-// });
 
 router.get(
   "/:userId",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Chat.find(
       {
@@ -142,7 +130,7 @@ router.get(
 
 router.get(
   "/:chatId/messages",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Message.find({ chatId: req.params.chatId })
       .select("message sender date chatId")
@@ -158,20 +146,10 @@ router.get(
   }
 );
 
-// router.get("/:chatId", (req, res) => {
-//   Chat.findOne({ _id: req.params.chatId }, '_id')
-//     .then((chatId) => {
-//         Message.find({ chatId: chatId })
-//             .select("message date sender")
-//             .then(messages => res.json(messages))
-//             .catch(() => res.json({ nomessagesfound: "No Messages Found" }))
-//     })
-//     .catch(err => res.status(404).json(err));
-// });
 
 router.post(
   "/messages/new/:userId",
-//   passport.authenticate("jwt", { session: false }),
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const newMessage = new Message({
       chatId: req.body.chatId,
@@ -198,53 +176,6 @@ router.post(
       .catch(err => res.status(422).json(err))
   }
 );
-
-// router.get('/:chatId/messages', (req, res) => {
-//     Message.find()
-//         .then(messages => res.json(messages))
-//         .catch(() => res.json({nomessagesfound: "No Messages Found" }))
-// })
-
-// router.delete("/:chatId/messages", (req, res) => {
-//   Message.remove()
-//     .then(() => res.json({message: "Messages deleted"}))
-//     .catch(() => res.json({ nomessagesfound: "No Messages Found" }));
-// });
-
-// router.delete("/", (req, res) => {
-//   Chat.remove()
-//     .then(() => res.json({ message: "Messages deleted" }))
-//     .catch(() => res.json({ nomessagesfound: "No Messages Found" }));
-// });
-
-
-// router.get('/messages/:chatId', (req, res) => {
-//     Chat.find({ participants: req.params.chatId },'_id')
-//         .then(chatIds => {
-//             const messages = []
-//             chatIds.forEach((chatId) => {
-//                 Message.find({ chatId: chatId })
-//                     .select('message date sender')
-//                     .sort({date: 1})
-//                     // .populate('sender')
-//                     .then(message => {
-//                         messages.push(...message)
-//                         res.json(messages)
-//                     })
-//                     .catch(() => res.status(404).json({ nomessagefound: "No messages Found"}))
-//             })
-//             // res.json(messages)
-//         })
-//         .catch(err => res.status(404).json({message: "No messages found"}))
-// })
-
-// router.delete("/newMessage", (req, res) => {
-//     Message.remove()
-//         .then(() => res.json({message: "all messages removed"}))
-//         .catch((err) => res.json(err))
-// });
-
-
 
 
 module.exports = router;
