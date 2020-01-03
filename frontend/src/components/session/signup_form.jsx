@@ -17,11 +17,15 @@ class SignupForm extends React.Component {
       userType: '',
       password: '',
       password2: '',
-      errors: {}
+      errors: {},
+      selectedMentor: false,
+      selectedMentee: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
+    this.updateMentor = this.updateMentor.bind(this);
+    this.updateMentee = this.updateMentee.bind(this);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -36,6 +40,46 @@ class SignupForm extends React.Component {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  updateMentor(field) {
+    if (this.state.selectedMentor === false && this.state.selectedMentee === false) {
+      return e => this.setState({
+        [field]: e.target.value,
+        selectedMentor: true
+      })
+    } else if (this.state.selectedMentor === false && this.state.selectedMentee === true) {
+      return e => this.setState({
+        [field]: e.target.value,
+        selectedMentor: true,
+        selectedMentee: false
+      });
+    } else {
+      return e => this.setState({
+        [field]: e.target.value,
+        selectedMentor: false
+      })
+    }
+  }
+
+  updateMentee(field) {
+    if (this.state.selectedMentee === false && this.state.selectedMentor === false) {
+      return e => this.setState({
+        [field]: e.target.value,
+        selectedMentee: true
+      })
+    } else if (this.state.selectedMentee === false && this.state.selectedMentor === true) {
+      return e => this.setState({
+        [field]: e.target.value,
+        selectedMentee: true,
+        selectedMentor: false
+      });
+    } else {
+      return e => this.setState({
+        [field]: e.target.value,
+        selectedMentee: false
+      })
+    }
   }
 
   handleSubmit(e) {
@@ -103,10 +147,10 @@ class SignupForm extends React.Component {
             <section className="user-type-select">
               <div className='signup-question'>Who are you?</div>
               <div className="signup-buttons">
-                <button type="button" onClick={this.update("userType")} value="Mentor">
+                <button type="button" onClick={this.updateMentor("userType")} id={this.state.selectedMentor === true ? "selected" : "mentor"} value="Mentor">
                   Mentor
                 </button>
-                <button type="button" onClick={this.update("userType")} value="Mentee">
+                <button type="button" onClick={this.updateMentee("userType")} id={this.state.selectedMentee === true ? "selected" : "mentee"} value="Mentee">
                   Mentee
                 </button>
               </div>

@@ -10,6 +10,7 @@ class Profile extends React.Component {
     super(props)
 
     this.renderUserType = this.renderUserType.bind(this);
+    this.renderEditButton = this.renderEditButton.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +31,12 @@ class Profile extends React.Component {
     }
   }
 
+  renderEditButton() {
+    if (this.props.profile.id !== this.props.currentUser.id) {
+    return null;
+    } else {
+      return <div className="edit-button"><Link to={`/profile/${this.props.currentUser.id}/edit`}>Edit</Link></div>
+    }
   connectButton () {
     let connected = "Connect"
     const { profile, currentUser } = this.props
@@ -113,7 +120,13 @@ class Profile extends React.Component {
           rel="stylesheet"
         ></link>
         <section className="profile-body">
-          <div className="main-content">
+          <div className="main-content">            
+            <div className='profile-info'>
+              <div className='profile-name'>{profile.first_name} {profile.last_name}</div>
+              <div className='profile-location'>{profile.location}</div>
+            </div>
+                {this.renderEditButton()}
+          </div>
               <div className="profile-info">
                 <div className="profile-name">
                   {profile.first_name} {profile.last_name}
