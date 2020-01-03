@@ -1,4 +1,8 @@
 import React from 'react';
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4d8dd63ea09954b560fdf3399b07d9eb9f24e52
 import { Link } from 'react-router-dom';
 import '../../stylesheets/profile.css';
 import '../../stylesheets/reset.css';
@@ -43,6 +47,10 @@ class Profile extends React.Component {
               <div className='profile-name'>Name{profile.first_name} {profile.last_name}</div>
               <div className='profile-location'>Location{profile.location}</div>
             </div>
+<<<<<<< HEAD
+=======
+              {/* </div> */}
+>>>>>>> f4d8dd63ea09954b560fdf3399b07d9eb9f24e52
                 <Link to="/profile/edit" profile={profile}>Edit</Link>
             </div>
             <ul>
@@ -58,7 +66,12 @@ class Profile extends React.Component {
         </button>
         <button onClick={() => this.props.removeConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
           Reject Connection
+<<<<<<< HEAD
         </button>
+=======
+        </button> */}
+          {/* </div> */}
+>>>>>>> f4d8dd63ea09954b560fdf3399b07d9eb9f24e52
 
         <div className="about-div">
           <div className='about-inside'>
