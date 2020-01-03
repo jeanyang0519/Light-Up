@@ -17,6 +17,8 @@ router.get(
       id: req.user._id,
       username: req.user.username,
       email: req.user.email,
+      first_name: user.first_name,
+      last_name: user.last_name,
       userType: req.user.userType,
       connections: req.user.connections,
       date: req.user.date,
@@ -41,6 +43,8 @@ router.get(
             username: user.username,
             email: user.email,
             userType: user.userType,
+            first_name: user.first_name,
+            last_name: user.last_name,
             connections: user.connections,
             date: user.date,
             description: user.description,
@@ -67,13 +71,15 @@ router.get("/:id", (req, res) => {
         username: user.username,
         email: user.email,
         userType: user.userType,
+        first_name: user.first_name,
+        last_name: user.last_name,
         connections: user.connections,
         date: user.date,
         description: user.description,
         location: user.location,
         skills: user.skills,
         interests: user.interests
-      })
+      });
     })
     .catch(err => {
       res.status(404).json(err);
@@ -110,6 +116,8 @@ router.post('/signup', (req, res) => { // create User
                           id: user._id,
                           username: user.username,
                           email: user.email,
+                          first_name: user.first_name,
+                          last_name: user.last_name,
                           userType: user.userType,
                           connections: user.connections,
                           date: user.date,
@@ -150,17 +158,19 @@ router.post("/login", (req, res) => { // create session
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         const payload = {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-        userType: user.userType,
-        connections: user.connections,
-        date: user.date,
-        description: user.description,
-        location: user.location,
-        skills: user.skills,
-        interests: user.interests
-      }
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          userType: user.userType,
+          connections: user.connections,
+          date: user.date,
+          description: user.description,
+          location: user.location,
+          skills: user.skills,
+          interests: user.interests
+        };
 
         jwt.sign(
             payload,
@@ -179,6 +189,39 @@ router.post("/login", (req, res) => { // create session
     });
   });
 });
+
+
+router.put(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const updates = req.body
+    User.findByIdAndUpdate(
+      req.params.id,
+      updates,
+      { new: true },
+      (err, user) => {
+        if (err) {
+          return res.json({ message: "User doesn't exist" });
+        }
+        res.json({
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          userType: user.userType,
+          connections: user.connections,
+          date: user.date,
+          description: user.description,
+          location: user.location,
+          skills: user.skills,
+          interests: user.interests
+        });
+      }
+    ).catch(err => res.json({ message: "User doesn't exist" }));
+  }
+);
 
 
 

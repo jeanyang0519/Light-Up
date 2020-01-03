@@ -6,12 +6,13 @@ import { socket, fetchChats, createNewMessage } from '../../actions/chat_actions
 class Chat extends React.Component {
   constructor(props) {
     super(props);
-    socket.emit("enter chat", "5e0d8f2119c96fcdcd15c2df");
+    
 
     // socket.on("refresh messages", data => {
-    //     // console.log("about to refresh messages", data);
-    //     // fetch chat needs to go on chat_container
-    //     fetchChats("5e0a579d6a0bd7e29328b9b7");
+    //   // socket.emit("I'm going to refresh", {hello: 'world'})
+    //   // console.log();
+    //   // fetch chat needs to go on chat_container
+    //   console.log(data)
     // });
 
 
@@ -24,8 +25,12 @@ class Chat extends React.Component {
     if (this.props.messages.length === 0 ) {
       this.props.fetchMessages(this.props.chat._id)
     }
-
+    socket.on('connect', () => {
+      socket.emit('enter chat', {username: this.props.currentUser.username})
+    })
+    // socket.emit("enter chat", this.props.currentUser.username)
   }
+  
 
   componentWillUnmount() {
     const chatId = this.props.chat._id
@@ -35,18 +40,18 @@ class Chat extends React.Component {
   handleClick() {
     const chatId = this.props.chat.chatId;
     this.props.fetchMessages(chatId).then((res) => {
-      this.props.handleMessages(this.props.user, this.props.messages)
+      this.props.handleMessages(this.props.currentUser, this.props.messages, this.props.chat.chatId)
     })
     
   }
 
   render() {
-    const { user, chat, messages } = this.props
-    if (!user) return null
+    const { currentUser, chat, messages } = this.props
+    if (!currentUser) return null
     return (
       <div onClick={this.handleClick}>
-        <h2>{user.username}</h2>
-        <h3>{user.email}</h3>
+        <h2>{currentUser.username}</h2>
+        <h3>{currentUser.email}</h3>
       </div>
     )
   }
