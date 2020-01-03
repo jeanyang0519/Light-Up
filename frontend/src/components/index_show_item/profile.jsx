@@ -1,5 +1,6 @@
 import React from 'react';
 import './profile.css';
+import { Link } from 'react-router-dom';
 
 class Profile extends React.Component {
 
@@ -14,7 +15,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    
     if (!this.props.profile) return null; 
     const profile = this.props.profile;
     return (
@@ -26,15 +26,22 @@ class Profile extends React.Component {
               <div className="picture">
 
               </div>
+                <Link to="/profile/edit" profile={profile}>Edit</Link>
             </div>
             <ul>
               <li>fnamelname{profile.first_name} {profile.last_name}</li>
               <li>location{profile.location}</li>
               <li>{profile.userType}</li>
             </ul>
-        <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: profile._id})}> 
+        <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
           Connect
         </button>
+        {/* <button onClick={() => this.props.acceptConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
+          Accept Connection
+        </button>
+        <button onClick={() => this.props.removeConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
+          Reject Connection
+        </button> */}
           </div>
         <div className="about-div">
           <ul>
@@ -57,7 +64,7 @@ class Profile extends React.Component {
        
         
         
-        {profile.connections}
+
         
 
       </main>

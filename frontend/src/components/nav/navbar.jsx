@@ -18,7 +18,7 @@ class NavBar extends React.Component {
 
  
   render() {
-    
+    if (!this.props.currentUser.id) return null;
     return (
       <div>
         <div className='nav-all'>

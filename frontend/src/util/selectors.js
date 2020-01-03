@@ -7,6 +7,5 @@ export const selectChatMessages = (messages, chatId) => {
         }
         
     })
-    debugger
     return chatMessages
 }

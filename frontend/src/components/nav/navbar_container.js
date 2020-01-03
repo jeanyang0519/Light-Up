@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 import NavBar from './navbar';
 
 const msp = state => {
-  // debugger
   return ({
 
     loggedIn: state.session.isAuthenticated,

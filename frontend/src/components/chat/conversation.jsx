@@ -8,7 +8,6 @@ class Conversation extends React.Component {
 
   render() {
       const { messages, user } = this.props 
-        debugger
       const messageLis = messages.map(message => {
         //   const date = new Date(message.date).toLocaleDateString
           return (
@@ -23,7 +22,6 @@ class Conversation extends React.Component {
               </li>
           )
       })
-      debugger
     return (
         <ul>
             {messageLis}
