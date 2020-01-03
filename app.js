@@ -9,7 +9,7 @@ const db = require('./config/keys').mongoURI;
 const port = process.env.PORT || 5000;
 const server = app.listen(port, () => console.log(`Server is running on port ${port}`));
 const passport = require("passport");
-const io = require("socket.io").listen(server)
+const io = require("socket.io")(server)
 
 
 const path = require('path');
@@ -44,21 +44,33 @@ io.on('connection', (socket) => {
     console.log('User connected')
     socket.on('enter chat', chat => {
         socket.join(chat)
-        console.log(`joined ${chat}`);
+        // console.log(`${chat.username} joined`);
     });
 
     socket.on("leave chat", chat => {
       socket.leave(chat);
-      console.log(`left ${chat}`);
+      // console.log(`${chat.username} left`);
     });
 
+    // socket.on("new message", chat => {
+    //   // io.sockets.in(chat).emit('refresh messages', chat);
+    //   // console.log("sending you a message for refresh")
+    //   // console.log(chat)
+    //   socket.emit("refresh messages", chat);
+    //   console.log(chat);
+    // });
+
     socket.on("new message", chat => {
-      io.sockets.in(chat).emit('refresh messages', chat);
-      console.log("sending you a message for refresh")
+      // io.sockets.in(chat).emit('refresh messages', chat);
+      // console.log("sending you a message for refresh")
+      // console.log(chat)
+      io.sockets.emit("refresh messages", chat);
+      // console.log(chat);
     });
 
     socket.on("disconnect", () => {
       console.log('User disconnected');
     });
 });
+
 

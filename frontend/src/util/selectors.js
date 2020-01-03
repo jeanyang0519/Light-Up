@@ -1,5 +1,6 @@
 export const selectChatMessages = (messages, chatId) => {
     const chatMessages = []
+
     messages.forEach(message => {
         if (message.chatId === chatId) {
 
@@ -9,3 +10,4 @@ export const selectChatMessages = (messages, chatId) => {
     })
     return chatMessages
 }
+

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const decodedUser = jwt_decode(localStorage.jwtToken);
 
-    const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
+    const preloadedState = { session: { isAuthenticated: true, currentUser: decodedUser } };
 
     store = configureStore(preloadedState);
 
@@ -34,11 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);
-
-  window.store = store;
-  window.socket = io.connect("http://localhost:5000");
-  window.dispatch = store.dispatch
-  window.fetchChats = fetchChats
-  window.createNewMessage = createNewMessage
 
 });

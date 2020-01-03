@@ -5,7 +5,7 @@ import {
 
 export default function(state = {}, action) {
   Object.freeze(state);
-    const messages = {};
+    let messages = {};
   switch (action.type) {
     case RECEIVE_MESSAGES:
       action.messages.map(message => {
@@ -13,10 +13,7 @@ export default function(state = {}, action) {
       });
       return messages;
     case RECEIVE_MESSAGE:
-      messages = {};
-      Object.values(action.message).map(msg => {
-        messages[msg._id] = msg;
-      });
+      return Object.assign({}, state, { [action.message._id]: action.message })
     default:
       return state;
   }

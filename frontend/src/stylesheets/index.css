@@ -1,9 +1,9 @@
 .index-all {
     display: grid;
     height: 100vh;
-    grid-template-rows: 10% auto;
+    grid-template-rows: 10%;
     font-family: 'Open Sans', sans-serif;
-    grid-gap: 3%;
+    padding: 3% 0;
 }
 
 .user-profile {
