@@ -61,20 +61,20 @@ export const requestConnection = data => dispatch => {
   });
 };
 
-// export const acceptConnection = data => dispatch => {
-//   return ConnectionUtil.acceptConnection(data).then(() => {
-//     dispatch(fetchUser(data.userId));
-//     dispatch(fetchUser(data.connectionId));
-//   }, err => {
-//     return dispatch(receiveErrors(err.response.data));
-//   });
-// };
+export const acceptConnection = data => dispatch => {
+  return ConnectionUtil.acceptConnection(data).then(() => {
+    dispatch(fetchUser(data.userId));
+    dispatch(fetchUser(data.connectionId));
+  }, err => {
+    return dispatch(receiveErrors(err.response.data));
+  });
+};
 
-// export const removeConnection = data => dispatch => {
-//   return ConnectionUtil.removeConnection(data).then(() => {
-//     dispatch(fetchUser(data.userId));
-//     dispatch(fetchUser(data.connectionId));
-//   }, err => {
-//     return dispatch(receiveErrors(err.response.data));
-//   });
-// };
+export const removeConnection = data => dispatch => {
+  return ConnectionUtil.removeConnection(data).then(() => {
+    dispatch(fetchUser(data.userId));
+    dispatch(fetchUser(data.connectionId));
+  }, err => {
+    return dispatch(receiveErrors(err.response.data));
+  });
+};

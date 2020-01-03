@@ -34,12 +34,15 @@ router.get(
   "/",
   (req, res) => {
     User.find()
-      
+      .populate({
+        path: "connections.user",
+        select: "username first_name last_name"
+      })
       .then(users => {
         
         const requested = users.map(user => {
           return {
-            _id: user._id,
+            id: user._id,
             username: user.username,
             email: user.email,
             userType: user.userType,
@@ -64,7 +67,11 @@ router.get(
 );
 
 router.get("/:id", (req, res) => {
-  User.findOne({_id: req.params.id})
+  User.findOne({ _id: req.params.id })
+    .populate({
+      path: "connections.user",
+      select: "username first_name last_name"
+    })
     .then(user => {
       res.json({
         id: user._id,
