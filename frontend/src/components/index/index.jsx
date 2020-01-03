@@ -15,8 +15,8 @@ class Index extends React.Component {
     
       const users = this.props.users.map((user, i) => {
         return (
-          <Link className='user-profile' to={`/profile/${user._id}`} key={i}> 
-            <li className='each-user' key={user._id}>{user.username}</li>
+          <Link className='user-profile' to={`/profile/${user.id}`} key={i}> 
+            <li className='each-user' key={user.id}>{user.username}</li>
           </Link>
           //comment
         )
