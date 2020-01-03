@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch) => {
     logout: () => dispatch(logout()),
     fetchUser: (id) => dispatch(fetchUser(id)),
     requestConnection: (data) => dispatch(requestConnection(data)),
-    // acceptConnection: (data) => dispatch(acceptConnection(data)),
-    // removeConnection: (data) => dispatch(removeConnection(data))
+    acceptConnection: (data) => dispatch(acceptConnection(data)),
+    removeConnection: (data) => dispatch(removeConnection(data))
   };
 };
 
