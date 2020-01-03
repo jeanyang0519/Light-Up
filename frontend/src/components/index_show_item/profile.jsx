@@ -97,15 +97,15 @@ class Profile extends React.Component {
               Accept Connection
             </button>
             <button onClick={() =>
-                this.props.removeConnection({
-                  userId: this.props.currentUser.id,
-                  connectionId: connection.user.id
-                })
-              }>Reject Connection</button>
+              this.props.removeConnection({
+                userId: this.props.currentUser.id,
+                connectionId: connection.user.id
+              })
+            }>Reject Connection</button>
           </Link>
         );
       }
-    });
+    })
     return (
       <main className="profile-all">
         <link
@@ -114,22 +114,27 @@ class Profile extends React.Component {
         ></link>
         <section className="profile-body">
           <div className="main-content">
-            <div className="profile-info">
-              <div className="profile-name">
-                {profile.first_name} {profile.last_name}
+              <div className="profile-info">
+                <div className="profile-name">
+                  {profile.first_name} {profile.last_name}
+                </div>
+                <div className="profile-location">{profile.location}</div>
               </div>
-              <div className="profile-location">{profile.location}</div>
-            </div>
-            <div>
-              <Link to="/profile/edit" profile={profile}>
-                Edit
-              </Link>
-            </div>
-            
-            {this.connectButton()}
+              <div>
+                <Link to="/profile/edit" profile={profile}>
+                  Edit
+                </Link>
+              </div>
+              
+              {this.connectButton()}
 
           </div>
-
+              
+          <div className='profile-info'>
+            <div className='profile-name'>Name{profile.first_name} {profile.last_name}</div>
+            <div className='profile-location'>Location{profile.location}</div>
+            <Link to="/profile/edit" profile={profile}>Edit</Link>
+          </div>
           <div className="about-div">
             <div className="about-inside">
               <h2>About</h2>
