@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/user_util';
-import * as ConncectionUtil from '../util/connection_api';
+import * as ConnectionUtil from '../util/connection_api';
 
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
@@ -43,11 +43,38 @@ export const fetchUser = user => dispatch => {
   ));
 };
 
+export const update = (id, data) => dispatch => {
+  return APIUtil.update(id, data).then(res => {
+    dispatch(receiveSingleUser(res));
+  },
+    err => (
+      dispatch(receiveErrors(err.response.data))
+    ));
+};
+
 export const requestConnection = data => dispatch => {
-  return ConncectionUtil.requestConnection(data).then(() => {
+  return ConnectionUtil.requestConnection(data).then(() => {
     dispatch(fetchUser(data.userId));
     dispatch(fetchUser(data.connectionId));
   }, err => {
     return dispatch(receiveErrors(err.response.data));
   });
 };
+
+// export const acceptConnection = data => dispatch => {
+//   return ConnectionUtil.acceptConnection(data).then(() => {
+//     dispatch(fetchUser(data.userId));
+//     dispatch(fetchUser(data.connectionId));
+//   }, err => {
+//     return dispatch(receiveErrors(err.response.data));
+//   });
+// };
+
+// export const removeConnection = data => dispatch => {
+//   return ConnectionUtil.removeConnection(data).then(() => {
+//     dispatch(fetchUser(data.userId));
+//     dispatch(fetchUser(data.connectionId));
+//   }, err => {
+//     return dispatch(receiveErrors(err.response.data));
+//   });
+// };

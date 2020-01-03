@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Profile from './profile';
 import { fetchUser, requestConnection } from '../../actions/user_actions';
+import { acceptConnection, removeConnection } from '../../util/connection_api';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,7 +16,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     fetchUser: (id) => dispatch(fetchUser(id)),
-    requestConnection: (data) => dispatch(requestConnection(data))
+    requestConnection: (data) => dispatch(requestConnection(data)),
+    // acceptConnection: (data) => dispatch(acceptConnection(data)),
+    // removeConnection: (data) => dispatch(removeConnection(data))
   };
 };
 

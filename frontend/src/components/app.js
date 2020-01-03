@@ -10,6 +10,7 @@ import Chat from './chat/chat';
 import NavBar from '../components/nav/navbar_container';
 
 import ChatIndexContainer from './chat/chats_index_container';
+import EditProfileContainer from '../components/index_show_item/edit_profile_container';
 
 
 
@@ -24,6 +25,7 @@ const App = () => (
       <Route exact path="/dashboard" component={IndexContainer} />
       <Route exact path="/profile/:id" component={ProfileContainer} />
       <Route path="/chat" component={ChatIndexContainer}/>
+      <Route path="/profile/edit" component={EditProfileContainer} />
 
   </div>
 );

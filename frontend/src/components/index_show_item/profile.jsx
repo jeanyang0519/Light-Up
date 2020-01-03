@@ -1,6 +1,9 @@
 import React from 'react';
+import './profile.css';
+import { Link } from 'react-router-dom';
 import '../../stylesheets/profile.css';
 import '../../stylesheets/reset.css';
+
 
 class Profile extends React.Component {
 
@@ -29,7 +32,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    
     if (!this.props.profile) return null; 
     const profile = this.props.profile;
     return (
@@ -42,14 +44,23 @@ class Profile extends React.Component {
               <div className='profile-name'>Name{profile.first_name} {profile.last_name}</div>
               <div className='profile-location'>Location{profile.location}</div>
             </div>
-
-            <div className='main-content-right'>
-              
-              
-              <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: profile._id})}> 
-                Connect
-              </button>
+              </div>
+                <Link to="/profile/edit" profile={profile}>Edit</Link>
             </div>
+            <ul>
+              <li>fnamelname{profile.first_name} {profile.last_name}</li>
+              <li>location{profile.location}</li>
+              <li>{profile.userType}</li>
+            </ul>
+        <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
+          Connect
+        </button>
+        {/* <button onClick={() => this.props.acceptConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
+          Accept Connection
+        </button>
+        <button onClick={() => this.props.removeConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
+          Reject Connection
+        </button> */}
           </div>
 
         <div className="about-div">
@@ -76,13 +87,6 @@ class Profile extends React.Component {
         </div>
 
         </section>
-        
-       
-        
-        
-        
-        
-
       </main>
     )
   }
