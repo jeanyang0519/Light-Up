@@ -8,8 +8,8 @@
 
 .login-form {
     place-self: center;
-    width: 450px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     border-radius: 12px;
     border: 1px solid #ccc;
     font-size: 14px;
@@ -31,10 +31,24 @@
 input {
   height: 35px;
   padding: 0 10px;
+  outline: none;
+  font-size: 14px;
+  /* border-radius: 3px; */
+  border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      /* border-bottom-style: groove;  */
+}
+
+input:focus {
+  /* height: 35px; */
+  /* padding: 0 10px; */
+  outline: none;
+  /* border-radius: 3px; */
 }
 .login-form-wapper {
  
-  width: 75%;
+  width: 60%;
     grid-gap: 30px;
     place-self: center;
     display: grid;
@@ -53,6 +67,7 @@ input {
     cursor: pointer;
     justify-self: center;
     height: 40px;
+    margin-top: 15px;
 }
 
 /* .login-header {

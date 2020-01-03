@@ -1,0 +1,111 @@
+.profile-all {
+  display: grid;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.profile-body {
+  padding: 5% 10%;
+  display: grid;
+  justify-self: center;
+  width: 800px;
+  grid-template-rows: repeat(4, auto);
+  grid-gap: 40px;
+  /* border: 1px solid red; */
+}
+
+
+
+
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  /* border: 1px solid gray; */
+  border-radius: 3px;
+  padding: 25px;
+}
+
+.user-type {
+  padding: 10px 20px;
+    width: 13%;
+    height: 17px;
+    background-color: #ffbd59;
+    border: 1px solid #ffbd59;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
+    /* cursor: pointer; */
+    justify-self: end;
+    outline: none;
+
+}
+
+
+
+.main-content button {
+  padding: 10px 20px;
+    width: 29%;
+    height: 42px;
+    background-color: #17479f;
+    border: 1px solid #17479f;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
+    /* cursor: pointer; */
+    justify-self: end;
+    outline: none;
+    
+
+}
+
+.main-content-right {
+  display: grid;
+
+}
+
+.about-div {
+  border-radius: 3px;
+  border: 2px solid rgb(255, 212, 176);
+  /* padding: 25px; */
+}
+
+.about-1 {
+  display: grid;
+    grid-template-columns: repeat(2, auto);
+    background-color: cornsilk;
+    padding: 22px 20px;
+}
+
+.about-inside {
+  display: grid;
+    grid-template-columns: repeat(2, auto);
+    background-color: cornsilk;
+    padding: 15px 20px;
+}
+
+
+
+
+.skills-div {
+  border-radius: 3px;
+  border: 2px solid rgb(255, 212, 176);
+  /* padding: 25px; */
+}
+
+
+
+.interests-div {
+  border-radius: 3px;
+  border: 2px solid rgb(255, 212, 176);
+  /* padding: 25px; */
+}
+
+h2 {
+  font-size: 22px;
+  align-self: center;
+}
+
+
