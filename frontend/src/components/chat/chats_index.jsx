@@ -2,6 +2,7 @@ import React from 'react';
 import Chat from './chat';
 import { selectChatMessages } from '../../util/selectors';
 import Conversation from './conversation';
+import './chat.css';
 
 class ChatsIndex extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class ChatsIndex extends React.Component {
     return (
       <div>
         <h1>Messaging</h1>
-        <ul>
+        <ul className="chats">
           {chatsLis}
         </ul>
         <ul>
