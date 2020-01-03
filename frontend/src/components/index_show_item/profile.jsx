@@ -37,6 +37,7 @@ class Profile extends React.Component {
     } else {
       return <div className="edit-button"><Link to={`/profile/${this.props.currentUser.id}/edit`}>Edit</Link></div>
     }
+  }
   connectButton () {
     let connected = "Connect"
     const { profile, currentUser } = this.props
@@ -127,21 +128,8 @@ class Profile extends React.Component {
             </div>
                 {this.renderEditButton()}
           </div>
-              <div className="profile-info">
-                <div className="profile-name">
-                  {profile.first_name} {profile.last_name}
-                </div>
-                <div className="profile-location">{profile.location}</div>
-              </div>
-              <div>
-                <Link to="/profile/edit" profile={profile}>
-                  Edit
-                </Link>
-              </div>
-              
-              {this.connectButton()}
+        {this.connectButton()}
 
-          </div>
           <div className="about-div">
             <div className="about-inside">
               <h2>About</h2>
