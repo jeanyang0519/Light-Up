@@ -1,5 +1,6 @@
 import React from "react";
 import { fetchMessages, socket, createNewMessage } from "../../actions/chat_actions";
+import '../../stylesheets/chat.css';
 
 class Conversation extends React.Component {
   constructor(props) {
@@ -7,13 +8,17 @@ class Conversation extends React.Component {
     this.handleClick = this.handleClick.bind(this)
     this.newMessages = []
     this.state = {
-      newMessage: 0
+      newMessage: 0,
+      message: ''
     }
+
+    this.update = this.update.bind(this);
     
     socket.on("refresh messages", data => {
         this.newMessages.push(data)
         this.setState({
-          newMessage: this.state.newMessage + 1
+          newMessage: this.state.newMessage + 1,
+          message: ''
         })
         // console.log("I'm hearing it all")
       
@@ -25,22 +30,32 @@ class Conversation extends React.Component {
     e.preventDefault();
     const data = {
       chatId: this.props.chatId,
-      message: "it finally works"
+      message: this.state.message
     }
     this.props.createNewMessage(this.props.user.id, data).then(() => {
 
     })
+
+    
   }
 
+  update(message) {
+    return e => {
+      this.setState({ [message]: e.target.value })
+    }
+  }
+
+ 
+
   render() {
-      const { messages, user } = this.props
+    const { messages, currentUser } = this.props
       let allMessages = messages.concat(this.newMessages)
       const messageLis = allMessages.map(message => {
           return (
-              <li key={message._id}>
-                <h2>
+              <li className='msg-list' key={message._id}>
+                <div className='chat-sender-name'>
                 {message.sender.username}
-                </h2>
+                </div>
                 <p>
                 {message.message}
                 </p>
@@ -48,13 +63,21 @@ class Conversation extends React.Component {
           )
       })
     return (
-        <ul>
-            {messageLis}
+      <div className='msg-wrapper'>
+        <ul className='msg-list-all'>
+              {messageLis}
 
-            <button onClick={this.handleClick}>
-              New Message
-            </button>
+
         </ul>
+
+        <div className='msg-input-box'>
+          <input className='msg-input' type="text" placeholder="Write a message..." value={this.state.message} onChange={this.update('message')} />
+
+          <button className='send-button' onClick={this.handleClick}>
+            Send
+          </button>
+        </div>
+      </div>
     );
   }
 }

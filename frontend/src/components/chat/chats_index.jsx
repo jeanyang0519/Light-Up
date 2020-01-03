@@ -2,7 +2,7 @@ import React from 'react';
 import Chat from './chat';
 import { selectChatMessages } from '../../util/selectors';
 import Conversation from './conversation';
-import './chat.css';
+import '../../stylesheets/chat.css';
 
 class ChatsIndex extends React.Component {
   constructor(props) {
@@ -42,14 +42,18 @@ class ChatsIndex extends React.Component {
         );
       })
     return (
-      <div>
-        <h1>Messaging</h1>
-        <ul className="chats">
-          {chatsLis}
-        </ul>
-        <ul>
-            {this.state.conversation}
-        </ul>
+      <div className='chat-all'>
+        <div className='chat-index-all'>
+          <h1>Messaging</h1>
+          <div className='chat-index-box'>
+            <ul className="chats">
+              {chatsLis}
+            </ul>
+            <ul className='chats-conversation'>
+                {this.state.conversation}
+            </ul>
+          </div>
+        </div>
       </div>
     )
   }

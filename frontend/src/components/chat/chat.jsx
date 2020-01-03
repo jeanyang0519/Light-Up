@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../stylesheets/chat.css'
 
 import { socket, fetchChats, createNewMessage } from '../../actions/chat_actions';
 
@@ -49,9 +50,9 @@ class Chat extends React.Component {
     const { currentUser, chat, messages } = this.props
     if (!currentUser) return null
     return (
-      <div onClick={this.handleClick}>
-        <h2>{currentUser.username}</h2>
-        <h3>{currentUser.email}</h3>
+      <div className='chat-sender' onClick={this.handleClick}>
+        <div className='chat-sender-username'>{currentUser.username}</div>
+        
       </div>
     )
   }
