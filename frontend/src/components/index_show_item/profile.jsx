@@ -4,6 +4,12 @@ import '../../stylesheets/reset.css';
 
 class Profile extends React.Component {
 
+  constructor(props) {
+    super(props)
+
+    this.renderUserType = this.renderUserType.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.id);
   }
@@ -11,6 +17,14 @@ class Profile extends React.Component {
   componentDidUpdate(prev) {
     if (prev.match.params.id !== this.props.match.params.id) {
       this.props.fetchUser(this.props.match.params.id);
+    }
+  }
+
+  renderUserType() {
+    if (this.props.profile.userType === 'Mentor') {
+      return <div className='user-type-1'>{this.props.profile.userType}</div>
+    } else {
+      return <div className='user-type-2'>{this.props.profile.userType}</div>
     }
   }
 
@@ -24,13 +38,13 @@ class Profile extends React.Component {
         <section className="profile-body">
           <div className="main-content">
             
-            <div>
-              <div>Name{profile.first_name} {profile.last_name}</div>
-              <div>Location{profile.location}</div>
+            <div className='profile-info'>
+              <div className='profile-name'>Name{profile.first_name} {profile.last_name}</div>
+              <div className='profile-location'>Location{profile.location}</div>
             </div>
 
             <div className='main-content-right'>
-              {/* <div className='user-type'>{profile.userType}</div> */}
+              
               
               <button onClick={() => this.props.requestConnection({userId: this.props.currentUser.id, connectionId: profile._id})}> 
                 Connect
@@ -41,7 +55,8 @@ class Profile extends React.Component {
         <div className="about-div">
           <div className='about-inside'>
             <h2>About</h2>
-            <div className='user-type'>{profile.userType}</div>
+              {this.renderUserType()}
+            {/* <div className='user-type'>{profile.userType}</div> */}
           </div>
             <div>{profile.description}</div>
         </div>

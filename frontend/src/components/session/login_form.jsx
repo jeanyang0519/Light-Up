@@ -18,6 +18,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -57,6 +58,12 @@ class LoginForm extends React.Component {
     );
   }
 
+  handleDemoSubmit(e) {
+    e.preventDefault();
+    const user = { email: "john3@gmail.com", password: "password" }
+    this.props.login(user).then(this.props.history.push("/dashboard"));
+  }
+
   render() {
     return (
       <div className="login-all">
@@ -68,25 +75,12 @@ class LoginForm extends React.Component {
             <Link to="/" className='title'>Light Up</Link>
           </div>
           <div className="main-header-3">
-            {/* <Link className='log-in' to={'/login'}>Log in</Link> */}
+            
             <Link className="get-started" to={'/signup'}>Sign Up</Link>
           </div>
 
         </div>
-        {/* <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
-        <div className="login-header">
-          <div className="login-logo">
-            <Link to="/">
-              <img classroom="logo" src={Logo} alt="login-logo"/>
-              <h2>Light Up</h2>
-            </Link>
-          </div>
-          <div className="login-signup">
-            <Link to="/signup" >
-              Sign Up
-            </Link>
-          </div>
-        </div> */}
+        
         <form onSubmit={this.handleSubmit} className="login-form">
             <div className='login-form-wapper'>
               <div className='login-title'>Log In</div>
@@ -105,9 +99,14 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
               
-              {/* <div className="login-button"> */}
+              <div className="log-in-buttons">
                 <input type="submit" value="Submit" className="login-submit" />
-              {/* </div> */}
+                <div className="log-in-buttons-middle">
+                  <hr className="line" />
+                  <span className="or"> or</span>
+                </div>
+                <button className="login-submit" onClick={this.handleDemoSubmit}>Demo log in</button>
+              </div>
               {this.renderErrors()}
           </div>
         </form>

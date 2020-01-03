@@ -49,14 +49,14 @@ input:focus {
 .login-form-wapper {
  
   width: 60%;
-    grid-gap: 30px;
+    grid-gap: 40px;
     place-self: center;
     display: grid;
-    grid-template-rows: 2fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
 }
 
 .login-submit {
-      padding: 10px 20px;
+      /* padding: 10px 20px; */
     width: 100%;
     background-color: #3897f0;
     border: 1px solid #3897f0;
@@ -67,88 +67,31 @@ input:focus {
     cursor: pointer;
     justify-self: center;
     height: 40px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
-/* .login-header {
+.log-in-buttons {
   display: grid;
-  grid-template-rows: 70px auto;
-  grid-gap: 15px;  
-} */
-
-
-
-/* body {
-  margin: 0;
+  grid-gap: 10px;
 }
 
-.login-nav {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'Roboto', sans-serif;
-  height: 70px;
-  width: 100%;
-  align-items: center;
-  border: 1px solid gray;
-  position: fixed;
-  top: 0;  
+.log-in-buttons-middle {
+  display: grid;
 }
 
-.login-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+
+.or {
+        margin-top: -22px;
+    width: 32px;
+    background-color: white;
+    justify-self: center;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
 }
 
-.login-signup a {
-  text-decoration: none;
-  color: black;
-  font-size: 22px;
-  margin-right: 10px;
-}
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  width: 300px;
-  border: 1px solid gray;
-  margin: auto;
-  border-radius: 3px;
+.line {
+    
+    border-color: #ccc;
 }
-
-.field {
-  height: 20px;
-  width: 150px;
-  border: 1px solid gray;
-  padding: 5px;
-  margin: 5px 5px 20px 5px;
-}
-
-.login-button {
-  display: flex;
-  justify-content: center;
-}
-
-.login-button input {
-  width: 75px;
-  border: 1px solid gray;
-}
-
-.login-logo {
-  margin-left: 10px;
-}
-
-.login-logo img {
-  width: 60px;
-  height: 60px;
-}
-
-.login-logo a {
-  display: flex;
-  flex-direction: row;
-  text-decoration: none;
-  color: black;
-} */ 
