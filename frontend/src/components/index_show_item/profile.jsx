@@ -1,5 +1,5 @@
 import React from 'react';
-import './profile.css';
+
 import { Link } from 'react-router-dom';
 import '../../stylesheets/profile.css';
 import '../../stylesheets/reset.css';
@@ -44,7 +44,7 @@ class Profile extends React.Component {
               <div className='profile-name'>Name{profile.first_name} {profile.last_name}</div>
               <div className='profile-location'>Location{profile.location}</div>
             </div>
-              </div>
+              {/* </div> */}
                 <Link to="/profile/edit" profile={profile}>Edit</Link>
             </div>
             <ul>
@@ -61,7 +61,7 @@ class Profile extends React.Component {
         <button onClick={() => this.props.removeConnection({userId: this.props.currentUser.id, connectionId: profile.id})}> 
           Reject Connection
         </button> */}
-          </div>
+          {/* </div> */}
 
         <div className="about-div">
           <div className='about-inside'>
