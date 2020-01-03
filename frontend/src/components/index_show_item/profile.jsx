@@ -129,12 +129,6 @@ class Profile extends React.Component {
               {this.connectButton()}
 
           </div>
-              
-          <div className='profile-info'>
-            <div className='profile-name'>Name{profile.first_name} {profile.last_name}</div>
-            <div className='profile-location'>Location{profile.location}</div>
-            <Link to="/profile/edit" profile={profile}>Edit</Link>
-          </div>
           <div className="about-div">
             <div className="about-inside">
               <h2>About</h2>

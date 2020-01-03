@@ -97,7 +97,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    /* cursor: pointer; */
     justify-self: end;
     outline: none;
 }
@@ -112,7 +112,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    /* cursor: pointer; */
     justify-self: end;
     outline: none;
 }
