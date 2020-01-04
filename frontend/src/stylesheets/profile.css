@@ -15,9 +15,14 @@
   /* border: 1px solid red; */
 }
 
+.edit-button {
+  justify-self: end;
+    align-self: center;
+}
+
 .edit-button a {
  text-decoration: none;
-  display: flex;
+  
   justify-content: center;
   padding: 10px 20px;
   width: 30%;
@@ -38,19 +43,20 @@
 
 .main-content {
   display: grid;
-  /* grid-template-columns: repeat(2, auto); */
   
-  border-radius: 3px;
+  padding: 0 20px;
+  
   
 }
 
 .profile-info {
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 25px;
 }
 
 .profile-name {
   font-size: 70px;
+  align-self: center;
 }
 
 .profile-location {
@@ -192,9 +198,20 @@
   /* padding: 25px; */
 }
 
+.div-content {
+  padding: 15px 20px;
+}
+
 h2 {
   font-size: 20px;
   align-self: center;
 }
+
+.profile-info-1 {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+
 
 

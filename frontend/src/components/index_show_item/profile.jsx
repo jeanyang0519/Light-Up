@@ -36,7 +36,7 @@ class Profile extends React.Component {
     if (this.props.profile.id !== this.props.currentUser.id) {
     return null;
     } else {
-      return <div className="edit-button"><Link to={`/profile/${this.props.currentUser.id}/edit`}>Edit</Link></div>
+      return <div className="edit-button"><Link to={`/profile/${this.props.currentUser.id}/edit`}>Edit Profile</Link></div>
     }
   }
   connectButton () {
@@ -131,12 +131,14 @@ class Profile extends React.Component {
         <section className="profile-body">
           <div className="main-content">            
             <div className='profile-info'>
-              <div className='profile-name'>{profile.first_name} {profile.last_name}</div>
+              <div className="profile-info-1">
+                <div className='profile-name'>{profile.first_name} {profile.last_name}</div>
+                  {this.renderEditButton()}
+                  {this.connectButton()}
+              </div>
               <div className='profile-location'>{profile.location}</div>
             </div>
-                {this.renderEditButton()}
           </div>
-        {this.connectButton()}
 
           <div className="about-div">
             <div className="about-inside">
@@ -144,35 +146,35 @@ class Profile extends React.Component {
               {this.renderUserType()}
               {/* <div className='user-type'>{profile.userType}</div> */}
             </div>
-            <div>{profile.description}</div>
+            <div className='div-content'>{profile.description}</div>
           </div>
 
           <div className="skills-div">
             <div className="about-1">
               <h2>Skills</h2>
             </div>
-            <div>{profile.skills}</div>
+            <div className='div-content'>{profile.skills}</div>
           </div>
 
           <div className="interests-div">
             <div className="about-1">
               <h2>Interests</h2>
             </div>
-            <div>{profile.interests}</div>
+            <div className='div-content'>{profile.interests}</div>
           </div>
 
           <div className="interests-div">
             <div className="about-1">
               <h2>Connections</h2>
             </div>
-            <div>{connectionsLis}</div>
+            <div className='div-content'>{connectionsLis}</div>
           </div>
           {(profile.id !== this.props.currentUser.id) ? "" :
             <div className="interests-div">
               <div className="about-1">
                 <h2>Pending Connections</h2>
               </div>
-                <div>{pendingConnections}</div>
+              <div className='div-content'>{pendingConnections}</div>
             </div>
           }
         </section>
