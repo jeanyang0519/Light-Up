@@ -44,28 +44,14 @@ io.on('connection', (socket) => {
     console.log('User connected')
     socket.on('enter chat', chat => {
         socket.join(chat)
-        // console.log(`${chat.username} joined`);
     });
 
     socket.on("leave chat", chat => {
       socket.leave(chat);
-      // console.log(`${chat.username} left`);
     });
 
-    // socket.on("new message", chat => {
-    //   // io.sockets.in(chat).emit('refresh messages', chat);
-    //   // console.log("sending you a message for refresh")
-    //   // console.log(chat)
-    //   socket.emit("refresh messages", chat);
-    //   console.log(chat);
-    // });
-
     socket.on("new message", chat => {
-      // io.sockets.in(chat).emit('refresh messages', chat);
-      // console.log("sending you a message for refresh")
-      // console.log(chat)
       io.sockets.emit("refresh messages", chat);
-      // console.log(chat);
     });
 
     socket.on("disconnect", () => {

@@ -11,6 +11,7 @@ class Profile extends React.Component {
 
     this.renderUserType = this.renderUserType.bind(this);
     this.renderEditButton = this.renderEditButton.bind(this);
+    this.connectButton = this.connectButton.bind(this)
   }
 
   componentDidMount() {
@@ -40,27 +41,34 @@ class Profile extends React.Component {
   }
   connectButton () {
     let connected = "Connect"
+    let event = this.props.requestConnection
     const { profile, currentUser } = this.props
     let disabled = false
     if (!profile) return ""
-    const connections = currentUser.connections
+    const connections = this.props.currentUser.connections
     if (profile.id === currentUser.id) {
       return ""
     }
-    connections.map(connection => {
-      if ((connection.user === profile.id) && (connection.status === 2)) {
+    connections.forEach(connection => {
+      if ((connection.user._id === profile.id) && (connection.status === 2)) {
         connected = "Connected"
-      } else if (connection.user === profile.id && connection.status === 0) {
+        event = ""
+      } else if (connection.user._id === profile.id && connection.status === 0) {
         connected = "Pending"
-      } else if (connection.user === profile.id && connection.status === 1) {
+        event = ""
+      } else if (connection.user._id === profile.id && connection.status === 1) {
         connected = "Accept Request"
+        event = this.props.acceptConnection
       }
     })
     if (connected === "Pending" || connected === "Connected") {
       disabled = true
     }
     return (
-      <button className={(connected === "Accept Request") ? "Accept" : connected} 
+      <button onClick={(event !== "") ? ()=> event({
+                userId: currentUser.id,
+                connectionId: profile.id
+              }) : event} className={(connected === "Accept Request") ? "Accept" : connected} 
         disabled={disabled}>{connected}</button>
     )
   }
