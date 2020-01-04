@@ -41,8 +41,5 @@ export const createNewMessage = (userId, data) => dispatch => {
     return ChatUtil.createNewMessage(userId, data).then(res => {
         dispatch(receiveSingleMessage(res.data))
         socket.emit('new message', res.data)
-        // socket.on("refresh messages", data => {
-        //   this.props.fetchChats(data);
-        // });
     })
 }
