@@ -17,12 +17,6 @@
 	</strong>
 </p>
 
-<h1 align="center">
-  <img
-  alt="Profile Page"
-  src="app/assets/images/prof.png">
-</hi>
-
 ## Overview
 
 - **Create your profile.** Become a mentor, or mentee. Include your interests and skills and find other people that share the same ones!
