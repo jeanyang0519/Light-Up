@@ -4,7 +4,7 @@
 	<img
 		width="300"
 		alt="LightUp"
-		src="app/assets/images/logo.png">
+		src="frontend/src/stylesheets/idea.png">
 </h1>
 
 <h3 align="center">
