@@ -87,6 +87,7 @@ main {
   justify-self: center;
   height: 40px;
   outline: none;
+  margin: 10px;
 }
 
 .usertype button:focus {
