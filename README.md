@@ -3,7 +3,7 @@
 <h1 align="center">
 	<img
 		width="300"
-		alt="Couch9"
+		alt="LightUp"
 		src="app/assets/images/logo.png">
 </h1>
 
@@ -13,7 +13,7 @@
 
 <p align="center">
 	<strong>
-		<a href="https://couch9.herokuapp.com/">Couch9</a>
+		<a href="http://light--up.herokuapp.com/">Light Up</a>
 	</strong>
 </p>
 
