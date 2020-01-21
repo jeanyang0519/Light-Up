@@ -44,7 +44,9 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user).then(() => {
-      this.props.history.push("/dashboard");
+      if (this.props.errors.length === 0) {
+        this.props.history.push("/dashboard");
+      }
       this.setState({
         email: "",
         password: ""
@@ -54,12 +56,18 @@ class LoginForm extends React.Component {
     
   }
 
+  componentWillUnmount() {
+    if (this.props.errors.length > 0) {
+      this.props.clearErrors();
+    }
+  }
+
   renderErrors() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+      <ul className="login-errors">
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>

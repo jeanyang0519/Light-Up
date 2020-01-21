@@ -9,8 +9,10 @@
 .user-profile {
     text-decoration: none;
     color: black;
-
-
+}
+.connection-profile {
+    text-decoration: none;
+    color: black;
 }
 
 .user-wrapper {
@@ -34,6 +36,13 @@
     border-radius: 5px;
     background: cornsilk;
 }
+.each-connection {
+    margin: 20px;
+    /* border: 2px solid #ccc; */
+    padding: 50px;
+    border-radius: 5px;
+    background: cornsilk;
+}
 
 .each-user:hover {
     margin: 20px;
@@ -43,3 +52,4 @@
     background: #17479f;
     color: white;
 }
+

@@ -12,7 +12,8 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   )} />
 );
 
-const Protected = ({ component: Component, loggedIn, ...rest }) => (
+const Protected = ({ component: Component, loggedIn, ...rest }) => {
+  return (
   <Route
     {...rest}
     render={props =>
@@ -23,7 +24,7 @@ const Protected = ({ component: Component, loggedIn, ...rest }) => (
         )
     }
   />
-);
+  )};
 
 
 const mapStateToProps = state => (

@@ -91,22 +91,33 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     };
+    this.props.signup(user)
+    .then((e) => {
+      if (this.props.errors.length === 0) {
+        this.props.history.push("/dashboard");
+      }
+    });
+  }
 
-    this.props.signup(user, this.props.history)
-    .then(this.props.history.push("/dashboard"));
+  componentWillUnmount() {
+    if (this.props.errors.length > 0) {
+      this.props.clearErrors();
+    }
   }
 
   renderErrors() {
     return (
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+      <ul className="signup-errors">
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
     );
   }
+
+
 
   render() {
     return (
@@ -136,17 +147,19 @@ class SignupForm extends React.Component {
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
+              
             />
             <input
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="Username"
+              
             />
 
             <section className="user-type-select">
               <div className='signup-question'>Who are you?</div>
-              <div className="signup-buttons">
+              <div className="signup-buttons" >
                 <button type="button" onClick={this.updateMentor("userType")} id={this.state.selectedMentor === true ? "selected" : "mentor"} value="Mentor">
                   Mentor
                 </button>
@@ -161,6 +174,7 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
+              
             />
 
             <input
@@ -168,6 +182,7 @@ class SignupForm extends React.Component {
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
+              
             />
             <input className="signup-submit" type="submit" value="Submit" />
             {this.renderErrors()}

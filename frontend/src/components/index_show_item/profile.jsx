@@ -132,7 +132,7 @@ class Profile extends React.Component {
           <div className="main-content">            
             <div className='profile-info'>
               <div className="profile-info-1">
-                <div className='profile-name'>{profile.first_name} {profile.last_name}</div>
+                <div className='profile-name'>{!profile.first_name ? profile.username : profile.first_name} {profile.last_name}</div>
                   {this.renderEditButton()}
                   {this.connectButton()}
               </div>

@@ -6,8 +6,9 @@ import { fetchUsers, fetchUser } from '../../actions/user_actions';
 const mapStateToProps = (state) => {
   return {
     errors: state.errors.session,
-    currentUser: state.user,
-    users: Object.values(state.users)
+    currentUser: state.session.currentUser,
+    users: Object.values(state.users),
+    connections: Object.values(state.session.currentUser.connections)
   };
 };
 

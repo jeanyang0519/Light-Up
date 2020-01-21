@@ -168,3 +168,10 @@ h3 {
   color: black;
 }
 
+.signup-errors {
+  position: relative;
+  bottom: 1.2em;
+  color: red;
+  list-style: none;
+}
+

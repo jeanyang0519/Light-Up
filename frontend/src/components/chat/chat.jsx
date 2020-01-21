@@ -51,7 +51,7 @@ class Chat extends React.Component {
     if (!currentUser) return null
     return (
       <div className='chat-sender' onClick={this.handleClick}>
-        <div className='chat-sender-username'>{currentUser.username}</div>
+        <div className='chat-sender-username'>{this.props.chat.sender.username}</div>
         
       </div>
     )
