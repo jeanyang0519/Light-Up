@@ -7,10 +7,12 @@ export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
-export const receiveCurrentUser = currentUser => ({
-  type: RECEIVE_CURRENT_USER,
-  currentUser
-});
+export const receiveCurrentUser = currentUser => {
+  return {
+    type: RECEIVE_CURRENT_USER,
+    currentUser
+  }
+};
 
 export const receiveUserSignIn = (currentUser) => ({
   type: RECEIVE_USER_SIGN_IN,

@@ -9,26 +9,26 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 
 
-router.get(
-  "/current",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.json({
-      id: req.user._id,
-      username: req.user.username,
-      email: req.user.email,
-      first_name: user.first_name,
-      last_name: user.last_name,
-      userType: req.user.userType,
-      connections: req.user.connections,
-      date: req.user.date,
-      description: req.user.description,
-      location: req.user.location,
-      skills: req.user.skills,
-      interests: req.user.interests
-    });
-  }
-);
+// router.get(
+//   "/current",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     res.json({
+//       id: req.user._id,
+//       username: req.user.username,
+//       email: req.user.email,
+//       first_name: user.first_name,
+//       last_name: user.last_name,
+//       userType: req.user.userType,
+//       connections: req.user.connections,
+//       date: req.user.date,
+//       description: req.user.description,
+//       location: req.user.location,
+//       skills: req.user.skills,
+//       interests: req.user.interests
+//     });
+//   }
+// );
 
 router.get(
   "/",
@@ -118,6 +118,10 @@ router.post('/signup', (req, res) => { // create User
                     newUser.password = hash;
                     newUser
                     .save()
+                    .populate({
+                      path: "connections.user",
+                      select: "username first_name last_name"
+                    })
                     .then(user => {
                         const payload = {
                           id: user._id,
@@ -157,44 +161,49 @@ router.post("/login", (req, res) => { // create session
   const email = req.body.email;
   const password = req.body.password;
 
-  User.findOne({ email }).then(user => {
-    if (!user) {
-      return res.status(404).json({ email: "Wrong Email/Password combo" });
-    }
-
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (isMatch) {
-        const payload = {
-          id: user._id,
-          username: user.username,
-          email: user.email,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          userType: user.userType,
-          connections: user.connections,
-          date: user.date,
-          description: user.description,
-          location: user.location,
-          skills: user.skills,
-          interests: user.interests
-        };
-
-        jwt.sign(
-            payload,
-            keys.secretOrKey,
-            { expiresIn: 10800 },
-            (err, token) => {
-                res.json({
-                    sucess: true,
-                    token: `Bearer ${token}`
-                })
-            }
-        )
-      } else {
-        return res.status(422).json({ password: "Wrong Email/Password combo" });
+  User.findOne({ email })
+    .populate({
+      path: "connections.user",
+      select: "username first_name last_name"
+    })
+    .then(user => {
+      if (!user) {
+        return res.status(404).json({ email: "Wrong Email/Password combo" });
       }
+
+      bcrypt.compare(password, user.password).then(isMatch => {
+        if (isMatch) {
+          const payload = {
+            id: user._id,
+            username: user.username,
+            email: user.email,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            userType: user.userType,
+            connections: user.connections,
+            date: user.date,
+            description: user.description,
+            location: user.location,
+            skills: user.skills,
+            interests: user.interests
+          };
+
+          jwt.sign(
+              payload,
+              keys.secretOrKey,
+              { expiresIn: 10800 },
+              (err, token) => {
+                  res.json({
+                      sucess: true,
+                      token: `Bearer ${token}`
+                  })
+              }
+          )
+        } else {
+          return res.status(422).json({ password: "Wrong Email/Password combo" });
+        }
+      });
     });
-  });
 });
 
 
