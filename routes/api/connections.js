@@ -9,15 +9,15 @@ const User = require("../../models/User");
 const passport = require("passport");
 
 
-// router.get('/', (req, res) => {
-//     User.findOne({ _id: req.body.userId })
-//       .then(user => res.json(user))
-//       .catch(err =>
-//         res
-//           .status(404)
-//           .json({ noconnectionsfound: "No conections found" })
-//     );
-// })
+router.get('/', (req, res) => {
+    User.findOne({ _id: req.body.userId })
+      .then(user => res.json(user))
+      .catch(err =>
+        res
+          .status(404)
+          .json({ noconnectionsfound: "No conections found" })
+    );
+})
 
 router.post(
     '/requestConnection', 
@@ -65,13 +65,17 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     User.findOneAndUpdate(
-      { _id: req.body.userId },
-      { connections: { user: req.body.connectionId, status: 2 } }
+      { _id: req.body.userId, "connections.user": req.body.connectionId },
+      { 
+        $set: { "connections.$.status": 2}
+      }
     )
       .then(() => {
         User.findOneAndUpdate(
-          { _id: req.body.connectionId },
-          { connections: { user: req.body.userId, status: 2 } }
+          { _id: req.body.connectionId, "connections.user": req.body.userId },
+          { 
+            $set: {"connections.$.status": 2}
+          }
         )
           .then(() => res.json({ message: "Connection Accepted Sucessfully" }))
           .catch(err =>

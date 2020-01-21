@@ -71,7 +71,7 @@ export const requestConnection = data => dispatch => {
 };
 
 export const acceptConnection = data => dispatch => {
-  return ConnectionUtil.acceptConnection(data).then((data) => {
+  return ConnectionUtil.acceptConnection(data).then((res) => {
     dispatch(fetchCurrentUser(data.userId))
     dispatch(fetchUser(data.connectionId));
   }, err => {
