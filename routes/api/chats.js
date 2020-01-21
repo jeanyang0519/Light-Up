@@ -22,7 +22,6 @@ router.get(
   }
 );
 
-
 router.post(
   "/new/:userId",
   passport.authenticate("jwt", { session: false }),
