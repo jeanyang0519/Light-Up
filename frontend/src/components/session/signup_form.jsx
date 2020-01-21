@@ -91,22 +91,29 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     };
-
-    this.props.signup(user, this.props.history)
-    .then(this.props.history.push("/dashboard"));
+    // debugger
+    this.props.signup(user)
+    .then((e) => {
+      debugger
+      if (this.props.errors.length === 0) {
+        this.props.history.push("/dashboard");
+      }
+    });
   }
 
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
     );
   }
+
+
 
   render() {
     return (
@@ -136,17 +143,19 @@ class SignupForm extends React.Component {
               value={this.state.email}
               onChange={this.update("email")}
               placeholder="Email"
+              required
             />
             <input
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
               placeholder="Username"
+              required
             />
 
             <section className="user-type-select">
               <div className='signup-question'>Who are you?</div>
-              <div className="signup-buttons">
+              <div className="signup-buttons" required>
                 <button type="button" onClick={this.updateMentor("userType")} id={this.state.selectedMentor === true ? "selected" : "mentor"} value="Mentor">
                   Mentor
                 </button>
@@ -161,6 +170,7 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.update("password")}
               placeholder="Password"
+              required
             />
 
             <input
@@ -168,6 +178,7 @@ class SignupForm extends React.Component {
               value={this.state.password2}
               onChange={this.update("password2")}
               placeholder="Confirm Password"
+              required
             />
             <input className="signup-submit" type="submit" value="Submit" />
             {this.renderErrors()}

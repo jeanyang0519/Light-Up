@@ -22,7 +22,7 @@ const App = () => (
       <Route exact path="/" component={MainPage} />
       <Route path='/' component={NavBar} />
     </Switch>
-      <Route exact path="/dashboard" component={IndexContainer} />
+      <ProtectedRoute exact path="/dashboard" component={IndexContainer} />
       <Route exact path="/profile/:id" component={ProfileContainer} />
       <Route path="/chat" component={ChatIndexContainer}/>
       <Route path="/profile/:id/edit" component={EditProfileContainer} />
