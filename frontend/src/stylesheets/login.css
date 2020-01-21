@@ -95,3 +95,8 @@ input:focus {
     
     border-color: #ccc;
 }
+
+.login-errors {
+  list-style: none;
+  color: red;
+}

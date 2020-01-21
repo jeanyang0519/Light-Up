@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className="login-errors">
         {Object.keys(this.props.errors).map((error, i) => (
           <li key={`error-${i}`}>
             {this.props.errors[error]}
@@ -106,7 +106,6 @@ class LoginForm extends React.Component {
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="Email"
-                required
               />
               
               <input type="password"
@@ -114,7 +113,6 @@ class LoginForm extends React.Component {
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
-                required
               />
               
               <div className="log-in-buttons">
