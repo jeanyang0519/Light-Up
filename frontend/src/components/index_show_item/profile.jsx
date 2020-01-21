@@ -74,7 +74,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    debugger
     if (!this.props.profile) return null; 
     const profile = this.props.profile;
     const connections = this.props.profile.connections

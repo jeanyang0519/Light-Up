@@ -49,7 +49,6 @@ class Chat extends React.Component {
   render() {
     const { currentUser, chat, messages } = this.props
     if (!currentUser) return null
-    debugger
     return (
       <div className='chat-sender' onClick={this.handleClick}>
         <div className='chat-sender-username'>{this.props.chat.sender.username}</div>
