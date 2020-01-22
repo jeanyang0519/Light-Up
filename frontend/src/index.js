@@ -7,6 +7,7 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import io from 'socket.io-client';
 import { fetchChats, createNewMessage } from './actions/chat_actions';
+import { fetchCurrentUser } from './actions/user_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,13 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (localStorage.jwtToken) {
 
+    store = configureStore({})
     setAuthToken(localStorage.jwtToken);
 
     const decodedUser = jwt_decode(localStorage.jwtToken);
+    store.dispatch(fetchCurrentUser(decodedUser.id))
 
-    const preloadedState = { session: { isAuthenticated: true, currentUser: decodedUser } };
+    // const preloadedState = { session: { isAuthenticated: true, currentUser: decodedUser } };
 
-    store = configureStore(preloadedState);
+    // store = configureStore(preloadedState);
 
     const currentTime = Date.now() / 1000;
 

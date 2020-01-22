@@ -44,13 +44,13 @@ class Profile extends React.Component {
     let event = this.props.requestConnection
     const { profile, currentUser } = this.props
     let disabled = false
-    if (!profile) return ""
+    if (!profile || !this.props.currentUser.connections) return ""
     const connections = this.props.currentUser.connections
     if (profile.id === currentUser.id) {
       return ""
     }
     connections.forEach(connection => {
-      if ((connection.user._id === profile.id) && (connection.status === 2)) { 
+      if ((connection.user._id === profile.id) && (connection.status === 2)) {
         connected = "Connected"
         event = ""
       } else if (connection.user._id === profile.id && connection.status === 0) {
