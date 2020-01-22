@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Index from './index';
 import { fetchUsers, fetchUser } from '../../actions/user_actions';
+import { selectConnections } from '../../util/selectors';
 
 const mapStateToProps = (state) => {
   return {
