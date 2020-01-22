@@ -1,8 +1,6 @@
 import { RECEIVE_ALL_USERS, RECEIVE_SINGLE_USER } from '../actions/user_actions';
 
-const initialState = {
-  users: {}
-};
+const initialState = {};
 
 export default function (state = initialState, action) {
   Object.freeze(state);
