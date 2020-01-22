@@ -92,7 +92,7 @@ router.post(
 
 router.post(
   "/removeConnection",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
     User.findOneAndUpdate(
       { _id: req.body.userId },

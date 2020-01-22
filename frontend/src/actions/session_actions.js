@@ -19,10 +19,12 @@ export const receiveUserSignIn = (currentUser) => ({
   currentUser
 });
 
-export const receiveErrors = errors => ({
+export const receiveErrors = errors => {
+  return {
+
   type: RECEIVE_SESSION_ERRORS,
   errors
-});
+}};
 
 export const clearErrors = () => {
   return {

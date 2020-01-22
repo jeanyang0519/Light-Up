@@ -15,7 +15,6 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchUser(this.props.match.params.id);
   }
 
@@ -45,21 +44,16 @@ class Profile extends React.Component {
     let event = this.props.requestConnection
     const { profile, currentUser } = this.props
     let disabled = false
-    debugger
     if (!profile) return ""
     const connections = this.props.currentUser.connections
     if (profile.id === currentUser.id) {
       return ""
     }
-    debugger
     connections.forEach(connection => {
-      debugger
       if ((connection.user._id === profile.id) && (connection.status === 2)) {
-        debugger
         connected = "Connected"
         event = ""
       } else if (connection.user._id === profile.id && connection.status === 0) {
-        debugger
         connected = "Pending"
         event = ""
       } else if (connection.user._id === profile.id && connection.status === 1) {

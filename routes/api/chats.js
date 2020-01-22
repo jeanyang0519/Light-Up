@@ -33,6 +33,8 @@ router.post(
     const participants = req.body.participants;
 
     if (!isValid) {
+      console.log(errors)
+      console.log(!isValid)
       return res.status(422).json(errors);
     }
 

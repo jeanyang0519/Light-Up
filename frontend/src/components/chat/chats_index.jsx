@@ -2,6 +2,7 @@ import React from 'react';
 import Chat from './chat';
 import { selectChatMessages } from '../../util/selectors';
 import Conversation from './conversation';
+import CreateChatContainer from './create_chat_container';
 import '../../stylesheets/chat.css';
 
 class ChatsIndex extends React.Component {
@@ -12,6 +13,7 @@ class ChatsIndex extends React.Component {
         conversation: ""
     }
     this.handleMessages = this.handleMessages.bind(this);
+    this.handleChat = this.handleChat.bind(this);
   }
   componentDidMount() {
     const userId = this.props.currentUser.id
@@ -21,7 +23,14 @@ class ChatsIndex extends React.Component {
   handleMessages(user, messages, chatId) {
       this.setState({
         conversation: <Conversation user={user} messages={messages} chatId={chatId} createNewMessage={this.props.createNewMessage}/>
+        // conversation: <CreateChat createChat={this.props.createChat} user={user}/>
       })
+  }
+
+  handleChat() {
+    this.setState({
+      conversation: <CreateChatContainer />
+    })
   }
 
   render() {
@@ -46,6 +55,10 @@ class ChatsIndex extends React.Component {
         <div className='chat-index-all'>
           <h1>Messaging</h1>
           <div className='chat-index-box'>
+            <div className="start-chat-container">
+              <button className="start-chat" onClick={this.handleChat}>
+              </button>
+            </div>
             <ul className="chats">
               {chatsLis}
             </ul>

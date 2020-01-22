@@ -13,4 +13,6 @@ export const fetchMessages = chatId => {
   return axios.get(`api/chats/${chatId}/messages`);
 }
 
-
+export const createChat = (userId, data) => {
+  return axios.post(`api/chats/new/${userId}`, data);
+}

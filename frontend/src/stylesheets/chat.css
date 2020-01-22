@@ -125,3 +125,36 @@ h1 {
     border-right-style: hidden;
     border-left-style: hidden; */
 }
+
+
+
+/* start chat css */
+.start-chat-container {
+    position: absolute;
+}
+
+.start-chat {
+    background-image: url("./chat.png");
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 55px;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.chat-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-message {
+    resize: none;
+}
+
+.chat-form > button {
+    width: 10%;
+    align-self: flex-end;
+}
