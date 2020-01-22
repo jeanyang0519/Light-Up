@@ -12,7 +12,7 @@
   width: 800px;
   grid-template-rows: repeat(4, auto);
   grid-gap: 40px;
-  /* border: 1px solid red; */
+  
 }
 
 .edit-button {
@@ -73,7 +73,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    /* cursor: pointer; */
+    cursor: pointer;
     justify-self: end;
     outline: none;
 
@@ -88,7 +88,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    /* cursor: pointer; */
+    cursor: pointer;
     justify-self: end;
     outline: none;
 
@@ -97,8 +97,8 @@
 
 
 .Connect {
-  padding: 10px 20px;
-    width: 18%;
+    padding: 10px 20px;
+    /* width: 18%; */
     height: 42px;
     background-color: #17479f;
     border: 1px solid #17479f;
@@ -112,8 +112,8 @@
 }
 
 .Pending {
-  padding: 10px 20px;
-    width: 18%;
+    padding: 10px 20px;
+    /* width: 18%; */
     height: 42px;
     background-color: lightseagreen;
     border: 1px solid lightseagreen;
@@ -121,14 +121,14 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    /* cursor: pointer; */
+    cursor: pointer;
     justify-self: end;
     outline: none;
 }
 
 .Connected {
-  padding: 10px 20px;
-    width: 18%;
+    padding: 10px 20px;
+    /* width: 18%; */
     height: 42px;
     background-color: rgb(243, 153, 118);
     border: 1px solid rgb(243, 153, 118);
@@ -136,13 +136,13 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    /* cursor: pointer; */
+    cursor: pointer;
     justify-self: end;
     outline: none;
 }
 
 .Accept {
-  padding: 10px 20px;
+    padding: 10px 20px;
     width: 18%;
     height: 60px;
     background-color: lightskyblue;

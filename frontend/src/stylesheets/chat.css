@@ -44,7 +44,7 @@
 
 .msg-list {
     display: grid;
-    /* justify-self: start; */
+    
     grid-gap: 10px;
 }
 
@@ -121,14 +121,12 @@ h1 {
 
     border-style: hidden;
     
-    /* border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden; */
+    
 }
 
 
 
-/* start chat css */
+
 .start-chat-container {
     position: absolute;
 }
