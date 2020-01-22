@@ -3,6 +3,7 @@ import ChatsIndex from "./chats_index";
 import { fetchChats, fetchMessages, createNewMessage, createChat } from "../../actions/chat_actions";
 
 const mapStateToProps = (state, ownProps) => {
+  debugger
       return {
         errors: state.errors.session,
         currentUser: state.session.currentUser,

@@ -37,7 +37,9 @@ class ChatsIndex extends React.Component {
       const { currentUser, chats, fetchMessages, messages } = this.props
       if (!chats) return null
       const chatsLis = chats.map(chat => {
-          const chatMessages = selectChatMessages(messages, chat.chatId);
+        debugger
+          console.log(chat);
+          const chatMessages = selectChatMessages(messages, chat._id);
         return (
             <Chat
               key={chat._id}
@@ -57,6 +59,7 @@ class ChatsIndex extends React.Component {
           <div className='chat-index-box'>
             <div className="start-chat-container">
               <button className="start-chat" onClick={this.handleChat}>
+                <h1 className="start-chat-h1">Start Chat</h1>
               </button>
             </div>
             <ul className="chats">

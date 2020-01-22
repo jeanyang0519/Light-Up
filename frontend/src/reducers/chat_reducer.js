@@ -1,5 +1,6 @@
 import {
-  RECEIVE_CHATS
+  RECEIVE_CHATS,
+  RECEIVE_CHAT
 } from "../actions/chat_actions";
 
 export default (state = {}, action) => {
@@ -11,6 +12,8 @@ export default (state = {}, action) => {
         chats[chat._id] = chat;
       });
       return chats;
+    case RECEIVE_CHAT:
+      return Object.assign({}, state, { [action.chat._id]: action.chat})
     default:   
       return state;
   }

@@ -157,4 +157,15 @@ h1 {
 .chat-form > button {
     width: 10%;
     align-self: flex-end;
+    position: relative;
+}
+
+.start-chat-h1 {
+    position: absolute;
+    font-size: 13px;
+    padding: 0;
+    bottom: -20%;
+    width: max-content;
+    color: #17479F;
+    
 }
