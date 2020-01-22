@@ -19,8 +19,8 @@ class Index extends React.Component {
 
     const connected = this.props.users.filter(user => user.id in connections).map((connection, i) => {
       return (
-            <Link className='user-profile' to={`/profile/${connection.id}`} key={i}>
-              <li className='each-user' key={connection.id}>{connection.username}</li>
+            <Link className='user-profile-connected' to={`/profile/${connection.id}`} key={i}>
+              <li className='each-user-connected' key={connection.id}>{connection.username}</li>
             </Link>
           )
     });
@@ -35,17 +35,17 @@ class Index extends React.Component {
       return(
         
       <div className='index-all'>
-        <div className='connections-wrapper'>
+        <div className='wrapper'>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
-          <div className='connection'>
             <h1>Your Connections</h1>
+            <div className='user'>
             {connected}
           </div>
         </div>
-        <div className='user-wrapper'>
+        <div className='wrapper'>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+            <h1>Explore Your Connections</h1>
           <div className='user'>
-            <h1>People Near You?</h1>
             {notConnected}
           </div>
         </div>

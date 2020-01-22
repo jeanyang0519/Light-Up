@@ -4,23 +4,26 @@
     grid-template-rows: 10%;
     font-family: 'Open Sans', sans-serif;
     padding: 3% 0;
+    grid-template-rows: repeat(2, auto);
 }
 
 .user-profile {
     text-decoration: none;
     color: black;
 }
-.connection-profile {
+
+.user-profile-connected {
     text-decoration: none;
     color: black;
 }
 
-.user-wrapper {
-    display: grid;
-    /* place-self: center; */
+
+.wrapper {
+    display: grid; 
     padding: 0 10%;
-    /* background-color: rgb(252, 252, 252); */
 }
+
+
 
 .user {
     list-style-type: none;
@@ -31,25 +34,37 @@
 
 .each-user {
     margin: 20px;
-    /* border: 2px solid #ccc; */
-    padding: 50px;
-    border-radius: 5px;
-    background: cornsilk;
-}
-.each-connection {
-    margin: 20px;
-    /* border: 2px solid #ccc; */
     padding: 50px;
     border-radius: 5px;
     background: cornsilk;
 }
 
+
+
+
 .each-user:hover {
     margin: 20px;
-    /* border: 2px solid #ccc; */
+    
     padding: 50px;
     border-radius: 5px;
     background: #17479f;
+    color: white;
+}
+
+.each-user-connected {
+    margin: 20px;
+    
+    padding: 50px;
+    border-radius: 5px;
+    background: rgb(243, 153, 118);
+}
+
+.each-user-connected:hover {
+    margin: 20px;
+    
+    padding: 50px;
+    border-radius: 5px;
+    background: #57a3f7;
     color: white;
 }
 
