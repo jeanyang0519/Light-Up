@@ -44,11 +44,7 @@ class Profile extends React.Component {
     let event = this.props.requestConnection
     const { profile, currentUser } = this.props
     let disabled = false
-<<<<<<< HEAD
-    if (!profile) return ""
-=======
     if (!profile || !this.props.currentUser.connections) return ""
->>>>>>> a22de70787550a0178977afa331726b9497a0139
     const connections = this.props.currentUser.connections
     if (profile.id === currentUser.id) {
       return ""
