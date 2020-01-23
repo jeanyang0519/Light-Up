@@ -62,7 +62,7 @@ router.post(
 
             newMessage
               .save()
-              .then(() => res.json({ message: "Conversation Started" }))
+              .then((message) => res.json({message, chat}))
               .catch(err => res.status(422).json(err));
           })
           .catch(err => res.status(422).json(err));
@@ -105,25 +105,24 @@ router.get(
     Chat.find(
       {
         participants: req.params.userId
-      },
-      "_id"
+      }
     )
-      .then(chatIds => {
-        const chats = [];
-        chatIds.forEach(chat => {
-          Message.find({ chatId: chat._id })
-            .sort({ date: -1 })
-            .limit(1)
-            .populate({
-              path: "sender",
-              select: "username email"
-            })
-            .then(message => {
-              chats.push(...message);
-              if (chats.length === chatIds.length)
-                return res.json(chats);
-            });
-        });
+      .then(chats => {
+        // const chats = [];
+        // chatIds.forEach(chat => {
+        //   Message.find({ chatId: chat._id })
+        //     .sort({ date: -1 })
+        //     .limit(1)
+        //     .populate({
+        //       path: "sender",
+        //       select: "username email"
+        //     })
+        //     .then(message => {
+        //       chats.push(...message);
+        //       if (chats.length === chatIds.length)
+        //         return res.json(chats);
+        //     });
+        res.json(chats)
       })
       .catch(() => res.status(404).json({ nochats: "No Chats Found" }));
   }

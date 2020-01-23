@@ -7,25 +7,27 @@ class CreateChat extends React.Component {
         super(props)
         this.newMessages = []
         this.state = {
-            participants: [],
+            participants: {},
             message: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.selectOptions = this.selectOptions.bind(this);
+        this.optionClick = this.optionClick.bind(this);
     }
 
 
     handleSubmit(e) {
         e.preventDefault();
-
+        const participants = Object.keys(this.state.participants)
         const data = {
-            participants: (this.state.participants.length === 1) ? this.state.participants[0] : this.state.participants,
+            participants: (participants.length === 1) ? participants[0] : participants,
             message: this.state.message
         }
 
         this.props.createChat(this.props.currentUser.id, data).then(() => {
             this.setState({
-                participants: [],
+                participants: {},
                 message: ""
             });
         });
@@ -49,12 +51,46 @@ class CreateChat extends React.Component {
         );
     }
 
+    optionClick (e) {
+        e.preventDefault();
+        const options = e.currentTarget.children
+        // let selected = "";
+        // selected = "selected";
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].selected  === true && !(options[i].value in this.state.participants)) {
+                this.setState({
+                    participants: { ...this.state.participants, [options[i].value]: options[i].text } 
+                })
+            } else if (options[i].selected === true && options[i].value in this.state.participants) {
+                let currentParticipants = this.state.participants;
+                delete currentParticipants[options[i].value]
+                this.setState({
+                    participants: currentParticipants
+                })
+            }
+        }
+        // return selected;
+    }
+    selectOptions () {
+        let { connections } = this.props.currentUser
+        return connections.map((connection, i) => {
+            return (
+            <option value={connection.user._id} key={i} >{connection.user.username}</option>
+            )
+        })
+    }
+
+
 
 
     render() {
         return(
             <form onSubmit={this.handleSubmit} className="chat-form">
-                <input type="text" className="participants" onChange={this.update("participants")} placeholder="Type A Name or Multiple Names"/>
+                <select name="" id="" defaultValue="Select Connection" onChange={this.optionClick}>
+                    <option value="Select Connection" disabled>Select Connection</option>
+                    {this.selectOptions()}
+                </select>
+                <input type="text" disabled className="participants" onChange={this.update("participants")} value={Object.values(this.state.participants).join(", ")} placeholder="Select one or more names"/>
 
                 <textarea name="message" className="form-message" cols="30" rows="10" onChange={this.update("message")} placeholder="Enter Message"></textarea>
                 <button>
