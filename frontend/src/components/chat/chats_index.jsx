@@ -21,7 +21,6 @@ class ChatsIndex extends React.Component {
   }
 
   handleMessages(user, messages, chatId) {
-    debugger
       this.setState({
         conversation: <Conversation user={user} messages={messages} chatId={chatId} createNewMessage={this.props.createNewMessage}/>
         // conversation: <CreateChat createChat={this.props.createChat} user={user}/>
@@ -38,7 +37,6 @@ class ChatsIndex extends React.Component {
       const { currentUser, chats, fetchMessages, messages } = this.props
       if (!chats) return null
       const chatsLis = chats.map(chat => {
-        debugger
           console.log(chat);
           const chatMessages = selectChatMessages(messages, chat._id);
         return (

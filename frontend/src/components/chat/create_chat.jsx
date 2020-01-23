@@ -26,7 +26,6 @@ class CreateChat extends React.Component {
         }
 
         this.props.createChat(this.props.currentUser.id, data).then((chat) => {
-            debugger
             this.setState({
                 participants: {},
                 message: ""
