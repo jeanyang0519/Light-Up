@@ -88,9 +88,9 @@ class Profile extends React.Component {
       if (connection.status === 2) {
         return (
           <Link key={i} to={`/profile/${connection.user._id}`}>
-            <h1>
+            <h2>
               {fullname}
-            </h1>
+            </h2>
             <h2>
               {connection.user.username}
             </h2>

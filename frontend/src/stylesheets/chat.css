@@ -56,10 +56,11 @@
 .chat-index-all {
     display: grid;
     font-family: 'Open Sans', sans-serif;
-    padding: 5% 10%;
+    padding: 3% 10%;
     height: 80%;
     width: 60%;
     grid-template-rows: 8% auto;
+    grid-gap: 10px;
     justify-self: center;
     
 }
@@ -170,11 +171,16 @@ h1 {
 
 .chat-form {
     display: grid;
-    height: 100%;
+    padding: 30px 40px;
+    grid-gap: 30px;
 }
 
 .form-message {
-    resize: none;
+    /* resize: none; */
+    border: none;
+    border-radius: 3px;
+        padding: 20px;
+    font-size: 14px;
 }
 
 .chat-form > button {
@@ -188,5 +194,6 @@ h1 {
     font-size: 14px;
     cursor: pointer;
     justify-self: end;
+    align-self: center;
     outline: none;
 }
