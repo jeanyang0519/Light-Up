@@ -1,16 +1,16 @@
 .chats {
-    /* display: grid;
-    grid-template-rows: auto;
-    grid-gap: 30px; */
+    
     padding: 22%;
     display: grid;
 
     background: rgb(243, 153, 118);
-    /* grid-template-rows: 1%; */
+    grid-row-start: 1;
+    grid-column-start: 1;
 }
 
 .chats-conversation {
     border-left: 1px solid #ccc;
+    display: grid;
 }
 
 .chat-sender {
@@ -50,13 +50,14 @@
 
 .chat-all {
     display: grid;
+    height: 100vh;
 }
 
 .chat-index-all {
     display: grid;
     font-family: 'Open Sans', sans-serif;
     padding: 5% 10%;
-    height: 100vh;
+    height: 80%;
     width: 60%;
     grid-template-rows: 8% auto;
     justify-self: center;
@@ -79,7 +80,8 @@
 h1 {
         font-size: 26px;
     padding: 20px;
-    color: #17479f
+    color: #17479f;
+    align-self: center;
 }
 
 .send-button {
@@ -125,27 +127,50 @@ h1 {
 }
 
 
-
-
-.start-chat-container {
-    position: absolute;
+.testit {
+    display: grid;
 }
 
+.start-chat-container {
+    
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 13px;
+    justify-self: center;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    z-index: 10;
+    height: 50px;
+    padding: 30px 0;
+}
+
+.start-chat-container p {
+    font-size: 19px;
+    color: white;
+    font-weight: 700;
+    align-self: center;
+}
+
+
+
 .start-chat {
-    background-image: url("./chat.png");
+    background-image: url("./add.png");
     background-repeat: no-repeat;
-    height: 55px;
-    width: 55px;
+    
+    width: 37px;
     background-size: contain;
     background-color: transparent;
     border: none;
     cursor: pointer;
     outline: none;
+    background-position: center;
 }
 
+
+
 .chat-form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    height: 100%;
 }
 
 .form-message {
@@ -153,6 +178,15 @@ h1 {
 }
 
 .chat-form > button {
-    width: 10%;
-    align-self: flex-end;
+    padding: 10px 20px;
+    height: 42px;
+    background-color: #17479f;
+    border: 1px solid #17479f;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    justify-self: end;
+    outline: none;
 }

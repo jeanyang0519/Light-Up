@@ -73,7 +73,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    
     justify-self: end;
     outline: none;
 
@@ -88,7 +88,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    
     justify-self: end;
     outline: none;
 
@@ -98,7 +98,7 @@
 
 .Connect {
     padding: 10px 20px;
-    /* width: 18%; */
+    align-self: center;
     height: 42px;
     background-color: #17479f;
     border: 1px solid #17479f;
@@ -106,14 +106,14 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    
     justify-self: end;
     outline: none;
 }
 
 .Pending {
     padding: 10px 20px;
-    /* width: 18%; */
+    align-self: center;
     height: 42px;
     background-color: lightseagreen;
     border: 1px solid lightseagreen;
@@ -121,14 +121,14 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    
     justify-self: end;
     outline: none;
 }
 
 .Connected {
     padding: 10px 20px;
-    /* width: 18%; */
+    align-self: center;
     height: 42px;
     background-color: rgb(243, 153, 118);
     border: 1px solid rgb(243, 153, 118);
@@ -136,22 +136,22 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    
     justify-self: end;
     outline: none;
 }
 
 .Accept {
     padding: 10px 20px;
-    width: 18%;
+    align-self: center;
     height: 60px;
-    background-color: lightskyblue;
-    border: 1px solid lightskyblue;
+    background-color: #57a3f7;
+    border: 1px solid #57a3f7;
     color: #fff;
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    cursor: pointer;
+    
     justify-self: end;
     outline: none;
 }
@@ -164,7 +164,7 @@
 .about-div {
   border-radius: 3px;
   border: 2px solid rgb(255, 212, 176);
-  /* padding: 25px; */
+  
 }
 
 .about-1 {
@@ -187,7 +187,7 @@
 .skills-div {
   border-radius: 3px;
   border: 2px solid rgb(255, 212, 176);
-  /* padding: 25px; */
+  
 }
 
 
@@ -199,6 +199,11 @@
 }
 
 .div-content {
+  padding: 15px 20px;
+  display: grid;
+}
+
+.pending-content {
   padding: 15px 20px;
 }
 
@@ -212,6 +217,9 @@ h2 {
   grid-template-columns: repeat(2, auto);
 }
 
-
+.pending-button {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
 
 

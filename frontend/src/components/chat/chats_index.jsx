@@ -55,10 +55,12 @@ class ChatsIndex extends React.Component {
         <div className='chat-index-all'>
           <h1>Messaging</h1>
           <div className='chat-index-box'>
+            
             <div className="start-chat-container">
-              <button className="start-chat" onClick={this.handleChat}>
-              </button>
+              <button className="start-chat" onClick={this.handleChat}></button>
+              <p>Start a Chat</p>
             </div>
+            
             <ul className="chats">
               {chatsLis}
             </ul>

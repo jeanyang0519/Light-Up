@@ -105,24 +105,25 @@ class Profile extends React.Component {
       }if (connection.status === 1) {
         return (
           <Link key={i} to={`/profile/${connection.user._id}`}>
-            <h1>
+            <p>
               {fullname}
-            </h1>
-            <h2>{connection.user.username}</h2>
-            <button
-              onClick={() => this.props.acceptConnection({
-                userId: this.props.currentUser.id,
-                connectionId: connection.user._id
-              })}
-            >
-              Accept Connection
-            </button>
-            <button onClick={() =>
-              this.props.removeConnection({
-                userId: this.props.currentUser.id,
-                connectionId: connection.user._id
-              })
-            }>Reject Connection</button>
+            </p>
+            <div className='pending-button'>
+              <p>{connection.user.username}</p>
+              <button
+                onClick={() => this.props.acceptConnection({
+                  userId: this.props.currentUser.id,
+                  connectionId: connection.user._id
+                })}
+              >Accept Connection</button>
+            
+              <button onClick={() =>
+                this.props.removeConnection({
+                  userId: this.props.currentUser.id,
+                  connectionId: connection.user._id
+                })
+              }>Reject Connection</button>
+            </div>
           </Link>
         );
       }
@@ -179,7 +180,7 @@ class Profile extends React.Component {
               <div className="about-1">
                 <h2>Pending Connections</h2>
               </div>
-              <div className='div-content'>{pendingConnections}</div>
+              <div className='pending-content'>{pendingConnections}</div>
             </div>
           }
         </section>

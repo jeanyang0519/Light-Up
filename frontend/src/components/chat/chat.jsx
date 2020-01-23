@@ -9,12 +9,7 @@ class Chat extends React.Component {
     super(props);
     
 
-    // socket.on("refresh messages", data => {
-    //   // socket.emit("I'm going to refresh", {hello: 'world'})
-    //   // console.log();
-    //   // fetch chat needs to go on chat_container
-    //   console.log(data)
-    // });
+    
 
 
     this.handleClick = this.handleClick.bind(this)
