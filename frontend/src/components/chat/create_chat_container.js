@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         errors: state.errors.session,
         currentUser: state.session.currentUser,
+        messages: Object.values(state.conversations.messages)
     };
 };
 

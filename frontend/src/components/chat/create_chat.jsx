@@ -25,11 +25,13 @@ class CreateChat extends React.Component {
             message: this.state.message
         }
 
-        this.props.createChat(this.props.currentUser.id, data).then(() => {
+        this.props.createChat(this.props.currentUser.id, data).then((chat) => {
+            debugger
             this.setState({
                 participants: {},
                 message: ""
             });
+            this.props.handleMessages(this.props.currentUser, this.props.messages, chat._id)
         });
     };
 
