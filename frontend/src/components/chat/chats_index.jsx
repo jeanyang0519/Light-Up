@@ -29,7 +29,7 @@ class ChatsIndex extends React.Component {
 
   handleChat() {
     this.setState({
-      conversation: <CreateChatContainer />
+      conversation: <CreateChatContainer handleMessages={this.handleMessages}/>
     })
   }
 
@@ -37,7 +37,6 @@ class ChatsIndex extends React.Component {
       const { currentUser, chats, fetchMessages, messages } = this.props
       if (!chats) return null
       const chatsLis = chats.map(chat => {
-        debugger
           console.log(chat);
           const chatMessages = selectChatMessages(messages, chat._id);
         return (

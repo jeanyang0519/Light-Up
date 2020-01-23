@@ -48,10 +48,9 @@ class Conversation extends React.Component {
  
 
   render() {
-    debugger
     const { messages, currentUser } = this.props
       let allMessages = messages.concat(this.newMessages)
-      const messageLis = allMessages.map(message => {
+      const messageLis = allMessages.filter(message => message.chatId === this.props.chatId).map(message => {
           return (
               <li className='msg-list' key={message._id}>
                 <div className='chat-sender-name'>
