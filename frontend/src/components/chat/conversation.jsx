@@ -109,7 +109,7 @@ class Conversation extends React.Component {
           <button className="send-button" onClick={this.handleClick}>
             Send
           </button>
-          <button onClick={this.handleLeaveChat}>Leave Chat</button>
+          <button className="delete-button" onClick={this.handleLeaveChat}>Delete Chat</button>
         </div>
       </div>
     );

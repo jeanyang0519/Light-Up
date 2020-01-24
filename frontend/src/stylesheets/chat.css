@@ -133,6 +133,18 @@ h1 {
     align-self: center;
 }
 
+.delete-button {
+   font-size: 14px;
+    cursor: pointer;
+    justify-self: end;
+    outline: none;
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    align-self: start;
+    padding: 0;
+}
+
 .msg-wrapper {
     display: grid;
     

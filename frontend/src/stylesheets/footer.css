@@ -10,12 +10,12 @@
 
 .footer {
     /* border: 1px solid gray; */
-    height: 200px;
+    height: 150px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: #2f4f4f6e;
+    background-color: rgb(243, 153, 118);
 }
 
 .person {
