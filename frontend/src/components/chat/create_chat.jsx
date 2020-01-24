@@ -30,7 +30,11 @@ class CreateChat extends React.Component {
                 participants: {},
                 message: ""
             });
-            this.props.handleMessages(this.props.currentUser, this.props.messages, chat._id)
+            // debugger
+            if (this.props.errors.length === 0) {
+                
+                this.props.handleMessages(this.props.currentUser, this.props.messages, chat._id)
+            }
         });
     };
 

@@ -45,7 +45,7 @@ class Conversation extends React.Component {
   }
 
 	scrollToBottom = () => {
-    debugger
+    
 		this.mesRef.current.scrollTop = this.mesRef.current.scrollHeight;
 	};
 

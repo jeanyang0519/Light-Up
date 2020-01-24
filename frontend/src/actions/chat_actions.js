@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 import * as ChatUtil from '../util/chat_api_util'
-import { receiveErrors } from './session_actions';
+import { receiveErrors, clearErrors } from './session_actions';
 export const RECEIVE_CHATS = "RECEIVE_CHATS";
 export const RECEIVE_CHAT = "RECEIVE_CHAT"
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
@@ -54,9 +54,13 @@ export const createNewMessage = (userId, data) => dispatch => {
 export const createChat = (userId, data) => dispatch => {
 
   return ChatUtil.createChat(userId, data).then(res => {
-
+    dispatch(clearErrors())
     dispatch(receiveChat(res.data.chat))
     dispatch(receiveSingleMessage(res.data.message))
+    // debugger
     return res.data.chat
-  }, err => {dispatch(receiveErrors(err.response.data))})
+  }, err => {
+    // debugger
+    dispatch(receiveErrors(err.response.data))
+  })
 }
