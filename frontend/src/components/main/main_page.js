@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../stylesheets/idea.png';
 import '../../stylesheets/greeting.css';
-import Background from '../../stylesheets/background.png';
+import Background from '../../stylesheets/lightup.png';
 
 
 class MainPage extends React.Component {
@@ -23,16 +23,25 @@ class MainPage extends React.Component {
           
         </div>
        <div className='background-container'>
-          <img className='background' src={Background}/>
           {/* <div className='slogan-all'> */}
-            <div className='slogan'>
-              Brighten
-              <br/>
-              Your Future
+          <div className="slogan-container">
+            <div>
+              <img className='background' src={Background}/>
             </div>
-            <div className='sub-slogan'>
-              A mentorship community for students to connect over shared interests and goals. 
+
+            <div className="slogans">
+
+            
+                <div className='slogan'>
+                  Brighten
+                  <br/>
+                  Your Future
+                </div>
+                <div className='sub-slogan'>
+                  A mentorship community for students to connect over shared interests and goals. 
+                </div>
             </div>
+          </div>
           {/* </div> */}
         </div>
       </div>
