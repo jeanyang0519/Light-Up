@@ -27,7 +27,7 @@ module.exports = function validateRegisterInput(data) {
   }
 
   if (Validator.isEmpty(data.userType)) {
-    errors.userType = "User Type must be selected"
+    errors.userType = "Select Mentor or Mentee"
   }
 
   if (Validator.isEmpty(data.password)) {
