@@ -18,6 +18,7 @@ class Index extends React.Component {
 
 
     const connected = this.props.users.filter(user => user.id in connections).map((connection, i) => {
+      
       return (
             <Link className='user-profile-connected' to={`/profile/${connection.id}`} key={i}>
               <li className='each-user-connected' key={connection.id}>{connection.username}</li>
@@ -32,25 +33,54 @@ class Index extends React.Component {
         )
       });;
 
-      return(
+     
+
+        if (connected.length === 0) {
+          return (
+
+            <div className='index-all'>
+              <div className='wrapper'>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+                <h1>Your Connections</h1>
+                <div>
+                  Expand your network. Be brave!
+            </div>
+              </div>
+              <div className='wrapper'>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+                <h1>Explore Your Connections</h1>
+                <div className='user'>
+                  {notConnected}
+                </div>
+              </div>
+            </div>
+          )
+          
+        } else {
+
+          return (
+
+            <div className='index-all'>
+              <div className='wrapper'>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+                <h1>Your Connections</h1>
+                <div className='user'>{connected}</div>
+              </div>
+              <div className='wrapper'>
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+                <h1>Explore Your Connections</h1>
+                <div className='user'>
+                  {notConnected}
+                </div>
+              </div>
+            </div>
+          )
+        }
         
-      <div className='index-all'>
-        <div className='wrapper'>
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
-            <h1>Your Connections</h1>
-            <div className='user'>
-            {connected}
-          </div>
-        </div>
-        <div className='wrapper'>
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
-            <h1>Explore Your Connections</h1>
-          <div className='user'>
-            {notConnected}
-          </div>
-        </div>
-      </div>
-    )
+      
+
+
+      
   }
 
 

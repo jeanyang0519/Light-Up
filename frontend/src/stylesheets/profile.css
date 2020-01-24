@@ -204,7 +204,9 @@
 }
 
 .pending-content {
-  padding: 15px 20px;
+      padding: 15px 20px;
+    display: grid;
+    grid-gap: 15px;
 }
 
 h2 {
@@ -219,28 +221,67 @@ h2 {
 
 .pending-button {
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-gap: 20px;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
 }
 
-
-.pending-button > button {
+.pending-button > div {
+      place-self: center;
+    width: 100%;
+    /* width: 309px; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.accept-button {
   padding: 10px 20px;
-    
-    /* height: 42px; */
-    background-color: #17479f;
+  /* background-color: #17479f; */
+  border: 1px solid #17479f;
+  color: #17479f;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  border-right: none;
+}
+
+.reject-button {
+    padding: 10px 20px;
+    /* background-color: #17479f; */
     border: 1px solid #17479f;
-    color: #fff;
+    color: #17479f;
     font-weight: bold;
-    border-radius: 3px;
     font-size: 14px;
     cursor: pointer;
-    
     outline: none;
 }
 
+
+.reject-button:hover {
+  background-color: #17479F;
+  color: white;
+}
+
+.accept-button:hover {
+  background-color: #17479F;
+  color: white;
+}
+
 .pending-button > p {
-  align-self: center;
+   place-self: center;
+    /* color: black; */
+    padding: 10px 0px;
+    background-color: #17479f;
+    border: 1px solid #17479f;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    /* border-right: none; */
+    width: 55%;
+    text-align: center;
+    border-radius: 12px;
+    height: 20px;
 }
 
 a {
