@@ -132,10 +132,6 @@ router.post('/signup', (req, res) => { // create User
                     newUser.password = hash;
                     newUser
                     .save()
-                    .populate({
-                      path: "connections.user",
-                      select: "username first_name last_name"
-                    })
                     .then(user => {
                         const payload = {
                           id: user._id,
