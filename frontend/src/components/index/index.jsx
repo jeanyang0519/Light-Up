@@ -33,31 +33,6 @@ class Index extends React.Component {
         )
       });;
 
-<<<<<<< HEAD
-    return (
-      <div className="index-all">
-        <div className="wrapper">
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-            rel="stylesheet"
-          ></link>
-          <h1>Your Connections</h1>
-          {connected.length === 0 ? (
-            <div className="noconnection-msg">
-              Expand your network. Be brave!
-            </div>
-          ) : (
-            <div className="user">{connected}</div>
-          )}
-        </div>
-        <div className="wrapper">
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-            rel="stylesheet"
-          ></link>
-          <h1>Find Connections</h1>
-          <div className="user">{notConnected}</div>
-=======
       return (
         <div className="index-all">
           <div className="wrapper">
@@ -84,7 +59,6 @@ class Index extends React.Component {
             <h1>Find Connections</h1>
             <div className="user">{notConnected}</div>
           </div>
->>>>>>> fa9074c6fccd0473a38b506e997f5a5e1894db0e
         </div>
       </div>
     );
