@@ -251,13 +251,14 @@ a {
   background: rgb(243, 153, 118);
   padding: 20px;
   border-radius: 12px;
-  margin: 10px;
+  
   color: black;
   text-align: center;
 }
 
 .profile-connection-each-user:hover {
   background: #57a3f7;
+  color: white;
 }
 
 .connection-content {

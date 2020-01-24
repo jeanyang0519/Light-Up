@@ -90,7 +90,7 @@ class Conversation extends React.Component {
         </ul>
 
         <div className='msg-input-box'>
-          <input className='msg-input' type="text" placeholder="Write a message..." value={this.state.message} onChange={this.update('message')} />
+          <textarea className='msg-input' type="text" placeholder="Write a message..." value={this.state.message} onChange={this.update('message')} />
 
           <button className='send-button' onClick={this.handleClick}>
             Send

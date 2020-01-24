@@ -1,11 +1,14 @@
 .chats {
     
-    padding: 100px 22% 0;
+       padding-top: 100px;
     display: grid;
     background: rgb(243, 153, 118);
     grid-row-start: 1;
     grid-column-start: 1;
     text-align: center;
+    grid-template-rows: repeat(10, 40px);
+    grid-gap: 21px;
+    padding: 100px 20px 0;
 }
 
 .chats-conversation {
@@ -13,14 +16,35 @@
     display: grid;
 }
 
-.chat-sender {
-    display: grid;
+/* .chat-sender {
+        display: grid;
+    border-radius: 30px;
+    border: cornsilk solid;
+    color: cornsilk;
     
+    height: 41px;
+} */
+
+.chat-sender-username:hover {
+    background-color: cornsilk;
+    color: #17479f;
 }
+.chat-sender-username:focus {
+    background-color: cornsilk;
+    color: #17479f;
+}
+
 
 .chat-sender-username {
     font-size: 20px;
     font-weight: bold;
+    place-self: center;
+    display: grid;
+    border-radius: 30px;
+    border: cornsilk solid;
+    color: cornsilk;
+    grid-gap: 5px;
+    padding: 10px;
 }
 
 .msg-list-all {
@@ -30,9 +54,9 @@
     float:left;
     width:70%;
     overflow-y: auto;
-    height: 600px;
+    max-height: 380px;
     justify-self: center;
-    
+    grid-template-rows: repeat(7, 41px);
 }
 
 .chats-conversation::-webkit-scrollbar {
@@ -58,8 +82,7 @@
     display: grid;
     font-family: 'Open Sans', sans-serif;
     padding: 3% 10%;
-    height: 80%;
-    width: 60%;
+    
     grid-template-rows: 8% auto;
     grid-gap: 10px;
     justify-self: center;
@@ -68,7 +91,7 @@
 
 .chat-index-box {
     display: grid;
-    grid-template-columns: 1fr 2fr;;
+    grid-template-columns: 250px 500px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: cornsilk;
@@ -100,30 +123,30 @@ h1 {
     cursor: pointer;
     justify-self: end;
     outline: none;
+    align-self: center;
 }
 
 .msg-wrapper {
     display: grid;
-    grid-gap: 25px;
-    padding: 8% 0;
+    
+    padding-top: 8%;
+    grid-template-rows: 2fr 1fr;
 }
 
 .msg-input-box {
     display: grid;
     width: 80%;
     justify-self: center;
-    grid-gap: 27px;
-
-    padding: 30px 0 0;
+    
+    padding: 10px 0 0;
 }
 
 .msg-input {
-    height: 54px;
+    
     border-radius: 5px;
-    padding: 0 25px;
+    padding: 15px;
     outline: none;
     font-size: 14px;
-
     border-style: hidden;
     
     
@@ -173,8 +196,9 @@ h1 {
 
 .chat-form {
     display: grid;
-    padding: 30px 40px;
+    padding: 0 40px;
     grid-gap: 30px;
+    align-self: center;
 }
 
 .form-message {
@@ -202,11 +226,13 @@ h1 {
 }
 
 select {
-    border: none;
+        border: none;
     background: white;
     outline: none;
     color: rgb(84, 84, 84);
     font-size: 14px;
+    height: 35px;
+    border-radius: 3px;
 }
 
 select > option {
@@ -214,4 +240,16 @@ select > option {
     background: white;
     color: rgb(84, 84, 84);
     font-size: 14px;
+}
+
+.participants {
+        height: 35px;
+    padding: 0 10px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 0;
+    border-style: hidden;
+    background: none;
+    border-bottom: 1.5px solid gray;
+    align-self: center;
 }
