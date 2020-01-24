@@ -196,7 +196,7 @@ class Profile extends React.Component {
           {(profile.id !== this.props.currentUser.id) ? "" :
             <div className="interests-div">
               <div className="about-1">
-                <h2>Pending Connections</h2>
+                <h2>Incoming Connections</h2>
               </div>
               <div className='pending-content'>{pendingConnections}</div>
             </div>
