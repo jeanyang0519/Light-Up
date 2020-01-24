@@ -13,6 +13,9 @@ class Conversation extends React.Component {
     }
 
     this.update = this.update.bind(this);
+    this.mesRef = React.createRef();
+    debugger
+    this.scrollToBottom = this.scrollToBottom.bind(this);
     
     socket.on("refresh messages", data => {
         this.newMessages.push(data)
@@ -25,6 +28,15 @@ class Conversation extends React.Component {
     });
   }
 
+  componentDidMount() {
+		this.scrollToBottom();
+	}
+
+	scrollToBottom = () => {
+    debugger
+		this.mesRef.current.scrollTop = this.mesRef.current.scrollHeight;
+	};
+
 
   handleClick(e) {
     e.preventDefault();
@@ -33,7 +45,7 @@ class Conversation extends React.Component {
       message: this.state.message
     }
     this.props.createNewMessage(this.props.user.id, data).then(() => {
-
+      this.scrollToBottom();
     })
 
     
@@ -65,7 +77,7 @@ class Conversation extends React.Component {
       })
     return (
       <div className='msg-wrapper'>
-        <ul className='msg-list-all'>
+        <ul className='msg-list-all' ref={this.mesRef}>
               {messageLis}
 
 
