@@ -11,6 +11,7 @@ import NavBar from '../components/nav/navbar_container';
 
 import ChatIndexContainer from './chat/chats_index_container';
 import EditProfileContainer from '../components/index_show_item/edit_profile_container';
+import Footer from './footer/footer';
 
 
 
@@ -26,6 +27,7 @@ const App = () => (
       <Route exact path="/profile/:id" component={ProfileContainer} />
       <Route path="/chat" component={ChatIndexContainer}/>
       <Route path="/profile/:id/edit" component={EditProfileContainer} />
+      <Route path='/' component={Footer} />
 
   </div>
 );
