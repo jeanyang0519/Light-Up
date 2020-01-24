@@ -75,6 +75,7 @@
     align-items: center;
     border-radius: 3px;
     cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -83,6 +84,7 @@
     text-decoration: none;
     font-size: 18px;
     place-self: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -114,6 +116,7 @@
     text-align: left;
     line-height: 122%;
     text-shadow: 10px 2px rgb(255, 243, 194);
+    font-family: 'Open Sans', sans-serif;
 }
 
 .slogans {
@@ -130,6 +133,8 @@
     width: 350px;
     height: 500px;
     line-height: 142%;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 /* 
