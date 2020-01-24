@@ -79,11 +79,11 @@ class Profile extends React.Component {
                   connectionId: profile.id
                 }) : event} className={(connected === "Accept Request") ? "Accept" : connected} 
           disabled={disabled}>{connected}</button>
-        {connected === "Connected" ? <button onClick={() => this.props.removeConnection({
+        {connected === "Connected" ? <button className='Disconnect' onClick={() => this.props.removeConnection({
           userId: this.props.currentUser.id,
           connectionId: profile.id
         })}>
-          Remove Connection
+          Disconnect
         </button> : ""}
       </>
     )
@@ -157,7 +157,7 @@ class Profile extends React.Component {
               {this.renderEditButton()}
               </div>
               <div className='user-info-detail'>
-                <img src={place} alt=""/>
+                {profile.location ? <img src={place} alt=""/> : ''}
                 {profile.location}
               </div>
                   {this.renderUserType()}
