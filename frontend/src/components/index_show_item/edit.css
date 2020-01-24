@@ -13,6 +13,8 @@ main {
   padding-bottom: 10em;
 }
 
+
+
 .form-container input {
   height: 45px;
   width: 300px;
@@ -25,7 +27,6 @@ main {
   border-left-style: hidden;
   margin-top: 20px;
 }
-
 
 
 @media screen and (max-width: 1600px) {

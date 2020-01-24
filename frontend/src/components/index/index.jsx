@@ -33,8 +33,6 @@ class Index extends React.Component {
         )
       });;
 
-     
-
       return (
         <div className="index-all">
           <div className="wrapper">

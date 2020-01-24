@@ -147,16 +147,17 @@ class Profile extends React.Component {
                 <div className='profile-name'>{!profile.first_name ? profile.username : profile.first_name} {profile.last_name}</div>
                   {this.renderEditButton()}
                   {this.connectButton()}
+                {this.renderUserType()}
               </div>
               <div className='profile-location'>{profile.location}</div>
             </div>
           </div>
 
           <div className="about-div">
-            <div className="about-inside">
+            <div className="about-1">
               <h2>About</h2>
-              {this.renderUserType()}
-              {/* <div className='user-type'>{profile.userType}</div> */}
+              {/* {this.renderUserType()} */}
+              
             </div>
             <div className='div-content'>{profile.description}</div>
           </div>
