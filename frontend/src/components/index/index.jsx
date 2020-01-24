@@ -43,7 +43,9 @@ class Index extends React.Component {
             <h1>Your Connections</h1>
             {connected.length === 0 ? (
               <div className="noconnection-msg">
-                Expand your network. Be brave!
+                Looks like you don't have connections. 
+                <br/>
+                Reach out! Expand your network.
               </div>
             ) : (
               <div className="user">{connected}</div>

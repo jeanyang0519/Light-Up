@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/profile.css';
 import '../../stylesheets/reset.css';
+import head from '../../stylesheets/head.png';
+import place from '../../stylesheets/place.png';
 
 
 class Profile extends React.Component {
@@ -26,9 +28,15 @@ class Profile extends React.Component {
 
   renderUserType() {
     if (this.props.profile.userType === 'Mentor') {
-      return <div className='user-type-1'>{this.props.profile.userType}</div>
+      return (<div className='user-info-detail'>
+        <img src={head} alt="" />
+        {this.props.profile.userType}
+        </div>)
     } else {
-      return <div className='user-type-2'>{this.props.profile.userType}</div>
+      return (<div className='user-info-detail'>
+        <img src={head} alt=""/>
+        {this.props.profile.userType}
+        </div>)
     }
   }
 
@@ -145,11 +153,14 @@ class Profile extends React.Component {
             <div className='profile-info'>
               <div className="profile-info-1">
                 <div className='profile-name'>{!profile.first_name ? profile.username : profile.first_name} {profile.last_name}</div>
-                  {this.renderEditButton()}
                   {this.connectButton()}
-                {this.renderUserType()}
+              {this.renderEditButton()}
               </div>
-              <div className='profile-location'>{profile.location}</div>
+              <div className='user-info-detail'>
+                <img src={place} alt=""/>
+                {profile.location}
+              </div>
+                  {this.renderUserType()}
             </div>
           </div>
 
