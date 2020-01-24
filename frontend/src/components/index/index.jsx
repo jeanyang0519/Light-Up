@@ -60,7 +60,6 @@ class Index extends React.Component {
             <div className="user">{notConnected}</div>
           </div>
         </div>
-      </div>
     );
   }
 
