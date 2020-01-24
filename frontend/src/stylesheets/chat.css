@@ -1,11 +1,11 @@
 .chats {
     
-    padding: 22%;
+    padding: 100px 22% 0;
     display: grid;
-
     background: rgb(243, 153, 118);
     grid-row-start: 1;
     grid-column-start: 1;
+    text-align: center;
 }
 
 .chats-conversation {
@@ -31,6 +31,7 @@
     width:70%;
     overflow-y: auto;
     height: 600px;
+    justify-self: center;
     
 }
 
@@ -44,7 +45,7 @@
 
 .msg-list {
     display: grid;
-    
+    grid-template-rows: repeat(2, 15px);
     grid-gap: 10px;
 }
 
@@ -75,7 +76,8 @@
 
 .chat-sender-name {
     font-weight: 700;
-    font-size: 20px;
+        font-size: 16px;
+    color: #17479f;
 }
 
 h1 {
@@ -87,7 +89,7 @@ h1 {
 
 .send-button {
     padding: 10px 20px;
-    width: 17%;
+    
     height: 42px;
     background-color: #17479f;
     border: 1px solid #17479f;
@@ -176,11 +178,12 @@ h1 {
 }
 
 .form-message {
-    /* resize: none; */
+    resize: none;
     border: none;
     border-radius: 3px;
-        padding: 20px;
+    padding: 20px;
     font-size: 14px;
+    outline: none;
 }
 
 .chat-form > button {
@@ -196,4 +199,19 @@ h1 {
     justify-self: end;
     align-self: center;
     outline: none;
+}
+
+select {
+    border: none;
+    background: white;
+    outline: none;
+    color: rgb(84, 84, 84);
+    font-size: 14px;
+}
+
+select > option {
+    border: none;
+    background: white;
+    color: rgb(84, 84, 84);
+    font-size: 14px;
 }

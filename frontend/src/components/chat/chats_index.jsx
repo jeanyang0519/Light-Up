@@ -37,6 +37,7 @@ class ChatsIndex extends React.Component {
       const { currentUser, chats, fetchMessages, messages } = this.props
       if (!chats) return null
       const chatsLis = chats.map(chat => {
+
           console.log(chat);
           const chatMessages = selectChatMessages(messages, chat._id);
         return (

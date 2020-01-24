@@ -18,7 +18,10 @@ class Chat extends React.Component {
   }
 
   componentDidMount() {
+
+
     if (this.props.messages.length === 0 ) {
+
       this.props.fetchMessages(this.props.chat._id)
     }
     socket.on('connect', () => {
@@ -35,6 +38,8 @@ class Chat extends React.Component {
 
   selectParticipants() {
     const usernames = selectUserChats(this.props.currentUser)
+
+
     const participants = this.props.chat.participants.filter((participant => participant !== this.props.currentUser.id))
     return participants.map((user, i) => {
       return (
@@ -45,6 +50,7 @@ class Chat extends React.Component {
 
   handleClick() {
     const chatId = this.props.chat._id;
+
     this.props.fetchMessages(chatId).then((res) => {
       this.props.handleMessages(this.props.currentUser, this.props.messages, this.props.chat._id)
     })
