@@ -25,7 +25,7 @@ class Index extends React.Component {
             </Link>
           )
     });
-    const notConnected = this.props.users.filter(user => !(user.id in connections)).map((connection, i) => {
+    const notConnected = this.props.users.filter(user => !(user.id in connections) && user.id !== this.props.currentUser.id).map((connection, i) => {
       return (
           <Link className='user-profile' to={`/profile/${connection.id}`} key={i}>
             <li className='each-user' key={connection.id}>{connection.username}</li>
@@ -50,7 +50,7 @@ class Index extends React.Component {
               </div>
               <div className='wrapper'>
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
-                <h1>Explore Your Connections</h1>
+                <h1>Find Connections</h1>
                 <div className='user'>
                   {notConnected}
                 </div>
@@ -70,7 +70,7 @@ class Index extends React.Component {
               </div>
               <div className='wrapper'>
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
-                <h1>Explore Your Connections</h1>
+                <h1>Find Connections</h1>
                 <div className='user'>
                   {notConnected}
                 </div>

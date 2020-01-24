@@ -28,6 +28,7 @@ main {
   margin-top: 20px;
 }
 
+
 @media screen and (max-width: 1600px) {
   .edit-form {
     display: flex;

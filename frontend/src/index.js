@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloadedState = { session: { isAuthenticated: true, currentUser: decodedUser } };
     
     store = configureStore(preloadedState);
-    // store.dispatch(fetchCurrentUser(decodedUser.id))
+    store.dispatch(fetchCurrentUser(decodedUser.id))
 
     const currentTime = Date.now() / 1000;
 
