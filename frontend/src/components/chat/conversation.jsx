@@ -44,9 +44,11 @@ class Conversation extends React.Component {
     }
   }
 
+
   scrollToBottom = () => {
     this.mesRef.current.scrollTop = this.mesRef.current.scrollHeight;
   };
+
 
   handleClick(e) {
     e.preventDefault();

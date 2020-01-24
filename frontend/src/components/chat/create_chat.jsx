@@ -30,7 +30,11 @@ class CreateChat extends React.Component {
                 participants: {},
                 message: ""
             });
-            this.props.handleMessages(this.props.currentUser, this.props.messages, chat._id)
+            
+            if (this.props.errors.length === 0) {
+                
+                this.props.handleMessages(this.props.currentUser, this.props.messages, chat._id)
+            }
         });
     };
 
@@ -55,8 +59,7 @@ class CreateChat extends React.Component {
     optionClick (e) {
         e.preventDefault();
         const options = e.currentTarget.children
-        // let selected = "";
-        // selected = "selected";
+        
         for (let i = 0; i < options.length; i++) {
             if (options[i].selected  === true && !(options[i].value in this.state.participants)) {
                 this.setState({
@@ -70,7 +73,7 @@ class CreateChat extends React.Component {
                 })
             }
         }
-        // return selected;
+        
     }
     selectOptions () {
         let { connections } = this.props.currentUser
