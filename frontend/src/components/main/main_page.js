@@ -37,6 +37,10 @@ class MainPage extends React.Component {
                   <br/>
                   Your Future
                 </div>
+                <br/>
+                <br/>
+                <br/>
+
                 <div className='sub-slogan'>
                   A mentorship community for students to connect over shared interests and goals. 
                 </div>
