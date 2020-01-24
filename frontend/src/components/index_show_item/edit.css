@@ -13,6 +13,8 @@ main {
   padding-bottom: 10em;
 }
 
+
+
 .form-container input {
   height: 45px;
   width: 300px;
@@ -26,16 +28,23 @@ main {
   margin-top: 20px;
 }
 
-.edit-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 800px;
-  height: 1000px;
-  border-radius: 5px;
-  background-color: cornsilk;
+@media screen and (max-width: 1600px) {
+  .edit-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 1000px;
+    border-radius: 5px;
+    background-color: cornsilk;
+  }
 }
+    .edit-form {
+      position: absolute;
+      top: 2em;
+      margin-bottom: 5em;
+    }
 
 .edit-form div {
   display: flex;

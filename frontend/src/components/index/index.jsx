@@ -42,9 +42,11 @@ class Index extends React.Component {
               <div className='wrapper'>
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
                 <h1>Your Connections</h1>
-                <div>
-                  Expand your network. Be brave!
-            </div>
+                <div className='noconnection-msg'>
+                  Looks like you don't have connections. 
+                  <br/>
+                  Reach out! Expand your network.
+                </div>
               </div>
               <div className='wrapper'>
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
