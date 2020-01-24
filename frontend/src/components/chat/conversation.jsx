@@ -25,7 +25,6 @@ class Conversation extends React.Component {
         message: "",
         receiveMessage: true
       });
-      // console.log("I'm hearing it all")
     });
   }
 

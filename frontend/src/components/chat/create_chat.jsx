@@ -77,12 +77,12 @@ class CreateChat extends React.Component {
     }
     selectOptions () {
         let { connections } = this.props.currentUser
-        debugger
         return connections.filter(connection => connection.status === 2).map((connection, i) => {
-            debugger
             return (
-            <option value={connection.user._id} key={i} >{connection.user.username}</option>
-            )
+              <option value={connection.user._id} key={i}>
+                {connection.user.first_name} {connection.user.last_name}
+              </option>
+            );
         })
     }
 

@@ -12,7 +12,6 @@ class Index extends React.Component {
   }
   
   render() {
-    
     if (this.props.users.length === 0) return null;
     const connections = userConnections(this.props.currentUser);
 
