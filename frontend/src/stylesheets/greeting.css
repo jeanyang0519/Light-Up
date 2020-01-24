@@ -1,9 +1,16 @@
-.main-everything {
+/* .main-everything {
     display: grid;
     grid-gap: 50px;
     height: 100vh;
     grid-template-rows: 80px auto;
     font-family: 'Open Sans', sans-serif;
+} */
+
+.main-everything {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
 }
 
 .main-all-2 {
@@ -78,31 +85,66 @@
     place-self: center;
 }
 
+
+/* main */
+
+.background-container {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.background {
+    width: 100%;
+    padding-top: 5em;
+}
+
+.slogan-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.slogan {
+    display: flex;
+    flex-direction: column;
+    font-size: 5vw;
+    color: #17479f;
+    text-align: left;
+    line-height: 122%;
+    text-shadow: 10px 2px rgb(255, 243, 194);
+}
+
+.slogans {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5em 0px 0px 10em;
+}
+
+.sub-slogan {
+    color: #17479f;
+    font-size: 2vw;
+    text-align: left;
+    width: 350px;
+    height: 500px;
+    line-height: 142%;
+}
+
+/* 
+
 .background-container {
     position: relative;
     text-align: center;
     color: white;
-    display: grid;
+    display: flex;
 }
-
-/* .background-container img {
-    grid-row-start: 1;
-    grid-column-start: 1;
-} */
 
 .background {
     width: 100%;
 }
 
-/* .slogan-all {
-    display: grid;
-    grid-template-rows: repeat(2, 200px);
-    grid-row-start: 1;
-    grid-column-start: 1;
-    padding: 20px 10%;
-    height: 100vh;
-    
-} */
 
 .slogan {
     width: 600px;
@@ -120,6 +162,10 @@
   
 }
 
+.slogan-container {
+    width: 100%;
+}
+
 .sub-slogan {
     transform: translate(-50%, -50%);
     color: #17479f;
@@ -131,4 +177,4 @@
     width: 550px;
     height: 500px;
     line-height: 142%;
-}
+} */
