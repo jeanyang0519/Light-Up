@@ -10,7 +10,7 @@
     grid-gap: 21px;
     padding: 20px;
         overflow-y: auto;
-    max-height: 646px;
+    /* max-height: 646px; */
 }
 
 .chats-conversation {
@@ -18,14 +18,16 @@
     display: grid;
 }
 
-/* .chat-sender {
-        display: grid;
-    border-radius: 30px;
-    border: cornsilk solid;
-    color: cornsilk;
+.chat-sender {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* border-radius: 30px; */
+    /* border: cornsilk solid; */
+    /* color: cornsilk; */
     
-    height: 41px;
-} */
+    /* height: 40px; */
+}
 
 .chat-sender-username:hover {
     background-color: cornsilk;
@@ -35,6 +37,8 @@
     background-color: cornsilk;
     color: #17479f;
 }
+
+
 
 
 .chat-sender-username {

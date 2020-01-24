@@ -65,11 +65,19 @@ class Profile extends React.Component {
       disabled = true
     }
     return (
-      <button onClick={(event !== "") ? ()=> event({
-                userId: currentUser.id,
-                connectionId: profile.id
-              }) : event} className={(connected === "Accept Request") ? "Accept" : connected} 
-        disabled={disabled}>{connected}</button>
+      <>
+        <button onClick={(event !== "") ? ()=> event({
+                  userId: currentUser.id,
+                  connectionId: profile.id
+                }) : event} className={(connected === "Accept Request") ? "Accept" : connected} 
+          disabled={disabled}>{connected}</button>
+        {connected === "Connected" ? <button onClick={() => this.props.removeConnection({
+          userId: this.props.currentUser.id,
+          connectionId: profile.id
+        })}>
+          Remove Connection
+        </button> : ""}
+      </>
     )
   }
 
@@ -139,16 +147,17 @@ class Profile extends React.Component {
                 <div className='profile-name'>{!profile.first_name ? profile.username : profile.first_name} {profile.last_name}</div>
                   {this.renderEditButton()}
                   {this.connectButton()}
+                {this.renderUserType()}
               </div>
               <div className='profile-location'>{profile.location}</div>
             </div>
           </div>
 
           <div className="about-div">
-            <div className="about-inside">
+            <div className="about-1">
               <h2>About</h2>
-              {this.renderUserType()}
-              {/* <div className='user-type'>{profile.userType}</div> */}
+              {/* {this.renderUserType()} */}
+              
             </div>
             <div className='div-content'>{profile.description}</div>
           </div>
