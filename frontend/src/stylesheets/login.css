@@ -16,7 +16,7 @@
     display: grid;
 
     
-  /* grid-template-rows: repeat(3, auto); */
+ 
 }
 
 
@@ -25,8 +25,7 @@
   font-weight: 700;
   font-size: 25px;
   place-self: center;
-  /* font-family: 'Lobster', cursive; */
-  /* font-family: 'Homemade Apple', cursive; */
+ 
 }
 input {
   height: 35px;
@@ -35,17 +34,13 @@ input {
   font-size: 14px;
   border-radius: 3px;
   border-style: hidden;
-  /* border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;  */
+ 
 }
 
 input:focus {
-  /* height: 35px; */
-  /* padding: 0 10px; */
+  
   outline: none;
-  /* border-radius: 3px; */
+  
 }
 .login-form-wapper {
  
@@ -56,8 +51,13 @@ input:focus {
     grid-template-rows: repeat(4, auto);
 }
 
+.login-form-wapper > input {
+  border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
+
 .login-submit {
-      /* padding: 10px 20px; */
+     
     width: 100%;
     background-color: #3897f0;
     border: 1px solid #3897f0;
@@ -68,7 +68,11 @@ input:focus {
     cursor: pointer;
     justify-self: center;
     height: 40px;
-    /* margin-top: 15px; */
+    
+}
+
+.login-submit:focus {
+  outline: none;
 }
 
 .log-in-buttons {

@@ -50,12 +50,7 @@
     border-radius: 12px;
     border: 1px solid #ccc;
     display: grid;
-  /* width: 500px;
-  height: 500px;
-  border: 1px solid gray;
-  display: flex;
-  flex-direction: column;
-  align-items: center; */
+  
 }
 
 .signup-form-wapper {
@@ -67,17 +62,10 @@
     
 }
 
-/* .signup-form input {
-  justify-self: center;
-    height: 30px;
-    width: 67%;
-    border: 1px solid #ccc;
-    padding: 0 10px;
-    height: 35px;
-    
-    border-radius: 3px;
-    outline: none;
-} */
+.signup-form-wapper > input {
+  border-bottom: 1px solid #ccc;
+    border-radius: 0;
+}
 .signup-form button {
   
   height: 40px;
@@ -173,5 +161,9 @@ h3 {
   bottom: 1.2em;
   color: red;
   list-style: none;
+}
+
+.signup-errors > li {
+  margin: 1px;
 }
 
