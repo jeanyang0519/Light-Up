@@ -2,14 +2,18 @@ import React from 'react';
 import '../../stylesheets/reset.css';
 import '../../stylesheets/footer.css';
 import linked from './linkedin.png';
-import git from './git.png';
-import angel from './angel.jpg';
+import git from './github.png';
+import angel from './angellist.png';
+
 
 class Footer extends React.Component {
  
   render() {
     return (
       <main className="footer">
+        
+
+
         <div className="people">
         <div className="person">
           <div>
@@ -49,7 +53,7 @@ class Footer extends React.Component {
           </div>
           <div>
           <a href="https://www.linkedin.com/in/yorkis-diaz-596958196/" target="_blank">
-            <img src={linked} alt=""/>
+              <img src={linked} alt="" />
           </a>
           <a href="https://github.com/yorkis-diaz" target="_blank">
             <img src={git} alt=""/>
