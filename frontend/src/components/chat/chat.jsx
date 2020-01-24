@@ -60,6 +60,7 @@ class Chat extends React.Component {
     return (
       <div className='chat-sender'  onClick={this.handleClick}>
         <div className='chat-sender-username' tabindex="1">{this.selectParticipants()}</div>
+        {/* <input className='chat-sender-username' >{this.selectParticipants()}</input> */}
         
       </div>
     )

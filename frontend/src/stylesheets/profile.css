@@ -106,7 +106,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    
+    cursor: pointer;
     justify-self: end;
     outline: none;
 }
@@ -151,7 +151,7 @@
     font-weight: bold;
     border-radius: 3px;
     font-size: 14px;
-    
+    cursor: pointer;
     justify-self: end;
     outline: none;
 }
@@ -171,15 +171,10 @@
   display: grid;
     grid-template-columns: repeat(2, auto);
     background-color: cornsilk;
-    padding: 22px 20px;
+    padding: 10px 20px;
 }
 
-.about-inside {
-  display: grid;
-    grid-template-columns: repeat(2, auto);
-    background-color: cornsilk;
-    padding: 15px 20px;
-}
+
 
 
 
@@ -233,8 +228,8 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
 }
 .accept-button {
-  padding: 10px 20px;
-  /* background-color: #17479f; */
+  padding: 10px 0;
+  background-color: transparent;
   border: 1px solid #17479f;
   color: #17479f;
   font-weight: bold;
@@ -242,17 +237,21 @@ h2 {
   cursor: pointer;
   outline: none;
   border-right: none;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 
 .reject-button {
-    padding: 10px 20px;
-    /* background-color: #17479f; */
+    padding: 10px 0;
+    background-color: transparent;
     border: 1px solid #17479f;
     color: #17479f;
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
     outline: none;
+    border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 
@@ -280,8 +279,8 @@ h2 {
     /* border-right: none; */
     width: 55%;
     text-align: center;
-    border-radius: 12px;
-    height: 20px;
+    border-radius: 3px;
+    
 }
 
 a {
@@ -295,6 +294,8 @@ a {
   
   color: black;
   text-align: center;
+      display: grid;
+    grid-gap: 10px;
 }
 
 .profile-connection-each-user:hover {
