@@ -33,10 +33,10 @@ class Conversation extends React.Component {
 	}
 
   componentDidUpdate (prevProps) {
-    if (prevProps.chatId !== this.props.chatId) {
-      this.scrollToBottom();
-    }
+    this.scrollToBottom();
   }
+
+  component
 
 	scrollToBottom = () => {
     debugger
