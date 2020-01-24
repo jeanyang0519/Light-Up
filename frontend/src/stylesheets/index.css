@@ -28,7 +28,7 @@
 .user {
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
     
 }
 

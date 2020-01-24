@@ -4,6 +4,7 @@ import { selectChatMessages } from '../../util/selectors';
 import Conversation from './conversation';
 import CreateChatContainer from './create_chat_container';
 import '../../stylesheets/chat.css';
+import add from '../../stylesheets/add.png';
 
 class ChatsIndex extends React.Component {
   constructor(props) {
@@ -57,7 +58,9 @@ class ChatsIndex extends React.Component {
           <div className='chat-index-box'>
             
             <div className="start-chat-container">
-              <button className="start-chat" onClick={this.handleChat}></button>
+              <button className="start-chat" onClick={this.handleChat}>
+                <img src={add} alt=""/>
+              </button>
               <p>Start a Chat</p>
             </div>
             
