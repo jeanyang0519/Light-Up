@@ -5,7 +5,7 @@ export const RECEIVE_CHATS = "RECEIVE_CHATS";
 export const RECEIVE_CHAT = "RECEIVE_CHAT"
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
-export const socket = io.connect()
+export const socket = io()
 
 
 const receiveChats = (chats) => ({

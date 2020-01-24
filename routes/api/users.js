@@ -160,7 +160,7 @@ router.post('/signup', (req, res) => { // create User
                           }
                         );
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => res.json(err));
                 });
             });
         }

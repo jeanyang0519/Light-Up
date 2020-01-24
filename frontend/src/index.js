@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setAuthToken(localStorage.jwtToken);
 
     const decodedUser = jwt_decode(localStorage.jwtToken);
-    store.dispatch(fetchCurrentUser(decodedUser.id))
-
-    // const preloadedState = { session: { isAuthenticated: true, currentUser: decodedUser } };
-
-    // store = configureStore(preloadedState);
+    
+    const preloadedState = { session: { isAuthenticated: true, currentUser: decodedUser } };
+    
+    store = configureStore(preloadedState);
+    // store.dispatch(fetchCurrentUser(decodedUser.id))
 
     const currentTime = Date.now() / 1000;
 
