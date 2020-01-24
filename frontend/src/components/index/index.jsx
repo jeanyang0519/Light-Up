@@ -33,32 +33,32 @@ class Index extends React.Component {
         )
       });;
 
-      return (
-        <div className="index-all">
-          <div className="wrapper">
-            <link
-              href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-              rel="stylesheet"
-            ></link>
-            <h1>Your Connections</h1>
-            {connected.length === 0 ? (
-              <div className="noconnection-msg">
-                Expand your network. Be brave!
-              </div>
-            ) : (
-              <div className="user">{connected}</div>
-            )}
-          </div>
-          <div className="wrapper">
-            <link
-              href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-              rel="stylesheet"
-            ></link>
-            <h1>Find Connections</h1>
-            <div className="user">{notConnected}</div>
-          </div>
+    return (
+      <div className="index-all">
+        <div className="wrapper">
+          <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+            rel="stylesheet"
+          ></link>
+          <h1>Your Connections</h1>
+          {connected.length === 0 ? (
+            <div className="noconnection-msg">
+              Expand your network. Be brave!
+            </div>
+          ) : (
+            <div className="user">{connected}</div>
+          )}
         </div>
-      );
+        <div className="wrapper">
+          <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+            rel="stylesheet"
+          ></link>
+          <h1>Find Connections</h1>
+          <div className="user">{notConnected}</div>
+        </div>
+      </div>
+    );
   }
 
 

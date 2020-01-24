@@ -5,6 +5,7 @@ export const RECEIVE_CHATS = "RECEIVE_CHATS";
 export const RECEIVE_CHAT = "RECEIVE_CHAT"
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
+export const REMOVE_CHAT = "REMOVE_CHAT";
 export const socket = io()
 
 
@@ -26,6 +27,11 @@ const receiveMessages = messages => ({
 const receiveSingleMessage = message => ({
   type: RECEIVE_MESSAGE,
   message
+});
+
+const removeChat = chatId => ({
+  type: REMOVE_CHAT,
+  chatId
 });
 
 export const fetchChats = (userId) => dispatch => {
@@ -60,3 +66,16 @@ export const createChat = (userId, data) => dispatch => {
     return res.data.chat
   }, err => {dispatch(receiveErrors(err.response.data))})
 }
+
+export const leaveChat = (chatId, data) => dispatch => {
+  debugger
+  return ChatUtil.leaveChat(chatId, data).then(
+    res => {
+      debugger
+      dispatch(removeChat(chatId));
+    },
+    err => {
+      dispatch(receiveErrors(err.response.data));
+    }
+  );
+};

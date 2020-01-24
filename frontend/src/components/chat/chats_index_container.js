@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ChatsIndex from "./chats_index";
-import { fetchChats, fetchMessages, createNewMessage, createChat } from "../../actions/chat_actions";
+import { fetchChats, fetchMessages, createNewMessage, createChat, leaveChat } from "../../actions/chat_actions";
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -18,7 +18,8 @@ const mapDispatchToProps = dispatch => {
     fetchChats: (userId) => dispatch(fetchChats(userId)),
     fetchMessages: (chatId) => dispatch(fetchMessages(chatId)),
     createNewMessage: (userId, data) => dispatch(createNewMessage(userId, data)),
-    createChat: (userId, data) => dispatch(createChat(userId, data))
+    createChat: (userId, data) => dispatch(createChat(userId, data)),
+    leaveChat: (chatId, data) => dispatch(leaveChat(chatId, data))
   };
 };
 
