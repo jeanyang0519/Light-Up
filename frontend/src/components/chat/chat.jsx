@@ -34,13 +34,13 @@ class Chat extends React.Component {
   }
 
   selectParticipants() {
-    const usernames = selectUserChats(this.props.currentUser)
+    const names = selectUserChats(this.props.currentUser)
 
 
     const participants = this.props.chat.participants.filter((participant => participant !== this.props.currentUser.id))
     return participants.map((user, i) => {
       return (
-        <h2 key={i}>{usernames[user]}</h2>
+        <h2 key={i}>{names[user]}</h2>
       )
     })
   }

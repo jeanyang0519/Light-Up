@@ -21,14 +21,14 @@ class Index extends React.Component {
       
       return (
             <Link className='user-profile-connected' to={`/profile/${connection.id}`} key={i}>
-              <li className='each-user-connected' key={connection.id}>{connection.username}</li>
+    <li className='each-user-connected' key={connection.id}>{connection.first_name} {connection.last_name}</li>
             </Link>
           )
     });
     const notConnected = this.props.users.filter(user => !(user.id in connections) && user.id !== this.props.currentUser.id).map((connection, i) => {
       return (
           <Link className='user-profile' to={`/profile/${connection.id}`} key={i}>
-            <li className='each-user' key={connection.id}>{connection.username}</li>
+    <li className='each-user' key={connection.id}>{connection.first_name} {connection.last_name}</li>
           </Link>
         )
       });;
@@ -59,6 +59,7 @@ class Index extends React.Component {
           <h1>Find Connections</h1>
           <div className="user">{notConnected}</div>
         </div>
+
       </div>
     );
   }

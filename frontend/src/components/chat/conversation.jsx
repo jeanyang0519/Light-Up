@@ -87,7 +87,7 @@ class Conversation extends React.Component {
       .map(message => {
         return (
           <li className="msg-list" key={message._id}>
-            <div className="chat-sender-name">{message.sender.username}</div>
+      <div className="chat-sender-name">{message.sender.first_name} {message.sender.last_name}</div>
             <p>{message.message}</p>
           </li>
         );
