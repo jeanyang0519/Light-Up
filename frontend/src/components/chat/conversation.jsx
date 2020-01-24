@@ -32,6 +32,12 @@ class Conversation extends React.Component {
 		this.scrollToBottom();
 	}
 
+  componentDidUpdate (prevProps) {
+    if (prevProps.chatId !== this.props.chatId) {
+      this.scrollToBottom();
+    }
+  }
+
 	scrollToBottom = () => {
     debugger
 		this.mesRef.current.scrollTop = this.mesRef.current.scrollHeight;
