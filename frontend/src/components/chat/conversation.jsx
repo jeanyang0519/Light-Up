@@ -53,7 +53,6 @@ class Conversation extends React.Component {
 
   update(message) {
     return e => {
-      debugger
       this.setState({ [message]: e.target.value })
     }
   }
