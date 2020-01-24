@@ -33,6 +33,8 @@ class Chat extends React.Component {
     socket.emit("leave chat", chatId);
   }
 
+  
+
   selectParticipants() {
     const names = selectUserChats(this.props.currentUser)
 
