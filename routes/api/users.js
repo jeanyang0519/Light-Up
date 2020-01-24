@@ -9,41 +9,6 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 
 
-// router.get(
-//   "/current",
-//   // passport.authenticate("jwt", { session: false }),
-//   (req, res) => {
-//     console.log(req.body.id)
-//     User.findOne({ _id: req.body.id })
-//       .populate({
-//         path: "connections.user",
-//         select: "username first_name last_name"
-//       })
-//       .then(user => {
-//         console.log(user)
-//         res.json({
-//           id: user._id,
-//           username: user.username,
-//           email: user.email,
-//           first_name: user.first_name,
-//           last_name: user.last_name,
-//           userType: user.userType,
-//           connections: user.connections,
-//           date: user.date,
-//           description: user.description,
-//           location: user.location,
-//           skills: user.skills,
-//           interests: user.interests
-//         });
-//       })
-//       .catch(err => {
-
-//         res.status(404).json({ message: "no user found" })
-//       })
-    
-//   }
-// );
-
 router.get(
   "/",
   (req, res) => {

@@ -95,24 +95,19 @@ class Profile extends React.Component {
     const connections = this.props.profile.connections
     const connectionsLis = connections.map((connection, i) => {
         const fullname =
-        connection.user.first_name && connection.user.last_name
-          ? `${connection.user.first_name} ${connection.user.last_name}`
-          : "";
+        `${connection.user.first_name} ${connection.user.last_name}`
       if (connection.status === 2) {
         return (
           <Link className='profile-connection-each-user' key={i} to={`/profile/${connection.user._id}`}>
             <p>
               {fullname}
             </p>
-            <p>
-              {connection.user.username}
-            </p>
           </Link>
         );
       }
     })
     const pendingConnections = connections.map((connection, i) => {
-        const fullname = (connection.user.first_name && connection.user.last_name) ? `${connection.user.first_name} ${connection.user.last_name}` : ''
+        const fullname = `${connection.user.first_name} ${connection.user.last_name}`
         if (connection.status === 1) {
         return (
           <Link key={i} to={`/profile/${connection.user._id}`}>
@@ -120,7 +115,7 @@ class Profile extends React.Component {
               {fullname}
             </p> */}
             <div className='pending-button'>
-              <p>{connection.user.username}</p>
+              <p>{fullname}</p>
               <div className='accept-reject'>
                 <button className='accept-button'
                   onClick={() => this.props.acceptConnection({

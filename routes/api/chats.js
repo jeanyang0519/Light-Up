@@ -60,7 +60,7 @@ router.post(
 
             newMessage
               .save(function(err) {
-                Message.populate(newMessage, {path: "sender", select: "username email"}, 
+                Message.populate(newMessage, {path: "sender", select: "username email first_name last_name"}, 
                 function(err, message) {
                   if (err) return res.status(422).json(err);
                   res.json({message, chat})
@@ -76,13 +76,11 @@ router.patch(
   "/:chatId",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req.body)
     Chat.findOneAndUpdate(
       {_id: req.params.chatId},
       { $pull: { participants: req.body.userId } },
       { new: true },
       (err, chat) => {
-        console.log(chat);
         if (err) {
           return res.json({ nochatfound: "No Chat Found" });
         }
@@ -125,7 +123,7 @@ router.get(
       .sort({ date: 1 })
       .populate({
         path: "sender",
-        select: "username email"
+        select: "username email first_name last_name"
       })
       .then(messages => {
         res.json(messages);
@@ -148,18 +146,17 @@ router.post(
     newMessage
       .save()
       .then((message) => {
-        Message
-          .findOne(message._id)
+        Message.findOne(message._id)
           .select("message sender date chatId")
           .sort({ date: 1 })
           .populate({
             path: "sender",
-            select: "username email"
+            select: "username email first_name last_name"
           })
           .then(messageWithDetails => {
-            res.json(messageWithDetails)
+            res.json(messageWithDetails);
           })
-          .catch((err) => res.json(err))
+          .catch(err => res.json(err));
       })
       .catch(err => res.status(422).json(err))
   }
