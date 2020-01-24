@@ -25,7 +25,7 @@ export const selectUserChats = (currentUser) => {
 
     currentUser.connections.forEach(connection => {
         // change null conditional after removing corrupted user data.
-        chats[connection.user._id] = connection.user.username;
+        chats[connection.user._id] = `${connection.user.first_name} ${connection.user.last_name}`;
     });
     return chats;
 }
