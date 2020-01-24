@@ -18,9 +18,9 @@ class Chat extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.messages.length === 0 ) {
-      this.props.fetchMessages(this.props.chat._id)
-    }
+    // if (this.props.messages.length === 0 ) {
+    //   this.props.fetchMessages(this.props.chat._id)
+    // }
     socket.on('connect', () => {
       socket.emit('enter chat', {username: this.props.currentUser.username})
     })
