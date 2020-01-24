@@ -9,19 +9,20 @@ class Conversation extends React.Component {
     this.newMessages = []
     this.state = {
       newMessage: 0,
-      message: ''
+      message: '',
+      receiveMessage: false
     }
 
     this.update = this.update.bind(this);
     this.mesRef = React.createRef();
-    debugger
     this.scrollToBottom = this.scrollToBottom.bind(this);
     
     socket.on("refresh messages", data => {
         this.newMessages.push(data)
         this.setState({
           newMessage: this.state.newMessage + 1,
-          message: ''
+          message: '',
+          receiveMessage: true
         })
         // console.log("I'm hearing it all")
       
@@ -33,10 +34,15 @@ class Conversation extends React.Component {
 	}
 
   componentDidUpdate (prevProps) {
-    this.scrollToBottom();
+    if (prevProps.chatId !== this.props.chatId) {
+      this.scrollToBottom();
+    } else if (this.state.receiveMessage) {
+      this.scrollToBottom();
+      this.setState({
+        receiveMessage: false
+      })
+    }
   }
-
-  component
 
 	scrollToBottom = () => {
     debugger
