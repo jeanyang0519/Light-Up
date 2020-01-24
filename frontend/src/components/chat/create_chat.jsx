@@ -91,7 +91,7 @@ class CreateChat extends React.Component {
                     <option value="Select Connection" disabled>Select Connection</option>
                     {this.selectOptions()}
                 </select>
-                <input type="text" disabled className="participants" onChange={this.update("participants")} value={Object.values(this.state.participants).join(", ")} placeholder="Select one or more names"/>
+                <input type="text" disabled className="participants" onChange={this.update("participants")} value={Object.values(this.state.participants).join(", ")} placeholder="Selected Connection(s)"/>
 
                 <textarea name="message" className="form-message" cols="30" rows="10" onChange={this.update("message")} placeholder="Enter Message"></textarea>
                 <button>

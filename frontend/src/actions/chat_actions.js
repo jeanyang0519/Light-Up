@@ -37,6 +37,7 @@ export const fetchChats = (userId) => dispatch => {
 export const fetchMessages = chatId => dispatch => {
   return ChatUtil.fetchMessages(chatId).then(
     res => {
+
       dispatch(receiveMessages(res.data));
     },
     err => receiveErrors(err)
@@ -51,7 +52,9 @@ export const createNewMessage = (userId, data) => dispatch => {
 }
 
 export const createChat = (userId, data) => dispatch => {
+
   return ChatUtil.createChat(userId, data).then(res => {
+
     dispatch(receiveChat(res.data.chat))
     dispatch(receiveSingleMessage(res.data.message))
     return res.data.chat

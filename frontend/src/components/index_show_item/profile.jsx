@@ -84,13 +84,13 @@ class Profile extends React.Component {
           : "";
       if (connection.status === 2) {
         return (
-          <Link key={i} to={`/profile/${connection.user._id}`}>
-            <h2>
+          <Link className='profile-connection-each-user' key={i} to={`/profile/${connection.user._id}`}>
+            <p>
               {fullname}
-            </h2>
-            <h2>
+            </p>
+            <p>
               {connection.user.username}
-            </h2>
+            </p>
           </Link>
         );
       }
@@ -168,7 +168,7 @@ class Profile extends React.Component {
             <div className="about-1">
               <h2>Connections</h2>
             </div>
-            <div className='div-content'>{connectionsLis}</div>
+            <div className='div-content connection-content'>{connectionsLis}</div>
           </div>
           {(profile.id !== this.props.currentUser.id) ? "" :
             <div className="interests-div">

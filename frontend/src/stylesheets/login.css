@@ -33,11 +33,12 @@ input {
   padding: 0 10px;
   outline: none;
   font-size: 14px;
-  /* border-radius: 3px; */
-  border-top-style: hidden;
-      border-right-style: hidden;
-      border-left-style: hidden;
-      /* border-bottom-style: groove;  */
+  border-radius: 3px;
+  border-style: hidden;
+  /* border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;  */
 }
 
 input:focus {
