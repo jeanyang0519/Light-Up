@@ -58,8 +58,8 @@ class Chat extends React.Component {
     if (!currentUser) return null
     if (!chat.participants) return null
     return (
-      <div className='chat-sender' onClick={this.handleClick}>
-        <div className='chat-sender-username'>{this.selectParticipants()}</div>
+      <div className='chat-sender'  onClick={this.handleClick}>
+        <div className='chat-sender-username' tabindex="1">{this.selectParticipants()}</div>
         
       </div>
     )
