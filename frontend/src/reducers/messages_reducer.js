@@ -1,6 +1,7 @@
 import {
   RECEIVE_MESSAGE,
-  RECEIVE_MESSAGES
+  RECEIVE_MESSAGES,
+  REMOVE_CHAT
 } from "../actions/chat_actions";
 
 export default function(state = {}, action) {
@@ -13,7 +14,18 @@ export default function(state = {}, action) {
       });
       return messages;
     case RECEIVE_MESSAGE:
-      return Object.assign({}, state, { [action.message._id]: action.message })
+      return Object.assign({}, state, { [action.message._id]: action.message });
+
+    case REMOVE_CHAT:
+      const newState = {}
+      Object.values(state).forEach(message => {
+        if (message.chatId !== action.chatId) {
+          newState[message._id] = message
+        }
+      });
+
+      return newState;
+
     default:
       return state;
   }

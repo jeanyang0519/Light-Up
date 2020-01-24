@@ -1,6 +1,7 @@
 import {
   RECEIVE_CHATS,
-  RECEIVE_CHAT
+  RECEIVE_CHAT,
+  REMOVE_CHAT
 } from "../actions/chat_actions";
 
 export default (state = {}, action) => {
@@ -14,6 +15,12 @@ export default (state = {}, action) => {
       return chats;
     case RECEIVE_CHAT:
       return Object.assign({}, state, { [action.chat._id]: action.chat})
+
+    case REMOVE_CHAT:
+      const newState = Object.assign({}, state)
+      delete newState[action.chatId]
+      return newState;
+
     default:   
       return state;
   }

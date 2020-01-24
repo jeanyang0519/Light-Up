@@ -69,25 +69,26 @@ router.post(
   }
 );
 
-router.delete(
+router.patch(
   "/:chatId",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    console.log(req.body)
     Chat.findOneAndUpdate(
-      req.params.chatId,
+      {_id: req.params.chatId},
       { $pull: { participants: req.body.userId } },
       { new: true },
       (err, chat) => {
+        console.log(chat);
         if (err) {
           return res.json({ nochatfound: "No Chat Found" });
         }
         if (chat.participants.length === 0) {
-          chat.remove()
-            .then(() => {
-                Message.deleteMany({ chatId: chat._id })
-                    .then(() => res.json({ message: "All messages deleted" }))
-                    .catch(() => res.json({ nomessagesfound: "No Messages Found" }))
-            })
+          chat.remove().then(() => {
+            Message.deleteMany({ chatId: chat._id })
+              .then(() => res.json({ message: "All messages deleted" }))
+              .catch(() => res.json({ nomessagesfound: "No Messages Found" }));
+          });
         }
         res.json({ message: "Chat removed" });
       }
