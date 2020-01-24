@@ -249,8 +249,8 @@ a {
 
 .profile-connection-each-user {
   background: rgb(243, 153, 118);
-  padding: 20px;
-  border-radius: 12px;
+      padding: 9px;
+    border-radius: 30px;
   
   color: black;
   text-align: center;
@@ -263,4 +263,5 @@ a {
 
 .connection-content {
   grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
 }
