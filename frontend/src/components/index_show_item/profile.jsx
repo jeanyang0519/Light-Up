@@ -65,11 +65,19 @@ class Profile extends React.Component {
       disabled = true
     }
     return (
-      <button onClick={(event !== "") ? ()=> event({
-                userId: currentUser.id,
-                connectionId: profile.id
-              }) : event} className={(connected === "Accept Request") ? "Accept" : connected} 
-        disabled={disabled}>{connected}</button>
+      <>
+        <button onClick={(event !== "") ? ()=> event({
+                  userId: currentUser.id,
+                  connectionId: profile.id
+                }) : event} className={(connected === "Accept Request") ? "Accept" : connected} 
+          disabled={disabled}>{connected}</button>
+        {connected === "Connected" ? <button onClick={() => this.props.removeConnection({
+          userId: this.props.currentUser.id,
+          connectionId: profile.id
+        })}>
+          Remove Connection
+        </button> : ""}
+      </>
     )
   }
 
