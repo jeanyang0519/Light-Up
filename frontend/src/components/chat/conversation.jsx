@@ -48,7 +48,7 @@ class Conversation extends React.Component {
  
 
   render() {
-    debugger
+    // debugger
     const { messages, currentUser } = this.props
       let allMessages = messages.concat(this.newMessages)
       const messageLis = allMessages.map(message => {
