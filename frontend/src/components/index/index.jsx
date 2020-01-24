@@ -59,7 +59,6 @@ class Index extends React.Component {
           <h1>Find Connections</h1>
           <div className="user">{notConnected}</div>
         </div>
-      </div>
     );
   }
 

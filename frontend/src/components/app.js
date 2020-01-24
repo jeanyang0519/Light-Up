@@ -27,7 +27,7 @@ const App = () => (
       <Route exact path="/profile/:id" component={ProfileContainer} />
       <Route path="/chat" component={ChatIndexContainer}/>
       <Route path="/profile/:id/edit" component={EditProfileContainer} />
-      <Route path='/' component={Footer} />
+      {/* <Route path='/' component={Footer} /> */}
 
   </div>
 );
