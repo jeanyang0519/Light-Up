@@ -22,6 +22,7 @@ class ChatsIndex extends React.Component {
   }
 
   handleMessages(user, messages, chatId) {
+    debugger
       this.setState({
         conversation: <Conversation user={user} messages={messages} chatId={chatId} createNewMessage={this.props.createNewMessage}/>
         // conversation: <CreateChat createChat={this.props.createChat} user={user}/>

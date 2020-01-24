@@ -57,6 +57,7 @@ export const createChat = (userId, data) => dispatch => {
     dispatch(clearErrors())
     dispatch(receiveChat(res.data.chat))
     dispatch(receiveSingleMessage(res.data.message))
+    
     // debugger
     return res.data.chat
   }, err => {
