@@ -59,9 +59,12 @@ router.post(
             });
 
             newMessage
-              .save()
-              .then((message) => res.json({message, chat}))
-              .catch(err => res.status(422).json(err));
+              .save(function(err) {
+                Message.populate(newMessage, {path: "sender", select: "username email"}, 
+                function(err, message) {
+                  if (err) return res.status(422).json(err);
+                  res.json({message, chat})
+              })})
           })
           .catch(err => res.status(422).json(err));
       }
@@ -107,20 +110,6 @@ router.get(
       }
     )
       .then(chats => {
-        // const chats = [];
-        // chatIds.forEach(chat => {
-        //   Message.find({ chatId: chat._id })
-        //     .sort({ date: -1 })
-        //     .limit(1)
-        //     .populate({
-        //       path: "sender",
-        //       select: "username email"
-        //     })
-        //     .then(message => {
-        //       chats.push(...message);
-        //       if (chats.length === chatIds.length)
-        //         return res.json(chats);
-        //     });
         res.json(chats)
       })
       .catch(() => res.status(404).json({ nochats: "No Chats Found" }));

@@ -18,6 +18,5 @@ export const createChat = (userId, data) => {
 }
 
 export const leaveChat = (chatId, data) => {
-  debugger
   return axios.patch(`api/chats/${chatId}`, data)
 }

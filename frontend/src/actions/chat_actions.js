@@ -63,18 +63,14 @@ export const createChat = (userId, data) => dispatch => {
     dispatch(clearErrors())
     dispatch(receiveChat(res.data.chat))
     dispatch(receiveSingleMessage(res.data.message))
-    
-    // debugger
     return res.data.chat
 
   }, err => {dispatch(receiveErrors(err.response.data))})
 }
 
 export const leaveChat = (chatId, data) => dispatch => {
-  debugger
   return ChatUtil.leaveChat(chatId, data).then(
     res => {
-      debugger
       dispatch(removeChat(chatId));
     },
     err => {
