@@ -59,39 +59,20 @@
   align-self: center;
 }
 
-.profile-location {
-  font-size: 20px;
-}
 
-.user-type-1 {
-  padding: 10px 20px;
-    /* width: 13%; */
-    height: 17px;
-    background-color: lightcoral;
-    border: 1px solid lightcoral;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 3px;
-    font-size: 14px;
-    
-    justify-self: end;
-    outline: none;
+
+
+.user-info-detail {
+    display: grid;
+    grid-template-columns: 25px auto;
+    font-size: 20px;
+    grid-gap: 12px;
 
 }
-.user-type-2 {
-  padding: 10px 20px;
-    /* width: 13%; */
-    height: 17px;
-    background-color: #ffbd59;
-    border: 1px solid #ffbd59;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 3px;
-    font-size: 14px;
-    
-    justify-self: end;
-    outline: none;
 
+.user-info-detail > img {
+  height: 20px;
+  
 }
 
 
