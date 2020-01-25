@@ -82,18 +82,31 @@ class Conversation extends React.Component {
     const { messages, currentUser } = this.props;
     let allMessages = messages.concat(this.newMessages);
     const messageLis = allMessages
-      .filter(message => message.chatId === this.props.chatId)
+      .filter(message => message.chatId === this.props.chatId )
       .map(message => {
-        return (
-          <li className="msg-list" key={message._id}>
-      <div className="chat-sender-name">{message.sender.first_name} {message.sender.last_name}</div>
-            <p>{message.message}</p>
-          </li>
-        );
+        if (message.sender._id === this.props.user.id) {
+          
+          return (
+            <li className="current-user-msg-list" key={message._id}>
+              {/* <div className="chat-sender-name">{message.sender.first_name} {message.sender.last_name}</div> */}
+              <p>{message.message}</p>
+            </li>
+          );
+        } else {
+          return (
+            <li className="msg-list" key={message._id}>
+              <div className="chat-sender-name">{message.sender.first_name} {message.sender.last_name}</div>
+              <p>{message.message}</p>
+            </li>
+          );
+        }
       });
+
+
     return (
       <div className="msg-wrapper">
         <ul className="msg-list-all" ref={this.mesRef}>
+          
           {messageLis}
         </ul>
 
