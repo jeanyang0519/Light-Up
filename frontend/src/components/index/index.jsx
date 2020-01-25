@@ -18,18 +18,38 @@ class Index extends React.Component {
 
     const connected = this.props.users.filter(user => user.id in connections && connections[user.id] === 2).map((connection, i) => {
       
-      return (
-            <Link className='user-profile-connected' to={`/profile/${connection.id}`} key={i}>
-    <li className='each-user-connected' key={connection.id}>{connection.first_name} {connection.last_name}</li>
-            </Link>
-          )
-    });
-    const notConnected = this.props.users.filter(user => !(user.id in connections) && user.id !== this.props.currentUser.id).map((connection, i) => {
-      return (
-          <Link className='user-profile' to={`/profile/${connection.id}`} key={i}>
-    <li className='each-user' key={connection.id}>{connection.first_name} {connection.last_name}</li>
+      if (connection.userType === "Mentee") {
+        return (
+              <Link className='user-profile-connected' to={`/profile/${connection.id}`} key={i}>
+                <li className='each-user-connected' key={connection.id}>{connection.first_name} {connection.last_name}</li>
+                <p>Mentee</p>
+              </Link>
+            )
+      } else {
+        return (
+          <Link className='user-profile-connected' to={`/profile/${connection.id}`} key={i}>
+            <li className='each-user-connected' key={connection.id}>{connection.first_name} {connection.last_name}</li>
+            <p id='user-profile-mentor'>Mentor</p>
           </Link>
         )
+      }
+    });
+    const notConnected = this.props.users.filter(user => !(user.id in connections) && user.id !== this.props.currentUser.id).map((connection, i) => {
+      if (connection.userType === "Mentee") {
+        return (
+          <Link className='user-profile' to={`/profile/${connection.id}`} key={i}>
+            <li className='each-user' key={connection.id}>{connection.first_name} {connection.last_name}</li>
+            <p>Mentee</p>
+          </Link>
+          )
+      } else {
+        return (
+          <Link className='user-profile' to={`/profile/${connection.id}`} key={i}>
+            <li className='each-user' key={connection.id}>{connection.first_name} {connection.last_name}</li>
+            <p id='user-profile-mentor'>Mentor</p>
+          </Link>
+        )
+      }
       });;
 
     return (

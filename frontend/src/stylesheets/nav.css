@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     font-family: 'Open Sans', sans-serif;
-    padding: 20px 10%;
+    padding: 15px 10%;
     background-color: blanchedalmond;
 }
 
