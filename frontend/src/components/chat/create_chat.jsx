@@ -26,17 +26,18 @@ class CreateChat extends React.Component {
         }
 
         this.props.createChat(this.props.currentUser.id, data).then((chat) => {
-            this.setState({
-                participants: {},
-                message: ""
-            });
-            
             if (this.props.errors.length === 0) {
-                
                 this.props.handleMessages(this.props.currentUser, this.props.messages, chat._id)
             }
         });
     };
+
+    componentWillUnmount () {
+        this.setState({
+          participants: {},
+          message: ""
+        });
+    }
 
     update(message) {
         return e => {

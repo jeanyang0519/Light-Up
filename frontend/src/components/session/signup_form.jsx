@@ -103,6 +103,10 @@ class SignupForm extends React.Component {
   }
 
   componentWillUnmount() {
+    this.setState({
+      email: "",
+      password: ""
+    });
     if (this.props.errors.length > 0) {
       this.props.clearErrors();
     }

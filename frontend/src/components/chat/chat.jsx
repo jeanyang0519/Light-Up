@@ -40,11 +40,19 @@ class Chat extends React.Component {
 
 
     const participants = this.props.chat.participants.filter((participant => participant !== this.props.currentUser.id))
-    return participants.map((user, i) => {
+    if (participants.length === 0) {
       return (
-        <h2 key={i}>{names[user]}</h2>
+        <h2 key={0}>
+          No Participants
+        </h2>
       )
-    })
+    } else {
+      return participants.map((user, i) => {
+        return (
+          <h2 key={i}>{names[user]}</h2>
+        )
+      })
+    }
   }
 
   handleClick() {
