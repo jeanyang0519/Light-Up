@@ -10,11 +10,49 @@
 .user-profile {
     text-decoration: none;
     color: black;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin: 20px;
+    padding: 50px;
+    border-radius: 5px;
+    background: cornsilk;
 }
+
+.user-profile > p {
+    justify-self: end;
+    align-self: center;
+    font-size: 12px;
+    background: #ffbd59;
+    border-radius: 5px;
+    padding: 6px;
+    color: white;
+}
+
+#user-profile-mentor {
+    background: #17479f;
+}
+
+
 
 .user-profile-connected {
     text-decoration: none;
     color: black;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin: 20px;
+    padding: 50px;
+    border-radius: 5px;
+    background: #f39976;
+}
+
+.user-profile-connected > p {
+    justify-self: end;
+    align-self: center;
+    font-size: 12px;
+    background: #ffbd59;
+    border-radius: 5px;
+    padding: 6px;
+    color: white;
 }
 
 
@@ -43,16 +81,15 @@
 }
 
 .each-user {
-    margin: 20px;
-    padding: 50px;
-    border-radius: 5px;
-    background: cornsilk;
+    
+
+    align-self: center;
 }
 
 
 
 
-.each-user:hover {
+.user-profile:hover {
     margin: 20px;
     
     padding: 50px;
@@ -60,30 +97,26 @@
     background: #17479f;
     color: white;
 
-    background-image: url(./idea2.png);
+    /* background-image: url(./idea2.png);
     background-size: 35px;
     background-repeat: no-repeat;
-    background-position: 80% 45%;
+    background-position: 80% 45%; */
 }
 
 .each-user-connected {
-    margin: 20px;
-    
-    padding: 50px;
-    border-radius: 5px;
-    background: rgb(243, 153, 118);
+   align-self: center;
 }
 
-.each-user-connected:hover {
+.user-profile-connected:hover {
     margin: 20px;
     
     padding: 50px;
     border-radius: 5px;
-    background: #57a3f7;
+    background: #2586f6;
     color: white;
-    background-image: url(./idea.png);
+    /* background-image: url(./idea.png);
     background-size: 35px;
     background-repeat: no-repeat;
-    background-position: 80% 45%;
+    background-position: 80% 45%; */
 }
 
