@@ -2,7 +2,7 @@
   display: grid;
   grid-template-rows: 70px auto;
   grid-gap: 15px; 
-  height: 100vh;
+  
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -50,7 +50,7 @@
     border-radius: 12px;
     border: 1px solid #ccc;
     display: grid;
-  
+  margin: 45px;
 }
 
 .signup-form-wapper {

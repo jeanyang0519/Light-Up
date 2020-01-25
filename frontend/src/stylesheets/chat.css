@@ -1,16 +1,9 @@
 .chats {
     
-       padding-top: 100px;
-    display: grid;
-    background: rgb(243, 153, 118);
-    /* grid-row-start: 1; */
+        background: rgb(243, 153, 118);
     grid-column-start: 1;
     text-align: center;
-    /* grid-template-rows: repeat(10, 40px); */
-    grid-gap: 21px;
-    padding: 20px;
-        overflow-y: auto;
-    /* max-height: 646px; */
+    
 }
 
 .chats-conversation {
@@ -18,23 +11,15 @@
     display: grid;
 }
 
-.chat-sender {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* border-radius: 30px; */
-    /* border: cornsilk solid; */
-    /* color: cornsilk; */
-    
-    /* height: 40px; */
-}
 
 .chat-sender-username:hover {
     background-color: cornsilk;
+    border: solid cornsilk;
     color: #17479f;
 }
 .chat-sender-username:focus {
     background-color: cornsilk;
+    border: solid cornsilk;
     color: #17479f;
 }
 
@@ -43,26 +28,30 @@
 
 .chat-sender-username {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     place-self: center;
     display: grid;
-    border-radius: 30px;
-    border: cornsilk solid;
-    color: cornsilk;
+    /* border-radius: 30px; */
+    /* border: solid white; */
+    color: white;
     grid-gap: 5px;
-    padding: 10px;
+    padding: 20px;
+    border-bottom: 1px solid;
+    /* width: 100%;*/
+
 }
 
 .msg-list-all {
-    display: grid;
-    grid-gap: 30px;
-    padding: 5% 10%;
-    float:left;
-    width:70%;
+        display: flex;
+    flex-direction: column;
+    /* grid-gap: 30px; */
+    /* padding: 5% 10%; */
+    float: left;
+    width: 70%;
     overflow-y: auto;
-    max-height: 380px;
+    height: 380px;
     justify-self: center;
-    grid-template-rows: repeat(7, 41px);
+    /* grid-template-rows: repeat(7, 41px); */
 }
 
 .chats-conversation::-webkit-scrollbar {
@@ -77,6 +66,7 @@
     display: grid;
     grid-template-rows: repeat(2, 15px);
     grid-gap: 10px;
+    padding: 10px 0;
 }
 
 .chat-all {
@@ -97,11 +87,12 @@
 
 .chat-index-box {
     display: grid;
-    grid-template-columns: 250px 500px;
+    grid-template-columns: 1fr 2fr;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: cornsilk;
-        grid-template-rows: 50px auto;
+    grid-template-rows: 66px auto;
+    width: 700px;
 }
 
 .chat-sender-name {
@@ -177,20 +168,18 @@ h1 {
 }
 
 .start-chat-container {
-   background: rgb(243, 153, 118);
+  background: rgb(243, 153, 118);
     display: grid;
     grid-template-columns: repeat(2, auto);
     
     justify-self: center;
-    grid-row-start: 1;
     grid-column-start: 1;
     z-index: 10;
-    
     width: 100%;
 }
 
 .start-chat-container p {
-    font-size: 19px;
+    font-size: 20px;
     color: white;
     font-weight: 700;
     align-self: center;
