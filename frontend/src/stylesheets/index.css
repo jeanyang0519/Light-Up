@@ -59,6 +59,11 @@
     border-radius: 5px;
     background: #17479f;
     color: white;
+
+    background-image: url(./idea2.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: 80% 45%;
 }
 
 .each-user-connected {
@@ -76,6 +81,9 @@
     border-radius: 5px;
     background: #57a3f7;
     color: white;
-    background-image: url(./lightup.png);
+    background-image: url(./idea.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: 80% 45%;
 }
 
