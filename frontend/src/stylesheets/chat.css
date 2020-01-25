@@ -110,7 +110,7 @@
 
 .chat-all {
     display: grid;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .chat-index-all {
