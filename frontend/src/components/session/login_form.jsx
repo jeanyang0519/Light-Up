@@ -47,16 +47,16 @@ class LoginForm extends React.Component {
       if (this.props.errors.length === 0) {
         this.props.history.push("/dashboard");
       }
-      this.setState({
-        email: "",
-        password: ""
-      });
     })
     
     
   }
 
   componentWillUnmount() {
+    this.setState({
+      email: "",
+      password: ""
+    });
     if (this.props.errors.length > 0) {
       this.props.clearErrors();
     }
