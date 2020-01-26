@@ -14,10 +14,12 @@ export const receiveCurrentUser = currentUser => {
   }
 };
 
-export const receiveUserSignIn = (currentUser) => ({
-  type: RECEIVE_USER_SIGN_IN,
-  currentUser
-});
+export const receiveUserSignIn = (currentUser) => {
+  return {
+    type: RECEIVE_USER_SIGN_IN,
+    currentUser
+  }
+};
 
 export const receiveErrors = errors => {
   return {

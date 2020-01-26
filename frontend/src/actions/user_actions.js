@@ -44,8 +44,8 @@ export const fetchUser = user => dispatch => {
   ));
 };
 
-export const fetchCurrentUser = currentUser => dispatch => {
-  return APIUtil.fetchCurrentUser(currentUser).then(res => {
+export const fetchCurrentUser = userId => dispatch => {
+  return APIUtil.fetchCurrentUser(userId).then(res => {
     dispatch(receiveCurrentUser(res.data))
   }, err => (
     dispatch(receiveErrors(err.response.data))
