@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../stylesheets/reset.css';
+// import '../../stylesheets/reset.css';
 import '../../stylesheets/footer.css';
 import linked from './linkedin.png';
 import git from './github.png';

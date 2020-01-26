@@ -9,8 +9,7 @@
 }
 
 .footer {
-    /* border: 1px solid gray; */
-    height: 150px;
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -29,9 +28,9 @@
 }
 
 .person img {
-    max-width: 30px;
-    padding: 20px;
-    /* max-height: 50px; */
+    max-width: 17px;
+    padding: 10px 5px;
+    
 }
 
 .name {

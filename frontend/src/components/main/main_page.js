@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../stylesheets/idea.png';
-import '../../stylesheets/reset.css';
+// import '../../stylesheets/reset.css';
 import '../../stylesheets/greeting.css';
 import Background from '../../stylesheets/lightup.png';
 import splash from '../../stylesheets/splash.png';
