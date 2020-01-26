@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../stylesheets/reset.css';
 import '../../stylesheets/chat.css'
 
 import { socket, fetchChats, createNewMessage } from '../../actions/chat_actions';

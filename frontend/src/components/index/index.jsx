@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { userConnections } from '../../util/selectors';
+import '../../stylesheets/reset.css';
 import '../../stylesheets/index.css';
 
 
