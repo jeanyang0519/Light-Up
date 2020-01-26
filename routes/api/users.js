@@ -90,7 +90,11 @@ router.post('/signup', (req, res) => { // create User
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             userType: req.body.userType,
-            password: req.body.password
+            password: req.body.password,
+            description: '',
+            location: '',
+            skills: '',
+            interests: ''
             });
             
             bcrypt.genSalt(10, (err, salt) => {
