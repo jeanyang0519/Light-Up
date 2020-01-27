@@ -53,7 +53,7 @@ class ChatsIndex extends React.Component {
     const ConversationWithRouter = withRouter(Conversation);
     const { search } = this.props.location
     if (search.slice(1) !== chatId) {
-      this.props.history.push({ pathname: `/chat`, search: chatId })
+      this.props.history.push({ pathname: '/chat', search: chatId })
       this.setState({
         conversation: (
           <ConversationWithRouter
@@ -78,6 +78,7 @@ class ChatsIndex extends React.Component {
   render() {
     const { currentUser, chats, fetchMessages, messages } = this.props;
     if (!chats) return null;
+    const ChatWithRouter = withRouter(Chat);
     const chatsLis = chats.map(chat => {
       const chatMessages = selectChatMessages(messages, chat._id);
       return (
@@ -89,6 +90,7 @@ class ChatsIndex extends React.Component {
           messages={chatMessages}
           handleMessages={this.handleMessages}
           fetchMessages={this.props.fetchMessages}
+          search={this.props.location.search}
         />
       );
     });
@@ -106,9 +108,6 @@ class ChatsIndex extends React.Component {
 
             <ul className="chats">{chatsLis}</ul>
             <ul className="chats-conversation">{this.state.conversation}</ul>
-            <div>
-              <Route exact path="/chat/:chatId" component={this.props.conversation} />
-            </div>
           </div>
         </div>
       </div>

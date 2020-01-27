@@ -9,23 +9,39 @@ import { selectChatMessages, selectUserChats } from '../../util/selectors';
 class Chat extends React.Component {
   constructor(props) {
     super(props);
-    
-
-    
-
+    this.clicked = ""
+    this.state = {
+      clicked: ""
+    }
 
     this.handleClick = this.handleClick.bind(this)
     this.selectParticipants = this.selectParticipants.bind(this)
   }
 
   componentDidMount() {
-    // if (this.props.messages.length === 0 ) {
-    //   this.props.fetchMessages(this.props.chat._id)
-    // }
     socket.on('connect', () => {
       socket.emit('enter chat', {username: this.props.currentUser.username})
     })
+    if (this.props.search && this.props.search.slice(1) === this.props.chat._id) {
+      this.setState({
+        clicked: "clicked"
+      })
+    }
     // socket.emit("enter chat", this.props.currentUser.username)
+  }
+
+  componentDidUpdate (prevProps) {
+    const search = this.props.search.slice(1)
+    const chatId = this.props.chat._id
+    if (search && search === chatId && this.state.clicked === "") {
+      this.setState({
+        clicked: "clicked"
+      })
+    } else if (search && search !== chatId && this.state.clicked === "clicked") {
+      this.setState({
+        clicked: ""
+      })
+    }
   }
   
 
@@ -58,7 +74,9 @@ class Chat extends React.Component {
 
   handleClick() {
     const chatId = this.props.chat._id;
-
+    // this.setState({
+    //   clicked: "clicked"
+    // })
     this.props.fetchMessages(chatId).then((res) => {
       this.props.handleMessages(this.props.currentUser, this.props.messages, this.props.chat._id)
     })
@@ -70,7 +88,7 @@ class Chat extends React.Component {
     if (!chat.participants) return null
     return (
       <div className='chat-sender'  onClick={this.handleClick}>
-        <div className='chat-sender-username' tabIndex="1">{this.selectParticipants()}</div>
+        <div className={`chat-sender-username ${this.state.clicked}`} tabIndex="1">{this.selectParticipants()}</div>
         {/* <input className='chat-sender-username' >{this.selectParticipants()}</input> */}
         
       </div>
