@@ -111,7 +111,7 @@
 
 .chat-all {
     display: grid;
-    /* height: 100vh; */
+    height: 100vh;
 }
 
 .chat-index-all {
@@ -193,7 +193,7 @@ h1 {
 }
 
 .msg-input {
-    
+    resize: none;
     border-radius: 5px;
     padding: 15px;
     outline: none;

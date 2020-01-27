@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../../stylesheets/signup.css';
 
-import '../../stylesheets/reset.css';
+// import '../../stylesheets/reset.css';
 
 import Logo from '../../stylesheets/idea.png';
 

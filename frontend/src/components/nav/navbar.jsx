@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../stylesheets/reset.css';
+// import '../../stylesheets/reset.css';
 import '../../stylesheets/signup.css';
 import '../../stylesheets/nav.css';
 import '../../stylesheets/greeting.css'

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/profile.css';
-import '../../stylesheets/reset.css';
+// import '../../stylesheets/reset.css';
 import head from '../../stylesheets/head.png';
 import place from '../../stylesheets/place.png';
 

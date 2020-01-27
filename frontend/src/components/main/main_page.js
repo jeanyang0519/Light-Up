@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../stylesheets/idea.png';
+// import '../../stylesheets/reset.css';
 import '../../stylesheets/greeting.css';
 import Background from '../../stylesheets/lightup.png';
-
+import splash from '../../stylesheets/splash.png';
 
 class MainPage extends React.Component {
 
@@ -23,11 +24,11 @@ class MainPage extends React.Component {
           
         </div>
        <div className='background-container'>
-          {/* <div className='slogan-all'> */}
+          
+            
+          <img className='background' src={Background}/>
+            
           <div className="slogan-container">
-            <div>
-              <img className='background' src={Background}/>
-            </div>
 
             <div className="slogans">
 
@@ -37,16 +38,14 @@ class MainPage extends React.Component {
                   <br/>
                   Your Future
                 </div>
-                <br/>
-                <br/>
-                <br/>
+                
 
                 <div className='sub-slogan'>
                   A mentorship community for students to connect over shared interests and goals. 
                 </div>
             </div>
           </div>
-          {/* </div> */}
+          
         </div>
       </div>
     );
