@@ -1,17 +1,17 @@
-/* .main-everything {
+.main-everything {
     display: grid;
     grid-gap: 50px;
-    height: 100vh;
+    /* height: 100vh; */
     grid-template-rows: 80px auto;
     font-family: 'Open Sans', sans-serif;
-} */
+}
 
-.main-everything {
+/* .main-everything {
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100%;
-}
+} */
 
 .main-all-2 {
     display: grid;
@@ -88,29 +88,27 @@
 }
 
 
-/* main */
+
 
 .background-container {
-    display: flex;
-    flex-direction: row-reverse;
-    text-align: center;
-    justify-content: center;
-    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 30px;
+    padding: 3% 10%;
 }
 
 .background {
-    width: 100%;
-    padding-top: 5em;
+    height: 650px;
+    grid-column-start: 2;
 }
 
 .slogan-container {
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-row-start: 1;
 }
 
 .slogan {
-    display: flex;
-    flex-direction: column;
+   display: grid;
     font-size: 5vw;
     color: #17479f;
     text-align: left;
@@ -120,17 +118,17 @@
 }
 
 .slogans {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 5em 0px 0px 10em;
+    display: grid;
+    height: 330px;
+    
+    
 }
 
 .sub-slogan {
     color: #17479f;
     font-size: 2vw;
     text-align: left;
-    width: 550px;
+    max-width: 500px;
     height: 100px;
     line-height: 142%;
     font-family: 'Open Sans', sans-serif;
