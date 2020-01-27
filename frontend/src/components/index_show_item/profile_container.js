@@ -5,7 +5,8 @@ import {
   fetchUser,
   requestConnection,
   acceptConnection,
-  removeConnection
+  removeConnection,
+  fetchCurrentUser
 } from "../../actions/user_actions";
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,6 +21,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     fetchUser: (id) => dispatch(fetchUser(id)),
+    fetchCurrentUser: (userId) => dispatch(fetchCurrentUser(userId)),
     requestConnection: (data) => dispatch(requestConnection(data)),
     acceptConnection: (data) => dispatch(acceptConnection(data)),
     removeConnection: (data) => dispatch(removeConnection(data))

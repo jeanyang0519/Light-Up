@@ -32,7 +32,8 @@
     border: solid cornsilk;
     color: #17479f;
 }
-.chat-sender-username:focus {
+
+.clicked {
     background-color: cornsilk;
     border: solid cornsilk;
     color: #17479f;

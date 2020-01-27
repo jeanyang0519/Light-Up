@@ -17,12 +17,22 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.id);
+    this.props.fetchUser(this.props.match.params.id).then(() => {
+      const { currentUser, profile } = this.props
+      if (profile.id === currentUser.id) {
+        this.props.fetchCurrentUser(this.props.match.params.id)
+      }
+    });
   }
 
   componentDidUpdate(prev) {
     if (prev.match.params.id !== this.props.match.params.id) {
-      this.props.fetchUser(this.props.match.params.id);
+      this.props.fetchUser(this.props.match.params.id).then(() => {
+        const { currentUser, profile } = this.props
+        if (profile.id === currentUser.id) {
+          this.props.fetchCurrentUser(this.props.match.params.id)
+        }
+      });
     }
   }
 
@@ -60,10 +70,10 @@ class Profile extends React.Component {
     connections.forEach(connection => {
       if ((connection.user._id === profile.id) && (connection.status === 2)) {
         connected = "Connected"
-        event = ""
+        event = () => {}
       } else if (connection.user._id === profile.id && connection.status === 0) {
         connected = "Pending"
-        event = ""
+        event = () => { }
       } else if (connection.user._id === profile.id && connection.status === 1) {
         connected = "Accept Request"
         event = this.props.acceptConnection

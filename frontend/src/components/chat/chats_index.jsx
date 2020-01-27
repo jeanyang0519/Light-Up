@@ -5,7 +5,7 @@ import Conversation from './conversation';
 import CreateChatContainer from './create_chat_container';
 import '../../stylesheets/chat.css';
 import add from '../../stylesheets/add.png';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Route } from 'react-router-dom';
 
 class ChatsIndex extends React.Component {
   constructor(props) {
@@ -21,6 +21,26 @@ class ChatsIndex extends React.Component {
   componentDidMount() {
     const userId = this.props.currentUser.id;
     this.props.fetchChats(userId);
+    const { search } = this.props.location
+    if (search) {
+      const chatId = search.slice(1)
+      this.props.fetchMessages(chatId).then(() => {
+        const { messages } = this.props;
+        const chatMessages = selectChatMessages(messages, chatId);
+        this.setState({
+          conversation: (
+            <Conversation 
+              user={this.props.currentUser}
+              messages={chatMessages}
+              chatId={chatId}
+              createNewMessage={this.props.createNewMessage}
+              leaveChat={this.props.leaveChat}
+              resetConversation={this.resetConversation}
+            />
+          )
+        })
+      })
+    }
   }
 
   resetConversation() {
@@ -31,19 +51,22 @@ class ChatsIndex extends React.Component {
 
   handleMessages(user, messages, chatId) {
     const ConversationWithRouter = withRouter(Conversation);
-    this.setState({
-      conversation: (
-        <ConversationWithRouter
-          user={user}
-          messages={messages}
-          chatId={chatId}
-          createNewMessage={this.props.createNewMessage}
-          leaveChat={this.props.leaveChat}
-          resetConversation={this.resetConversation}
-        />
-      )
-      // conversation: <CreateChat createChat={this.props.createChat} user={user}/>
-    });
+    const { search } = this.props.location
+    if (search.slice(1) !== chatId) {
+      this.props.history.push({ pathname: '/chat', search: chatId })
+      this.setState({
+        conversation: (
+          <ConversationWithRouter
+            user={user}
+            messages={messages}
+            chatId={chatId}
+            createNewMessage={this.props.createNewMessage}
+            leaveChat={this.props.leaveChat}
+            resetConversation={this.resetConversation}
+          />
+        )
+      });
+    }
   }
 
   handleChat() {
@@ -55,6 +78,7 @@ class ChatsIndex extends React.Component {
   render() {
     const { currentUser, chats, fetchMessages, messages } = this.props;
     if (!chats) return null;
+    const ChatWithRouter = withRouter(Chat);
     const chatsLis = chats.map(chat => {
       const chatMessages = selectChatMessages(messages, chat._id);
       return (
@@ -66,6 +90,7 @@ class ChatsIndex extends React.Component {
           messages={chatMessages}
           handleMessages={this.handleMessages}
           fetchMessages={this.props.fetchMessages}
+          search={this.props.location.search}
         />
       );
     });
