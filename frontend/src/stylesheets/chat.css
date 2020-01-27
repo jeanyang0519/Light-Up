@@ -16,22 +16,19 @@
     font-weight: 700;
     place-self: center;
     display: grid;
-    /* border-radius: 30px; */
-    /* border: solid white; */
     color: white;
     grid-gap: 5px;
     padding: 20px;
     border-bottom: 1px solid;
-    /* width: 100%;*/
+    
 
 }
 
 
 .chat-sender-username:hover {
-    background-color: cornsilk;
-    border: solid cornsilk;
+    border-color: cornsilk;
     color: #17479f;
-}
+} 
 
 .clicked {
     background-color: cornsilk;
@@ -44,7 +41,14 @@
 }
 
 
+.chat-sender {
+    cursor: pointer;
+}
 
+.chat-sender:hover {
+    background-color: cornsilk;
+    /* color: #17479f; */
+}
 
 
 
