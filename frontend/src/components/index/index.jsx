@@ -35,7 +35,7 @@ class Index extends React.Component {
         )
       }
     });
-    const notConnected = this.props.users.filter(user => !(user.id in connections) && user.id !== this.props.currentUser.id).map((connection, i) => {
+    const notConnected = this.props.users.filter(user => (!(user.id in connections) || connections[user.id] !== 2) && user.id !== this.props.currentUser.id).map((connection, i) => {
       if (connection.userType === "Mentee") {
         return (
           <Link className='user-profile' to={`/profile/${connection.id}`} key={i}>
