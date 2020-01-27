@@ -233,16 +233,12 @@ h1 {
 
 
 .start-chat {
-    /* background-image: url("./add.png"); */
-    /* background-repeat: no-repeat; */
     
-    /* height: 37px; */
-    /* background-size: contain; */
     background-color: transparent;
     border: none;
     cursor: pointer;
     outline: none;
-    /* background-position: center; */
+    
 }
 
 .start-chat > img {
