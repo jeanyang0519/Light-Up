@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore(preloadedState);
     store.dispatch(fetchCurrentUser(decodedUser.id))
 
-    const currentTime = Date.now() / 1000;
+    const currentTime = Date.now() / 3000;
 
     if (decodedUser.exp < currentTime) {
       store.dispatch(logout());
