@@ -6,7 +6,6 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
   align-items: center;
   position: relative;
   top: 4em;
@@ -37,9 +36,10 @@ main {
   height: 1200px;
   border-radius: 5px;
   background-color: cornsilk;
-  position: absolute;
-  top: 2em;
+  /* position: absolute;
+  top: 2em; */
   margin-bottom: 5em;
+  margin-top: 5em;
 }
 
 @media screen and (max-width: 1600px) {
