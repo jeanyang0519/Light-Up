@@ -149,10 +149,7 @@ class Profile extends React.Component {
     })
     return (
       <main className="profile-all">
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-          rel="stylesheet"
-        ></link>
+        
         <section className="profile-body">
           <div className="main-content">            
             <div className='profile-info'>

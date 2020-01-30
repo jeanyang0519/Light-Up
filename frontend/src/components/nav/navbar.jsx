@@ -22,7 +22,7 @@ class NavBar extends React.Component {
     return (
       <div>
         <div className='nav-all'>
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
+          
           <div className='main-header-1'>
             <img className="logo" src={Logo} alt="login-logo" />
             <Link to="/dashboard" className='title'>Light Up</Link>

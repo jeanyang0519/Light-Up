@@ -122,7 +122,7 @@
 .chat-index-all {
     display: grid;
     font-family: 'Open Sans', sans-serif;
-    padding: 3% 10%;
+    padding: 30px 0 60px 0;
     
     grid-template-rows: 8% auto;
     grid-gap: 10px;
@@ -221,8 +221,9 @@ h1 {
     
     justify-self: center;
     grid-column-start: 1;
-    z-index: 10;
+    
     width: 100%;
+        
 }
 
 .start-chat-container p {
