@@ -138,6 +138,7 @@
     background-color: cornsilk;
     grid-template-rows: 66px auto;
     width: 800px;
+    height: 700px;
 }
 
 .chat-sender-name {
