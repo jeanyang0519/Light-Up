@@ -20,6 +20,7 @@ class EditProfile extends React.Component {
     this.updateMentor = this.updateMentor.bind(this);
     this.updateMentee = this.updateMentee.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.scrollToTop = this.scrollToTop.bind(this);
   }
 
   handleSubmit(e) {
@@ -30,10 +31,16 @@ class EditProfile extends React.Component {
       .then(() => {
         if (this.props.errors.length === 0) {
           this.props.history.push(`/profile/${this.props.currentUser.id}`);
+        } else {
+          this.scrollToTop();
         }
       }
     );
     this.setState(this.state);
+  }
+
+  scrollToTop () {
+    window.scrollTo(0, 0);
   }
 
   renderErrors() {
@@ -101,7 +108,7 @@ class EditProfile extends React.Component {
       <main>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
         <section className="form-container">
-          <form onSubmit={this.handleSubmit} className="edit-form">
+          <form onSubmit={this.handleSubmit} className="edit-form" >
             {this.renderErrors()}
             <div className="fname">
               <h2>First Name</h2>
