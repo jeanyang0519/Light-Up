@@ -18,7 +18,9 @@
 
 
 .nav-header-right {
-    padding: 0 0 0 55%;
+    
     display: grid;
+    grid-gap: 30px;
     grid-template-columns: repeat(3, auto);
+    justify-self: end;
 }
