@@ -44,9 +44,9 @@ class Conversation extends React.Component {
   }
 
 
-  scrollToBottom = () => {
+  scrollToBottom () {
     this.mesRef.current.scrollTop = this.mesRef.current.scrollHeight;
-  };
+  }
 
 
   handleClick(e) {
@@ -105,7 +105,7 @@ class Conversation extends React.Component {
 
     return (
       <div className="msg-wrapper">
-        <ul className="msg-list-all" ref={this.mesRef}>
+        <ul className="msg-list-all" ref={this.mesRef}> 
           
           {messageLis}
         </ul>
