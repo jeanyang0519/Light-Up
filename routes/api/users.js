@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const validateSignupInput = require("../../validation/signup");
+const validateProfileInput = require("../../validation/profile");
 const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const bcrypt = require("bcryptjs");
@@ -192,6 +193,12 @@ router.put(
   "/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { errors, isValid } = validateProfileInput(req.body) 
+    
+    if (!isValid) {
+      return res.status(422).json(errors)
+    }
+    
     const updates = req.body
     User.findByIdAndUpdate(
       req.params.id,
