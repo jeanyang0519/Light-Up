@@ -2,14 +2,14 @@ import * as APIUtil from '../util/user_util';
 import * as ConnectionUtil from '../util/connection_api';
 import { receiveCurrentUser } from './session_actions';
 
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_SINGLE_USER = 'RECEIVE_SINGLE_USER';
 export const RECEIVE_REQUEST = 'RECEIVE_REQUES';
 export const ACCEPT_REQUEST = 'ACCEPT_REQUEST';
 
 export const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_SESSION_ERRORS,
   errors
 });
 

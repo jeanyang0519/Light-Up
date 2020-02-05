@@ -19,14 +19,33 @@ class EditProfile extends React.Component {
     this.update = this.update.bind(this);
     this.updateMentor = this.updateMentor.bind(this);
     this.updateMentee = this.updateMentee.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearErrors();
     const updateForm = Object.assign({}, this.state);
     this.props.update(this.props.currentUser.id, updateForm)
-      .then(() => this.props.history.push(`/profile/${this.props.currentUser.id}`))
-    this.setState(this.state)
+      .then(() => {
+        if (this.props.errors.length === 0) {
+          this.props.history.push(`/profile/${this.props.currentUser.id}`);
+        }
+      }
+    );
+    this.setState(this.state);
+  }
+
+  renderErrors() {
+    return (
+      <ul className="login-errors">
+        {Object.keys(this.props.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {this.props.errors[error]}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   update(field) {
@@ -83,6 +102,7 @@ class EditProfile extends React.Component {
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"></link>
         <section className="form-container">
           <form onSubmit={this.handleSubmit} className="edit-form">
+            {this.renderErrors()}
             <div className="fname">
               <h2>First Name</h2>
               <input type="text" className="whatever"
