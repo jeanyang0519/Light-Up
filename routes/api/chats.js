@@ -1,14 +1,8 @@
 const express = require("express");
 const router = express.Router();
-// const validateSignupInput = require("../../validation/signup");
-// const validateLoginInput = require("../../validation/login");
 const Chat = require("../../models/Chat");
 const Message = require("../../models/Message");
-const User = require("../../models/User");
 const validateMessageInput = require("../../validation/chat");
-// const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
-// const keys = require("../../config/keys");
 const passport = require("passport");
 
 router.get(
@@ -26,7 +20,6 @@ router.post(
   "/new/:userId",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    //   Chat.collection.dropIndexes()
 
     const { errors, isValid } = validateMessageInput(req.body);
     const participants = req.body.participants;

@@ -1,11 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const validateSignupInput = require("../../validation/signup");
-// const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
-// const bcrypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
-// const keys = require("../../config/keys");
 const passport = require("passport");
 
 
@@ -92,7 +87,6 @@ router.post(
 
 router.post(
   "/removeConnection",
-  // passport.authenticate("jwt", { session: false }),
   (req, res) => {
     User.findOneAndUpdate(
       { _id: req.body.userId },
